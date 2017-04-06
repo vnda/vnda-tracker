@@ -1,0 +1,53 @@
+<div class="row page-header">
+  <div class="col-lg-6">
+      <h3>Lojas</h3>
+  </div>
+  <div class="col-lg-6">
+    <%= link_to('Adicionar', new_shop_url, class: 'btn btn-primary float-xs-right') %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <table class="table table-shops table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Loja</th>
+          <th>Token</th>
+          <th>Trackings</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @shops.size > 0 %>
+          <% @shops.each do |shop| %>
+          <tr>
+            <td><%= shop.name %></td>
+            <td><%= shop.token %></td>
+            <td class="text-center">
+              <%= link_to "#{shop.trackings.count} trackings", shop_trackings_url(shop) %>
+            </td>
+            <td class="text-xs-right">
+              <div class="btn-group">
+                <a href="<%= edit_shop_url(shop) %>" class="btn btn-secondary btn-sm">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar
+                </a>
+
+                <a href="<%= shop_url(shop) %>" class="btn btn-secondary btn-sm" data-method="delete" data-confirm="Tem certeza?">
+                  <i class="fa fa-trash" aria-hidden="true"></i> Excluir
+                </a>
+              </div>
+            </td>
+          </tr>
+          <% end %>
+        <% else %>
+        <tr>
+          <td colspan="3" class="text-xs-center">
+            <small>Nenhuma loja cadastrada</small>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

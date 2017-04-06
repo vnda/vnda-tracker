@@ -1,0 +1,59 @@
+<div class="row page-header">
+  <div class="col-lg-6">
+      <h3>Trackings</h3>
+  </div>
+  <div class="col-lg-6">
+    <%= link_to('Adicionar', new_shop_tracking_path(params[:shop_id]), class: 'btn btn-primary float-xs-right') %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <table class="table table-shops table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Carrier</th>
+          <th>Notification url</th>
+          <th>Delivery status</th>
+          <th>Url</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @trackings.size > 0 %>
+          <% @trackings.each do |tracking| %>
+          <tr>
+            <td><%= tracking.code %></td>
+            <td><%= tracking.carrier %></td>
+            <td><%= tracking.notification_url %></td>
+            <td><%= tracking.delivery_status %></td>
+            <td><%= tracking.url %></td>
+            <td class="text-xs-right">
+              <div class="btn-group">
+                <a href="<%= shop_tracking_path(params[:shop_id], tracking) %>" class="btn btn-secondary btn-sm">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Ver
+                </a>
+
+                <a href="<%= edit_shop_tracking_path(params[:shop_id], tracking) %>" class="btn btn-secondary btn-sm">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar
+                </a>
+
+                <a href="<%= shop_tracking_path(params[:shop_id], tracking) %>" class="btn btn-secondary btn-sm" data-method="delete" data-confirm="Tem certeza?">
+                  <i class="fa fa-trash" aria-hidden="true"></i> Excluir
+                </a>
+              </div>
+            </td>
+          </tr>
+          <% end %>
+        <% else %>
+        <tr>
+          <td colspan="6" class="text-xs-center">
+            <small>Nenhum tracking cadastrado</small>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<% unless flash.empty? %>
+  <div class="row">
+    <% for key, msg in flash %>
+        <div class="col-lg-12 flash-alert alert alert-<%= key %>" data-type="<%= key %>">
+          <%= msg %>
+        </div>
+    <% end %>
+  </div>
+<% end %>

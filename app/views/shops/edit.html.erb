@@ -1,0 +1,13 @@
+<header class="page-header">
+  <p>
+    <%= link_to('← voltar', shops_url) %>
+  </p>
+  <h3><%= @shop.name %></h3>
+  <h6>Editar Loja</h6>
+</header>
+
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <%= render 'form' %>
+  </div>
+</div>

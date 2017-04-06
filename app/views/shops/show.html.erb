@@ -1,0 +1,14 @@
+<header class="page-header">
+  <p>
+    <%= link_to('← voltar', shops_url) %>
+  </p>
+  <h3><%= @shop.name %></h3>
+</header>
+
+<dl class="row">
+  <dt class="col-sm-3">Nome</dt>
+  <dd class="col-sm-9"><%= @shop.name %></dd>
+
+  <dt class="col-sm-3">Token</dt>
+  <dd class="col-sm-9"><%= @shop.token %></dd>
+</dl>

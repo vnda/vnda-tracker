@@ -1,0 +1,76 @@
+@import "helpers";
+
+body {
+  padding-top: 5rem;
+}
+
+.page-header {
+  padding: 40px 0 20px;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  > br { display: none; }
+}
+
+.field_with_errors {
+  margin-bottom: .5rem;
+
+  label {
+    margin-bottom: 0;
+  }
+
+  .form-control {
+    border: 1px solid #a94442;
+  }
+}
+
+.table thead th {
+  text-align: center;
+}
+
+.pagination {
+  display: block;
+  text-align: right;
+}
+
+.table-striped tbody tr:hover {
+  background-color: rgba(240, 173, 78, 0.18);
+}
+
+table td.actions {
+  text-align: right;
+}
+
+.fa.green {
+  color: #5cb85c;
+}
+
+.fa.gray {
+  color: #BBB;
+}
+
+.btn-sm {
+  font-size: .75rem;
+}
+
+.table-value {
+  text-align: right;
+  font-weight: bold;
+}
+
+.client-contact {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.client-details, .shipping-details {
+  text-align: right;
+  line-height: 1.4rem;
+}
+
+.order-title {
+  text-align: center;
+}
+
+

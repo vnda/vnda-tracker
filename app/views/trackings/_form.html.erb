@@ -1,0 +1,35 @@
+<% form_url = @tracking.id.present? ? shop_tracking_path(params[:shop_id], @tracking.id) : shop_trackings_path(params[:shop_id])%>
+<%= form_for(@tracking, url: form_url ) do |f| %>
+  <%= render 'shared/error_messages', { resource: @tracking } %>
+  <fieldset>
+      <div class="form-group">
+        <%= f.label :code %>
+        <%= f.text_field :code, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :carrier %>
+        <%= f.text_field :carrier, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :notification_url %>
+        <%= f.text_field :notification_url, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :delivery_status %>
+        <%= f.text_field :delivery_status, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :url %>
+        <%= f.text_field :url, class: 'form-control' %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+        <%= link_to 'Cancelar', :back, class: 'btn btn-default'  %>
+      </div>
+  </fieldset>
+<% end %>
