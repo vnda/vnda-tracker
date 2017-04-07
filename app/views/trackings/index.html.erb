@@ -14,7 +14,6 @@
         <tr>
           <th>Code</th>
           <th>Carrier</th>
-          <th>Notification url</th>
           <th>Delivery status</th>
           <th>Url</th>
           <th>&nbsp;</th>
@@ -26,9 +25,8 @@
           <tr>
             <td><%= tracking.code %></td>
             <td><%= tracking.carrier %></td>
-            <td><%= tracking.notification_url %></td>
             <td><%= tracking.delivery_status %></td>
-            <td><%= tracking.url %></td>
+            <td><%= link_to_if(tracking.tracker_url.present?, tracking.tracker_url, tracking.tracker_url, target: "_blank") %></td>
             <td class="text-xs-right">
               <div class="btn-group">
                 <a href="<%= shop_tracking_path(params[:shop_id], tracking) %>" class="btn btn-secondary btn-sm">

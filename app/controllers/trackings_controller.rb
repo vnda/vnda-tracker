@@ -1,4 +1,5 @@
 class TrackingsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_tracking, only: [:show, :edit, :update, :destroy]
 
   # GET /trackings
@@ -62,9 +63,8 @@ class TrackingsController < ApplicationController
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
     def tracking_params
-      params.require(:tracking).permit(:code, :carrier, :notification_url, :delivery_status, :url)
+      params.require(:tracking).permit(:code, :carrier, :notification_url, :delivery_status, :tracker_url)
     end
 
     def set_tracking
@@ -72,6 +72,11 @@ class TrackingsController < ApplicationController
     end
 
     def scopped_trackings
-      @trackings ||= Shop.find(params[:shop_id]).trackings
+      shop = if params[:token].present?
+        Shop.where(token: params[:token]).first
+      else
+        Shop.find(params[:shop_id])
+      end
+      @trackings ||= shop.trackings
     end
 end

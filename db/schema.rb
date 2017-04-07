@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406135602) do
+ActiveRecord::Schema.define(version: 20170407140125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20170406135602) do
   create_table "shops", force: :cascade do |t|
     t.string   "name"
     t.string   "token"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "notification_url"
   end
 
   create_table "trackings", force: :cascade do |t|
@@ -27,10 +28,11 @@ ActiveRecord::Schema.define(version: 20170406135602) do
     t.string   "carrier"
     t.string   "notification_url"
     t.string   "delivery_status"
-    t.string   "url"
+    t.string   "tracker_url"
     t.integer  "shop_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.datetime "last_checkpoint_at"
     t.index ["shop_id"], name: "index_trackings_on_shop_id", using: :btree
   end
 
