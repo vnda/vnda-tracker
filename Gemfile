@@ -24,6 +24,7 @@ end
 gem 'sidekiq'
 gem 'sinatra', require: nil
 gem 'excon'
+gem 'savon'
 
 group :development, :test do
   gem 'byebug', platform: :mri

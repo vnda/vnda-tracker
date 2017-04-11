@@ -16,6 +16,30 @@
         <%= f.text_field :notification_url, class: 'form-control' %>
       </div>
 
+      <hr />
+
+      <h4>TNT</h4>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <%= f.check_box :tnt_enabled, class: 'form-check-input' %>
+          Habilitado
+        </label>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :tnt_email %><br>
+        <%= f.text_field :tnt_email, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :tnt_cnpj %><br>
+        <%= f.text_field :tnt_cnpj, class: 'form-control' %>
+      </div>
+
+
+
+
       <div class="actions">
         <%= f.submit 'Salvar', class: 'btn btn-primary' %>
         <%= link_to 'Cancelar', :back, class: 'btn btn-default'  %>
