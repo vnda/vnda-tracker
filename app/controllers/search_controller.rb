@@ -3,6 +3,7 @@ class SearchController < ApplicationController
   before_action :set_tracking, only: [:show, :edit, :update, :destroy]
 
   def show
+    head(404) unless @tracking
   end
 
   private
