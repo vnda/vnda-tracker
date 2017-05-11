@@ -16,6 +16,7 @@
           <th>Carrier</th>
           <th>Delivery status</th>
           <th>Url</th>
+          <th>Job</th>
           <th>&nbsp;</th>
         </tr>
       </thead>
@@ -27,6 +28,15 @@
             <td><%= tracking.carrier %></td>
             <td><%= tracking.delivery_status %></td>
             <td><%= link_to_if(tracking.tracker_url.present?, tracking.tracker_url, tracking.tracker_url, target: "_blank") %></td>
+            <td>
+              <% if tracking.has_job? %>
+                Agendado
+              <% else %>
+                <a href="<%= shop_tracking_refresh_path(params[:shop_id], tracking) %>" class="btn btn-secondary btn-sm">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Agendar
+                </a>
+              <% end %>
+            </td>
             <td class="text-xs-right">
               <div class="btn-group">
                 <a href="<%= shop_tracking_path(params[:shop_id], tracking) %>" class="btn btn-secondary btn-sm">

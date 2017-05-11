@@ -38,6 +38,14 @@ class Tracking < ApplicationRecord
     false
   end
 
+  def has_job?
+    ss = Sidekiq::ScheduledSet.new
+    job = ss.find do |e|
+      [e["class"], e.args[0]] == ["RefreshTrackingStatus", self.id]
+    end
+    job.present?
+  end
+
   private
 
   def schedule_update

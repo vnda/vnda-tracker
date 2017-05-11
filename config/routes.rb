@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root to: 'shops#index'
 
   resources :shops do
-    resources :trackings
+    resources :trackings do
+      get :refresh
+    end
   end
 
   resources :trackings

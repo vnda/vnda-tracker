@@ -62,6 +62,14 @@ class TrackingsController < ApplicationController
     end
   end
 
+  def refresh
+    RefreshTrackingStatus.perform_async(params[:tracking_id])
+    respond_to do |format|
+      format.html { redirect_to shop_trackings_url(params[:shop_id]), notice: 'Refresh Tracking scheduled.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     def tracking_params
       params.require(:tracking).permit(:code, :carrier, :notification_url, :delivery_status, :tracker_url)
