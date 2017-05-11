@@ -20,17 +20,19 @@ class Tracking < ApplicationRecord
   def update_status!
     hash = Carrier.new(carrier).status(code)
 
-    if 30.days.ago > hash[:date]
-      self.delivery_status = "expired"
-      save!
-      return true
-    end
+    if hash[:date].present?
+      if 30.days.ago > hash[:date]
+        self.delivery_status = "expired"
+        save!
+        return true
+      end
 
-    if last_checkpoint_at.nil? || last_checkpoint_at < hash[:date]
-      self.delivery_status = hash[:status]
-      self.last_checkpoint_at = hash[:date]
-      save!
-      return true
+      if last_checkpoint_at.nil? || last_checkpoint_at < hash[:date]
+        self.delivery_status = hash[:status]
+        self.last_checkpoint_at = hash[:date]
+        save!
+        return true
+      end
     end
 
     false

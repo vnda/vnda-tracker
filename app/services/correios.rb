@@ -16,10 +16,17 @@ class Correios
     end
     object = response.body[:busca_eventos_response][:return][:objeto]
     event = object[:evento]
-    {
-      date: "#{event[:data]} #{event[:hora]} -3UTC".to_datetime,
-      status: parse_status("#{event[:tipo]}-#{event[:status]}")
-    }
+
+    date, status = if event
+      [
+        "#{event[:data]} #{event[:hora]} -3UTC".to_datetime,
+        parse_status("#{event[:tipo]}-#{event[:status]}")
+      ]
+    else
+      [nil, "pending"]
+    end
+
+    { date: date, status: status }
   end
 
   def parse_status(status)
