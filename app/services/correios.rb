@@ -15,7 +15,7 @@ class Correios
       Rollbar.error(e)
     end
     object = response.body[:busca_eventos_response][:return][:objeto]
-    event = object[:events]
+    event = object[:evento]
     {
       date: "#{event[:data]} #{event[:hora]} -3UTC".to_datetime,
       status: parse_status("#{event[:tipo]}-#{event[:status]}")
@@ -59,7 +59,7 @@ class Correios
   private
 
   def send_message(method_id, message)
-    client = Savon.client(wsdl: URL, convert_request_keys_to: :none, open_timeout: 5, read_timeout: 5)
+    client = Savon.client(wsdl: URL, convert_request_keys_to: :none)
     request_xml = client.operation(method_id).build(message: message).to_s
     response = client.call(method_id, message: message)
     response
