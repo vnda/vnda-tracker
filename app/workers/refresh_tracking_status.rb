@@ -22,7 +22,7 @@ class RefreshTrackingStatus
     elsif tracking.delivery_status == "expired"
       #do nothing
     else
-      schedule_next_checking(tracking.id)
+      schedule_next_checking(tracking)
     end
   end
 end
