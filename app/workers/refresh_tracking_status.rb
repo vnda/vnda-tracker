@@ -17,8 +17,11 @@ class RefreshTrackingStatus
   end
 
   def notify_changes(tracking)
-    if ["out_of_delivery", "delivered", "failed_attempt"].include?(tracking.delivery_status)
+    if ["delivered"].include?(tracking.delivery_status)
       Notify.perform_async(tracking.id)
+    elsif ["out_of_delivery", "failed_attempt"].include?(tracking.delivery_status)
+      #send email
+      schedule_next_checking(tracking)
     elsif tracking.delivery_status == "expired"
       #do nothing
     else
