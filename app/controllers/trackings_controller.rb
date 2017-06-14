@@ -72,7 +72,14 @@ class TrackingsController < ApplicationController
 
   private
     def tracking_params
-      params.require(:tracking).permit(:code, :carrier, :notification_url, :delivery_status, :tracker_url)
+      params.require(:tracking).permit(
+        :code,
+        :package,
+        :carrier,
+        :notification_url,
+        :delivery_status,
+        :tracker_url
+      )
     end
 
     def set_tracking
