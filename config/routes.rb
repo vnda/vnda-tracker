@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :trackings
 
-  get  ':token/search/:code', to: 'search#show', defaults: { format: 'json' }
+  get  ':token/search', to: 'search#show', defaults: { format: 'json' }
   post 'intelipost/receive_hook', to: 'intelipost#receive_hook'
 
   mount Sidekiq::Web => '/sidekiq'

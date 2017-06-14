@@ -8,7 +8,12 @@ class SearchController < ApplicationController
 
   private
     def set_tracking
-      @tracking = scopped_trackings.find_by(code: params[:code])
+      @tracking =
+        scopped_trackings
+        .where('code = :tracking OR package = :package',
+          tracking: params[:tracking_code], package: params[:package]
+        )
+        .first
     end
 
     def scopped_trackings
