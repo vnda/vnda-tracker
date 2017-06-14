@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'faraday'
 gem 'faraday_middleware'
 gem 'nokogiri'
+gem 'httparty'
 gem 'jbuilder', '~> 2.5'
 gem 'therubyracer', platforms: :ruby
 source 'https://rails-assets.org' do

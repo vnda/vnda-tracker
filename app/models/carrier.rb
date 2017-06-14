@@ -13,9 +13,10 @@ class Carrier
     "unknown"
   end
 
-  def self.url(carrier, code)
+  def self.url(shop, carrier, code)
     return "https://track.aftership.com/#{code}" if carrier == "correios"
     return "http://app.tntbrasil.com.br/radar/public/localizacaoSimplificadaDetail/#{code}" if carrier == "tnt"
+    return "https://status.ondeestameupedido.com/tracking/#{shop.intelipost_id}/#{code}" if carrier == "intelipost"
     ""
   end
 
