@@ -1,5 +1,6 @@
 class Carrier
-  def initialize(carrier)
+  def initialize(shop, carrier)
+    @shop = shop
     @carrier = carrier
   end
 
@@ -10,13 +11,14 @@ class Carrier
   def self.discover(code)
     return "correios" if code =~ /[A-Z]{2}[0-9]{9}[A-Z]{2}/
     return "tnt" if code =~ /^.{12}$/
+    # Intelipost discovers this in intelipost_controller
     "unknown"
   end
 
-  def self.url(shop, carrier, code)
+  def self.url(carrier, code)
     return "https://track.aftership.com/#{code}" if carrier == "correios"
     return "http://app.tntbrasil.com.br/radar/public/localizacaoSimplificadaDetail/#{code}" if carrier == "tnt"
-    return "https://status.ondeestameupedido.com/tracking/#{shop.intelipost_id}/#{code}" if carrier == "intelipost"
+    # Intelipost discovers this in intelipost_controller
     ""
   end
 
@@ -27,6 +29,8 @@ class Carrier
       Correios.new
     elsif @carrier == "tnt"
       Tnt.new
+    elsif @carrier == "intelipost"
+      Intelipost.new(@shop)
     else
       raise "Unsupported Carrier"
     end

@@ -9,10 +9,11 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <table class="table table-shops table-striped table-hover">
+    <table class="table table-shops table-striped table-hover small">
       <thead>
         <tr>
           <th>Code</th>
+          <th>Package</th>
           <th>Carrier</th>
           <th>Delivery status</th>
           <th>Url</th>
@@ -25,6 +26,7 @@
           <% @trackings.each do |tracking| %>
           <tr>
             <td><%= tracking.code %></td>
+            <td><%= tracking.package %></td>
             <td><%= tracking.carrier %></td>
             <td><%= tracking.delivery_status %></td>
             <td><%= link_to_if(tracking.tracker_url.present?, tracking.tracker_url, tracking.tracker_url, target: "_blank") %></td>

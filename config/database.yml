@@ -4,8 +4,6 @@ development: &DEVELOPMENT
   encoding: unicode
   database: vnda-tracker_development
   pool: 5
-  username: vagrant
-  password: vnda
 
 test:
   <<: *DEVELOPMENT

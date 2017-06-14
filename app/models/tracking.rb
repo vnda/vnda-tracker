@@ -17,8 +17,14 @@ class Tracking < ApplicationRecord
   before_validation :default_delivery_status, :discover_carrier, :discover_tracker_url
   after_commit :schedule_update, on: [:create]
 
+  def searchable
+    return package if carrier == 'intelipost'
+
+    code
+  end
+
   def update_status!
-    hash = Carrier.new(carrier).status(code)
+    hash = Carrier.new(shop, carrier).status(searchable)
 
     if hash[:date].present?
       if 30.days.ago > hash[:date]
@@ -57,7 +63,7 @@ class Tracking < ApplicationRecord
   end
 
   def discover_tracker_url
-    self.tracker_url ||= Carrier.url(shop, carrier, code)
+    self.tracker_url ||= Carrier.url(carrier, searchable)
   end
 
   def default_delivery_status
