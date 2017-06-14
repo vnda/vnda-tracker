@@ -11,7 +11,8 @@ class SearchController < ApplicationController
       @tracking =
         scopped_trackings
         .where('code = :tracking OR package = :package',
-          tracking: params[:tracking_code], package: params[:package]
+          tracking: params[:tracking_code] || params[:code],
+          package: params[:package]
         )
         .first
     end
