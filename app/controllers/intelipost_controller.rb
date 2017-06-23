@@ -1,6 +1,6 @@
 class IntelipostController < ApplicationController
 
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, :authenticate!
 
   def receive_hook
     @shop = Shop.find_by(intelipost_api_key: request.headers['HTTP_API_KEY'])
