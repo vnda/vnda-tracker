@@ -11,8 +11,9 @@ class Tracking < ApplicationRecord
 
   belongs_to :shop
 
-  validates :code, :delivery_status, presence: :true
-  validates :code, uniqueness: {scope: [:shop_id, :carrier]}
+  validates :code, presence: true, if: lambda{ |o| o.carrier != 'intelipost' }
+  validates :delivery_status, presence: :true
+  validates :code, uniqueness: { scope: [:shop_id, :carrier], allow_blank: true }
 
   before_validation :default_delivery_status, :discover_carrier, :discover_tracker_url
   after_commit :schedule_update, on: [:create]
