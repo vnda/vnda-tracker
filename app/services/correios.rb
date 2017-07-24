@@ -45,9 +45,9 @@ class Correios
       "BDE-34" => "out_of_delivery", #Logradouro com numeração irregular
       "BDI-34" => "out_of_delivery", #Logradouro com numeração irregular
       "BDR-34" => "out_of_delivery", #Logradouro com numeração irregular
-      "BDE-35" => "out_of_delivery", #Coleta ou entrega de objetonão efetuada
-      "BDI-35" => "out_of_delivery", #Coleta ou entrega de objetonão efetuada
-      "BDR-35" => "out_of_delivery", #Coleta ou entrega de objetonão efetuada
+      "BDE-35" => "out_of_delivery", #Coleta ou entrega de objeto não efetuada
+      "BDI-35" => "out_of_delivery", #Coleta ou entrega de objeto não efetuada
+      "BDR-35" => "out_of_delivery", #Coleta ou entrega de objeto não efetuada
       "BDE-46" => "out_of_delivery", #Tentativa de entrega não efetuada
       "BDI-46" => "out_of_delivery", #Tentativa de entrega não efetuada
       "BDR-46" => "out_of_delivery", #Tentativa de entrega não efetuada

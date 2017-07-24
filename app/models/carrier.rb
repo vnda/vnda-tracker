@@ -16,7 +16,7 @@ class Carrier
   end
 
   def self.url(carrier, code)
-    return "https://track.aftership.com/#{code}" if carrier == "correios"
+    return "https://track.aftership.com/brazil-correios/#{code}" if carrier == "correios"
     return "http://app.tntbrasil.com.br/radar/public/localizacaoSimplificadaDetail/#{code}" if carrier == "tnt"
     # Intelipost discovers this in intelipost_controller
     ""
