@@ -31,7 +31,7 @@
             <td><%= tracking.delivery_status %></td>
             <td><%= link_to_if(tracking.tracker_url.present?, tracking.tracker_url, tracking.tracker_url, target: "_blank") %></td>
             <td>
-              <% if tracking.has_job? %>
+              <% if @scheduled_tracking_ids.include?(tracking.id) %>
                 Agendado
               <% else %>
                 <a href="<%= shop_tracking_refresh_path(params[:shop_id], tracking) %>" class="btn btn-secondary btn-sm">

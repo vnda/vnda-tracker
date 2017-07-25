@@ -6,6 +6,9 @@ class TrackingsController < ApplicationController
   # GET /trackings.json
   def index
     @trackings = scopped_trackings.order(created_at: :desc)
+    @scheduled_tracking_ids = Sidekiq::ScheduledSet.new.map do |j|
+      j.args.first if j.klass == "RefreshTrackingStatus"
+    end
   end
 
   # GET /trackings/1
