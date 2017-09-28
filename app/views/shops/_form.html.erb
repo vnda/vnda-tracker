@@ -48,6 +48,13 @@
         </label>
       </div>
 
+      <div class="form-check">
+        <label class="form-check-label">
+          <%= f.check_box :forward_to_intelipost, class: 'form-check-input' %>
+          Encaminhar códigos de rastreio
+        </label>
+      </div>
+
       <div class="form-group">
         <%= f.label :intelipost_id %><br>
         <%= f.text_field :intelipost_id, class: 'form-control' %>
@@ -57,8 +64,6 @@
         <%= f.label :intelipost_api_key %><br>
         <%= f.text_field :intelipost_api_key, class: 'form-control' %>
       </div>
-
-
 
 
       <div class="actions">

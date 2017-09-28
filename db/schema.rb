@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614143344) do
+ActiveRecord::Schema.define(version: 20170928154456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,15 +18,16 @@ ActiveRecord::Schema.define(version: 20170614143344) do
   create_table "shops", force: :cascade do |t|
     t.string   "name"
     t.string   "token"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "notification_url"
     t.string   "tnt_email"
     t.string   "tnt_cnpj"
     t.boolean  "tnt_enabled"
     t.string   "intelipost_api_key"
     t.string   "intelipost_id"
-    t.boolean  "intelipost_enabled", default: false
+    t.boolean  "intelipost_enabled",    default: false
+    t.boolean  "forward_to_intelipost", default: false
   end
 
   create_table "trackings", force: :cascade do |t|

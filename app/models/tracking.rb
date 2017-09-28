@@ -16,7 +16,7 @@ class Tracking < ApplicationRecord
   validates :code, uniqueness: { scope: [:shop_id, :carrier], allow_blank: true }
 
   before_validation :default_delivery_status, :discover_carrier, :discover_tracker_url
-  after_commit :schedule_update, on: [:create]
+  after_commit :schedule_update, :forward_to_intelipost, on: [:create]
 
   def searchable
     return package if carrier == 'intelipost'
@@ -54,6 +54,10 @@ class Tracking < ApplicationRecord
   end
 
   private
+
+  def forward_to_intelipost
+    Intelipost.new(shop).update_tracking(package, code)
+  end
 
   def schedule_update
     RefreshTrackingStatus.perform_at(24.hours.from_now, id)
