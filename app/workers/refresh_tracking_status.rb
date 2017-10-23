@@ -19,7 +19,7 @@ class RefreshTrackingStatus
   def notify_changes(tracking)
     if ["delivered"].include?(tracking.delivery_status)
       Notify.perform_async(tracking.id)
-      retention_days = env["TRACKING_CODE_RETENTION_DAYS"].to_i
+      retention_days = ENV["TRACKING_CODE_RETENTION_DAYS"].to_i
       DeleteTracking.perform_at(retention_days.days.from_now, tracking.id) if retention_days > 0
     elsif ["out_of_delivery", "failed_attempt"].include?(tracking.delivery_status)
       #send email
