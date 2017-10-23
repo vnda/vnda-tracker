@@ -10,7 +10,7 @@ class Carrier
 
   def self.discover(code)
     return "correios" if code =~ /[A-Z]{2}[0-9]{9}[A-Z]{2}/
-    return "tnt" if code =~ /^.{12}$/
+    return "tnt" if code =~ /^.{12}$/ && @shop.tnt_enabled?
     # Intelipost discovers this in intelipost_controller
     "unknown"
   end
