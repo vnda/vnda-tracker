@@ -7,7 +7,6 @@ workers ENV.fetch("WEB_CONCURRENCY") { 2 }
 preload_app!
 
 on_worker_boot do
-  @sidekiq_pid ||= spawn("bundle exec sidekiq -c 1")
   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
 end
 
