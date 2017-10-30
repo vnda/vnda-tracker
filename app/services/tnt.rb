@@ -1,7 +1,12 @@
 require 'savon'
 
 class Tnt
-  def status(email, cnpj, order_code)
+  def initialize(shop)
+    @email = shop.tnt_email
+    @cnpj = shop.tnt_cnpj
+  end
+
+  def status(order_code)
     wsdl_url = "http://ws.tntbrasil.com.br/servicos/Localizacao?wsdl"
 
     client = Savon.client do
@@ -13,9 +18,9 @@ class Tnt
 
     message = {
       "in0" => {
-        "cnpj" => cnpj,
+        "cnpj" => @cnpj,
         "pedido" => order_code,
-        "usuario" => email,
+        "usuario" => @email,
       }
     }
 

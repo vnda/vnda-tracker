@@ -28,7 +28,7 @@ class Carrier
     @service ||= if @carrier == "correios"
       Correios.new
     elsif @carrier == "tnt"
-      Tnt.new
+      Tnt.new(@shop)
     elsif @carrier == "intelipost"
       Intelipost.new(@shop)
     else
