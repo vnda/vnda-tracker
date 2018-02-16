@@ -8,11 +8,15 @@ class SearchController < ApplicationController
 
   private
     def set_tracking
+      code = params[:tracking_code] || params[:code]
+      package = params[:package].presence
+      condition = code && package ? 'AND' : 'OR'
+
       @tracking =
         scopped_trackings
-        .where('code = :tracking OR package = :package',
-          tracking: params[:tracking_code] || params[:code],
-          package: params[:package]
+        .where("code = :tracking #{condition} package = :package",
+          tracking: code,
+          package: package
         )
         .first
     end
