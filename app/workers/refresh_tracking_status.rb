@@ -17,7 +17,10 @@ class RefreshTrackingStatus
   end
 
   def notify_changes(tracking)
-    if ["delivered"].include?(tracking.delivery_status)
+    if tracking.delivery_status == "in_transit"
+      Notify.perform_async(tracking.id)
+      schedule_next_checking(tracking)
+    elsif tracking.delivery_status == "delivered"
       Notify.perform_async(tracking.id)
       retention_days = ENV["TRACKING_CODE_RETENTION_DAYS"].to_i
       DeleteTracking.perform_at(retention_days.days.from_now, tracking.id) if retention_days > 0
