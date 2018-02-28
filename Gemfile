@@ -31,4 +31,11 @@ gem 'honeybadger', '3.3.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
 end
+
+group :test do
+  gem 'webmock', require: 'webmock/rspec'
+  gem 'timecop', '0.9.1'
+end
+
