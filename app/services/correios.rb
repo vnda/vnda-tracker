@@ -12,7 +12,7 @@ class Correios
         "objetos" => tracking_code
       })
     rescue Wasabi::Resolver::HTTPError, Excon::Errors::Error => e
-      Rollbar.error(e)
+      Honeybadger.notify(e)
     end
     object = response.body[:busca_eventos_response][:return][:objeto]
     event = object[:evento]

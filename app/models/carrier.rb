@@ -26,7 +26,7 @@ class Carrier
 
   def service
     @service ||= if @carrier == "correios"
-      Correios.new
+      ENV['CORREIOS_FROM_POSTMON'] ? Postmon.new : Correios.new
     elsif @carrier == "tnt"
       Tnt.new(@shop)
     elsif @carrier == "intelipost"
