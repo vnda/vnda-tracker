@@ -10,38 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170928154456) do
+ActiveRecord::Schema.define(version: 20180502165924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "shops", force: :cascade do |t|
-    t.string   "name"
-    t.string   "token"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.string   "notification_url"
-    t.string   "tnt_email"
-    t.string   "tnt_cnpj"
-    t.boolean  "tnt_enabled"
-    t.string   "intelipost_api_key"
-    t.string   "intelipost_id"
-    t.boolean  "intelipost_enabled",    default: false
-    t.boolean  "forward_to_intelipost", default: false
+    t.string "name"
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "notification_url"
+    t.string "tnt_email"
+    t.string "tnt_cnpj"
+    t.boolean "tnt_enabled"
+    t.string "intelipost_api_key"
+    t.string "intelipost_id"
+    t.boolean "intelipost_enabled", default: false
+    t.boolean "forward_to_intelipost", default: false
+    t.boolean "jadlog_enabled"
+    t.string "jadlog_registered_cnpj"
+    t.string "jadlog_user_code"
+    t.string "jadlog_password"
   end
 
   create_table "trackings", force: :cascade do |t|
-    t.string   "code"
-    t.string   "carrier"
-    t.string   "notification_url"
-    t.string   "delivery_status"
-    t.string   "tracker_url"
-    t.integer  "shop_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string "code"
+    t.string "carrier"
+    t.string "notification_url"
+    t.string "delivery_status"
+    t.string "tracker_url"
+    t.integer "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.datetime "last_checkpoint_at"
-    t.string   "package"
-    t.index ["shop_id"], name: "index_trackings_on_shop_id", using: :btree
+    t.string "package"
+    t.index ["shop_id"], name: "index_trackings_on_shop_id"
   end
 
 end
