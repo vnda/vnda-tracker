@@ -30,7 +30,11 @@ gem 'savon', '2.12.0'
 gem 'honeybadger', '3.3.0'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
+  gem 'byebug'
+  gem 'faker'
+  gem 'pry'
+  gem 'pry-byebug'
+
   gem 'rspec-rails'
 end
 

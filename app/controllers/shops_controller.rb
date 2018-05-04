@@ -65,7 +65,11 @@ class ShopsController < ApplicationController
         :intelipost_enabled,
         :intelipost_id,
         :intelipost_api_key,
-        :forward_to_intelipost
+        :forward_to_intelipost,
+        :jadlog_enabled,
+        :jadlog_registered_cnpj,
+        :jadlog_user_code,
+        :jadlog_password
       )
     end
 end

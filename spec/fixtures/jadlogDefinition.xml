@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://jadlogEdiws" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://jadlogEdiws" xmlns:intf="http://jadlogEdiws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://jadlogEdiws" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="consultar">
+    <complexType>
+     <sequence>
+      <element name="CodCliente" type="xsd:string"/>
+      <element name="Password" type="xsd:string"/>
+      <element name="NDs" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarPedido">
+    <complexType>
+     <sequence>
+      <element name="CodCliente" type="xsd:string"/>
+      <element name="Password" type="xsd:string"/>
+      <element name="NDs" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarPedidoResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarPedidoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="consultarPedidoRequest">
+
+      <wsdl:part element="impl:consultarPedido" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="consultarPedidoResponse">
+
+      <wsdl:part element="impl:consultarPedidoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="consultarRequest">
+
+      <wsdl:part element="impl:consultar" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="consultarResponse">
+
+      <wsdl:part element="impl:consultarResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TrackingBean">
+
+      <wsdl:operation name="consultar">
+
+         <wsdl:input message="impl:consultarRequest" name="consultarRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:consultarResponse" name="consultarResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="consultarPedido">
+
+         <wsdl:input message="impl:consultarPedidoRequest" name="consultarPedidoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:consultarPedidoResponse" name="consultarPedidoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TrackingBeanSoapBinding" type="impl:TrackingBean">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="consultar">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="consultarRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="consultarResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="consultarPedido">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="consultarPedidoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="consultarPedidoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TrackingBeanService">
+
+      <wsdl:port binding="impl:TrackingBeanSoapBinding" name="TrackingBean">
+
+         <wsdlsoap:address location="http://www.jadlog.com/JadlogEdiWs/services/TrackingBean"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
