@@ -1,5 +1,6 @@
-class IntelipostController < ApplicationController
+# frozen_string_literal: true
 
+class IntelipostController < ApplicationController
   skip_before_action :verify_authenticity_token, :authenticate!
 
   def receive_hook
@@ -16,8 +17,8 @@ class IntelipostController < ApplicationController
   end
 
   private
+
   def discover_tracker_url
     "https://status.ondeestameupedido.com/tracking/#{@shop.intelipost_id}/#{params['order_number']}"
   end
-
 end

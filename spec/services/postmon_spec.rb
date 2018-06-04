@@ -1,25 +1,28 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Postmon do
   subject { described_class.new }
+
   let(:url) { 'http://api.postmon.com.br/v1/rastreio/ect' }
 
   describe '.status' do
     it 'returns tracking code status' do
-      stub_request(:get, "#{url}/DW962413465BR").
-        to_return(status: 200, body: response_with_event.to_json)
+      stub_request(:get, "#{url}/DW962413465BR")
+        .to_return(status: 200, body: response_with_event.to_json)
 
       expect(subject.status('DW962413465BR')).to eq(
-        { date: "04/04/2018 17:14 -3UTC".to_datetime, status: 'delivered' }
+        date: '04/04/2018 17:14 -3UTC'.to_datetime, status: 'delivered'
       )
     end
 
     it 'returns pending when does not have events' do
-      stub_request(:get, "#{url}/DW962413465BR").
-        to_return(status: 404)
+      stub_request(:get, "#{url}/DW962413465BR")
+        .to_return(status: 404)
 
       expect(subject.status('DW962413465BR')).to eq(
-        { date: nil, status: 'pending' }
+        date: nil, status: 'pending'
       )
     end
   end

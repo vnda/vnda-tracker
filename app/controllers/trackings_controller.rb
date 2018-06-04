@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class TrackingsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_tracking, only: [:show, :edit, :update, :destroy]
+  before_action :set_tracking, only: %i[show edit update destroy]
 
   # GET /trackings
   # GET /trackings.json
   def index
     @trackings = scopped_trackings.order(created_at: :desc)
     @scheduled_tracking_ids = Sidekiq::ScheduledSet.new.map do |j|
-      j.args.first if j.klass == "RefreshTrackingStatus"
+      j.args.first if j.klass == 'RefreshTrackingStatus'
     end
   end
 
@@ -74,27 +76,28 @@ class TrackingsController < ApplicationController
   end
 
   private
-    def tracking_params
-      params.require(:tracking).permit(
-        :code,
-        :package,
-        :carrier,
-        :notification_url,
-        :delivery_status,
-        :tracker_url
-      )
-    end
 
-    def set_tracking
-      @tracking = scopped_trackings.find(params[:id])
-    end
+  def tracking_params
+    params.require(:tracking).permit(
+      :code,
+      :package,
+      :carrier,
+      :notification_url,
+      :delivery_status,
+      :tracker_url
+    )
+  end
 
-    def scopped_trackings
-      shop = if params[:token].present?
-        Shop.where(token: params[:token]).first
-      else
-        Shop.find(params[:shop_id])
-      end
-      @trackings ||= shop.trackings
+  def set_tracking
+    @tracking = scopped_trackings.find(params[:id])
+  end
+
+  def scopped_trackings
+    shop = if params[:token].present?
+             Shop.where(token: params[:token]).first
+           else
+             Shop.find(params[:shop_id])
     end
+    @trackings ||= shop.trackings
+  end
 end

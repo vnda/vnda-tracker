@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddTntSettingsToShops < ActiveRecord::Migration[5.0]
   def change
     add_column :shops, :tnt_email, :string

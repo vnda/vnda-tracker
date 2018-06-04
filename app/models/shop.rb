@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Shop < ApplicationRecord
   has_many :trackings, dependent: :destroy
 
@@ -6,6 +8,6 @@ class Shop < ApplicationRecord
   protected
 
   def default_token
-    self.token = SecureRandom.hex(16) unless self.token.presence
+    self.token = SecureRandom.hex(16) unless token.presence
   end
 end
