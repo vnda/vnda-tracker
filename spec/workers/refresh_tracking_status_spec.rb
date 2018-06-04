@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe RefreshTrackingStatus do
@@ -19,9 +21,9 @@ describe RefreshTrackingStatus do
     expect(Tracking).to receive(:find).with(tracking.id).and_return(tracking)
     expect(tracking).to receive(:update_status!).and_return(false)
 
-    expect(RefreshTrackingStatus).
-      to receive(:perform_at).
-      with(24.hours.from_now, tracking.id)
+    expect(described_class)
+      .to receive(:perform_at)
+      .with(24.hours.from_now, tracking.id)
 
     subject.perform(tracking.id)
   end
@@ -36,13 +38,13 @@ describe RefreshTrackingStatus do
       let(:delivery_status) { 'in_transit' }
 
       it 'schedules next verification and send notification' do
-        expect(RefreshTrackingStatus).
-          to receive(:perform_at).
-          with(24.hours.from_now, tracking.id)
+        expect(described_class)
+          .to receive(:perform_at)
+          .with(24.hours.from_now, tracking.id)
 
-        expect(Notify).
-          to receive(:perform_async).
-          with(tracking.id)
+        expect(Notify)
+          .to receive(:perform_async)
+          .with(tracking.id)
 
         subject.perform(tracking.id)
       end
@@ -52,29 +54,29 @@ describe RefreshTrackingStatus do
       let(:delivery_status) { 'delivered' }
 
       it 'sends notification' do
-        expect(Notify).
-          to receive(:perform_async).
-          with(tracking.id)
+        expect(Notify)
+          .to receive(:perform_async)
+          .with(tracking.id)
 
         subject.perform(tracking.id)
       end
 
       context 'with retention days' do
         before do
-          expect(ENV).
-            to receive(:[]).
-            with('TRACKING_CODE_RETENTION_DAYS').
-            and_return(1)
+          expect(ENV)
+            .to receive(:[])
+            .with('TRACKING_CODE_RETENTION_DAYS')
+            .and_return(1)
         end
 
         it 'schedules tracking deletation and send notification' do
-          expect(DeleteTracking).
-            to receive(:perform_at).
-            with(1.days.from_now, tracking.id)
+          expect(DeleteTracking)
+            .to receive(:perform_at)
+            .with(1.day.from_now, tracking.id)
 
-          expect(Notify).
-            to receive(:perform_async).
-            with(tracking.id)
+          expect(Notify)
+            .to receive(:perform_async)
+            .with(tracking.id)
 
           subject.perform(tracking.id)
         end
@@ -85,9 +87,9 @@ describe RefreshTrackingStatus do
       let(:delivery_status) { 'out_of_delivery' }
 
       it 'schedules next verification' do
-        expect(RefreshTrackingStatus).
-          to receive(:perform_at).
-          with(24.hours.from_now, tracking.id)
+        expect(described_class)
+          .to receive(:perform_at)
+          .with(24.hours.from_now, tracking.id)
 
         subject.perform(tracking.id)
       end
@@ -97,9 +99,9 @@ describe RefreshTrackingStatus do
       let(:delivery_status) { 'failed_attempt' }
 
       it 'schedules next verification' do
-        expect(RefreshTrackingStatus).
-          to receive(:perform_at).
-          with(24.hours.from_now, tracking.id)
+        expect(described_class)
+          .to receive(:perform_at)
+          .with(24.hours.from_now, tracking.id)
 
         subject.perform(tracking.id)
       end
@@ -117,9 +119,9 @@ describe RefreshTrackingStatus do
       let(:delivery_status) { 'foo' }
 
       it 'schedules next verification' do
-        expect(RefreshTrackingStatus).
-          to receive(:perform_at).
-          with(24.hours.from_now, tracking.id)
+        expect(described_class)
+          .to receive(:perform_at)
+          .with(24.hours.from_now, tracking.id)
 
         subject.perform(tracking.id)
       end

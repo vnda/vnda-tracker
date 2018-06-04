@@ -1,0 +1,31 @@
+inherit_from: .rubocop_todo.yml
+
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.4.3
+  TargetRailsVersion: 5.1.5
+  DisplayCopNames: true
+  Exclude:
+    - 'db/*'
+    - 'bin/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+Rails:
+  Enabled: true
+Documentation:
+  Enabled: false
+Rails/HttpPositionalArguments:
+  Enabled: false
+Rails/NotNullColumn:
+  Enabled: false
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+Layout/FirstParameterIndentation:
+  EnforcedStyle: consistent
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+RSpec/ExampleLength:
+  Enabled: false

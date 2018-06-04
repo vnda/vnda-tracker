@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class TrackingsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_tracking, only: [:show, :edit, :update, :destroy]
+  before_action :set_tracking, only: %i[show edit update destroy]
 
   # GET /trackings
   # GET /trackings.json
   def index
     @trackings = scopped_trackings.order(created_at: :desc)
     @scheduled_tracking_ids = Sidekiq::ScheduledSet.new.map do |j|
-      j.args.first if j.klass == "RefreshTrackingStatus"
+      j.args.first if j.klass == 'RefreshTrackingStatus'
     end
   end
 
@@ -32,11 +34,18 @@ class TrackingsController < ApplicationController
 
     respond_to do |format|
       if @tracking.save
-        format.html { redirect_to shop_trackings_url(params[:shop_id]), notice: 'Tracking was successfully created.' }
+        format.html do
+          redirect_to(
+            shop_trackings_url(params[:shop_id]),
+            notice: 'Tracking was successfully created.'
+          )
+        end
         format.json { render :show, status: :created, location: @tracking }
       else
         format.html { render :new }
-        format.json { render json: @tracking.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @tracking.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -46,11 +55,18 @@ class TrackingsController < ApplicationController
   def update
     respond_to do |format|
       if @tracking.update(tracking_params)
-        format.html { redirect_to shop_trackings_url(params[:shop_id]), notice: 'Tracking was successfully updated.' }
+        format.html do
+          redirect_to(
+            shop_trackings_url(params[:shop_id]),
+            notice: 'Tracking was successfully updated.'
+          )
+        end
         format.json { render :show, status: :ok, location: @tracking }
       else
         format.html { render :edit }
-        format.json { render json: @tracking.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @tracking.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -60,7 +76,12 @@ class TrackingsController < ApplicationController
   def destroy
     @tracking.destroy
     respond_to do |format|
-      format.html { redirect_to shop_trackings_url(params[:shop_id]), notice: 'Tracking was successfully destroyed.' }
+      format.html do
+        redirect_to(
+          shop_trackings_url(params[:shop_id]),
+          notice: 'Tracking was successfully destroyed.'
+        )
+      end
       format.json { head :no_content }
     end
   end
@@ -68,33 +89,39 @@ class TrackingsController < ApplicationController
   def refresh
     RefreshTrackingStatus.perform_async(params[:tracking_id])
     respond_to do |format|
-      format.html { redirect_to shop_trackings_url(params[:shop_id]), notice: 'Refresh Tracking scheduled.' }
+      format.html do
+        redirect_to(
+          shop_trackings_url(params[:shop_id]),
+          notice: 'Refresh Tracking scheduled.'
+        )
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    def tracking_params
-      params.require(:tracking).permit(
-        :code,
-        :package,
-        :carrier,
-        :notification_url,
-        :delivery_status,
-        :tracker_url
-      )
-    end
 
-    def set_tracking
-      @tracking = scopped_trackings.find(params[:id])
-    end
+  def tracking_params
+    params.require(:tracking).permit(
+      :code,
+      :package,
+      :carrier,
+      :notification_url,
+      :delivery_status,
+      :tracker_url
+    )
+  end
 
-    def scopped_trackings
-      shop = if params[:token].present?
-        Shop.where(token: params[:token]).first
-      else
-        Shop.find(params[:shop_id])
-      end
-      @trackings ||= shop.trackings
+  def set_tracking
+    @tracking = scopped_trackings.find(params[:id])
+  end
+
+  def scopped_trackings
+    shop = if params[:token].present?
+             Shop.where(token: params[:token]).first
+           else
+             Shop.find(params[:shop_id])
     end
+    @trackings ||= shop.trackings
+  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddIntelipostSettingsToShops < ActiveRecord::Migration[5.0]
   def change
     add_column :shops, :intelipost_api_key, :string

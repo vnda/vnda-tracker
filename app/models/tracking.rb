@@ -1,21 +1,24 @@
+# frozen_string_literal: true
+
 class Tracking < ApplicationRecord
-  STATUSES = [
-    "pending",
-    "in_transit",
-    "out_of_delivery",
-    "delivered",
-    "failed_attempt",
-    "expection",
-    "expired"
-  ]
+  STATUSES = %w[
+    pending
+    in_transit
+    out_of_delivery
+    delivered
+    failed_attempt
+    expection
+    expired
+  ].freeze
 
   belongs_to :shop
 
-  validates :code, presence: true, if: lambda{ |o| o.carrier != 'intelipost' }
+  validates :code, presence: true, if: ->(o) { o.carrier != 'intelipost' }
   validates :delivery_status, presence: :true
-  validates :code, uniqueness: { scope: [:shop_id, :carrier], allow_blank: true }
+  validates :code, uniqueness: { scope: %i[shop_id carrier], allow_blank: true }
 
-  before_validation :default_delivery_status, :discover_carrier, :discover_tracker_url
+  before_validation :default_delivery_status, :discover_carrier,
+    :discover_tracker_url
   after_commit :schedule_update, :forward_to_intelipost, on: [:create]
 
   def searchable
@@ -29,7 +32,7 @@ class Tracking < ApplicationRecord
 
     if hash[:date].present?
       if 30.days.ago > hash[:date]
-        self.delivery_status = "expired"
+        self.delivery_status = 'expired'
         save!
         return true
       end
@@ -48,7 +51,7 @@ class Tracking < ApplicationRecord
   def has_job?
     ss = Sidekiq::ScheduledSet.new
     job = ss.find do |e|
-      [e["class"], e.args[0]] == ["RefreshTrackingStatus", self.id]
+      [e['class'], e.args[0]] == ['RefreshTrackingStatus', id]
     end
     job.present?
   end
@@ -72,6 +75,6 @@ class Tracking < ApplicationRecord
   end
 
   def default_delivery_status
-    self.delivery_status ||= "pending"
+    self.delivery_status ||= 'pending'
   end
 end

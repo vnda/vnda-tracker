@@ -1,16 +1,17 @@
+# frozen_string_literal: true
+
 class Correios
-  URL = 'http://webservice.correios.com.br/service/rastro/Rastro.wsdl'.freeze
+  URL = 'http://webservice.correios.com.br/service/rastro/Rastro.wsdl'
 
   def status(tracking_code)
     begin
-      response = send_message(:busca_eventos, {
-        "usuario" => "ECT",
-        "senha" => "SRO",
-        "tipo" => "L",
-        "resultado" => "U",
-        "lingua" => "101",
-        "objetos" => tracking_code
-      })
+      response = send_message(:busca_eventos,
+        'usuario' => 'ECT',
+        'senha' => 'SRO',
+        'tipo' => 'L',
+        'resultado' => 'U',
+        'lingua' => '101',
+        'objetos' => tracking_code)
     rescue Wasabi::Resolver::HTTPError, Excon::Errors::Error => e
       Honeybadger.notify(e)
     end
@@ -18,12 +19,12 @@ class Correios
     event = object[:evento]
 
     date, status = if event
-      [
-        "#{event[:data]} #{event[:hora]} -3UTC".to_datetime,
-        parse_status("#{event[:tipo]}-#{event[:status]}")
-      ]
-    else
-      [nil, "pending"]
+                     [
+                       "#{event[:data]} #{event[:hora]} -3UTC".to_datetime,
+                       parse_status("#{event[:tipo]}-#{event[:status]}")
+                     ]
+                   else
+                     [nil, 'pending']
     end
 
     { date: date, status: status }
@@ -31,36 +32,36 @@ class Correios
 
   def parse_status(status)
     {
-      "PO-01" => "in_transit", #Postado
-      "PO-09" => "in_transit", #Postado depois do horário limite da agência
-      "RO-01" => "in_transit", #Objeto encaminhado
-      "DO-01" => "in_transit", #Objeto encaminhado
-      "OEC-01" => "out_of_delivery", #Saiu para Entrega
-      "BDE-20" => "out_of_delivery", #A entrega não pode ser efetuada - Carteiro não atendido
-      "BDI-20" => "out_of_delivery", #A entrega não pode ser efetuada - Carteiro não atendido
-      "BDR-20" => "out_of_delivery", #A entrega não pode ser efetuada - Carteiro não atendido
-      "BDE-25" => "out_of_delivery", #A entrega ocorrerá no prox dia util
-      "BDI-25" => "out_of_delivery", #A entrega ocorrerá no prox dia util
-      "BDR-25" => "out_of_delivery", #A entrega ocorrerá no prox dia util
-      "BDE-34" => "out_of_delivery", #Logradouro com numeração irregular
-      "BDI-34" => "out_of_delivery", #Logradouro com numeração irregular
-      "BDR-34" => "out_of_delivery", #Logradouro com numeração irregular
-      "BDE-35" => "out_of_delivery", #Coleta ou entrega de objeto não efetuada
-      "BDI-35" => "out_of_delivery", #Coleta ou entrega de objeto não efetuada
-      "BDR-35" => "out_of_delivery", #Coleta ou entrega de objeto não efetuada
-      "BDE-46" => "out_of_delivery", #Tentativa de entrega não efetuada
-      "BDI-46" => "out_of_delivery", #Tentativa de entrega não efetuada
-      "BDR-46" => "out_of_delivery", #Tentativa de entrega não efetuada
-      "BDE-47" => "out_of_delivery", #Saída para entregacancelad
-      "BDI-47" => "out_of_delivery", #Saída para entregacancelad
-      "BDR-47" => "out_of_delivery", #Saída para entregacancelad
-      "BDE-01" => "delivered", #Objeto entregue
-      "BDI-01" => "delivered", #Objeto entregue
-      "BDR-01" => "delivered", #Objeto entregue
-      "BDE-23" => "expired", #Objeto devolvido ao remetente
-      "BDI-23" => "expired", #Objeto devolvido ao remetente
-      "BDR-23" => "expired"  #Objeto devolvido ao remetente
-    }.fetch(status, "expection")
+      'PO-01' => 'in_transit', # Postado
+      'PO-09' => 'in_transit', # Postado depois do horário limite da agência
+      'RO-01' => 'in_transit', # Objeto encaminhado
+      'DO-01' => 'in_transit', # Objeto encaminhado
+      'OEC-01' => 'out_of_delivery', # Saiu para Entrega
+      'BDE-20' => 'out_of_delivery', # Não entregue - Carteiro não atendido
+      'BDI-20' => 'out_of_delivery', # Não entregue - Carteiro não atendido
+      'BDR-20' => 'out_of_delivery', # Não entregue - Carteiro não atendido
+      'BDE-25' => 'out_of_delivery', # A entrega ocorrerá no prox dia util
+      'BDI-25' => 'out_of_delivery', # A entrega ocorrerá no prox dia util
+      'BDR-25' => 'out_of_delivery', # A entrega ocorrerá no prox dia util
+      'BDE-34' => 'out_of_delivery', # Logradouro com numeração irregular
+      'BDI-34' => 'out_of_delivery', # Logradouro com numeração irregular
+      'BDR-34' => 'out_of_delivery', # Logradouro com numeração irregular
+      'BDE-35' => 'out_of_delivery', # Coleta ou entrega de objeto não efetuada
+      'BDI-35' => 'out_of_delivery', # Coleta ou entrega de objeto não efetuada
+      'BDR-35' => 'out_of_delivery', # Coleta ou entrega de objeto não efetuada
+      'BDE-46' => 'out_of_delivery', # Tentativa de entrega não efetuada
+      'BDI-46' => 'out_of_delivery', # Tentativa de entrega não efetuada
+      'BDR-46' => 'out_of_delivery', # Tentativa de entrega não efetuada
+      'BDE-47' => 'out_of_delivery', # Saída para entregacancelad
+      'BDI-47' => 'out_of_delivery', # Saída para entregacancelad
+      'BDR-47' => 'out_of_delivery', # Saída para entregacancelad
+      'BDE-01' => 'delivered', # Objeto entregue
+      'BDI-01' => 'delivered', # Objeto entregue
+      'BDR-01' => 'delivered', # Objeto entregue
+      'BDE-23' => 'expired', # Objeto devolvido ao remetente
+      'BDI-23' => 'expired', # Objeto devolvido ao remetente
+      'BDR-23' => 'expired'  # Objeto devolvido ao remetente
+    }.fetch(status, 'expection')
   end
 
   private
