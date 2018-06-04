@@ -32,6 +32,11 @@ describe Carrier, type: :model do
       expect(tracker).to eq('correios')
     end
 
+    it 'recognizes correios tracking code with lowercase characters' do
+      tracker = carrier.discover('of323444460br')
+      expect(tracker).to eq('correios')
+    end
+
     it 'recognizes jadlog 14 digit tracking code' do
       tracker = carrier.discover('10084882066034')
       expect(tracker).to eq('jadlog')
@@ -40,6 +45,11 @@ describe Carrier, type: :model do
     it 'recognizes jadlog 8 digit tracking code' do
       tracker = carrier.discover('80605889')
       expect(tracker).to eq('jadlog')
+    end
+
+    it 'does not recognize unexpected tracking code' do
+      tracker = carrier.discover('of00000000000000br')
+      expect(tracker).to eq('unknown')
     end
   end
 

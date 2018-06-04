@@ -23,9 +23,9 @@ class Carrier
 
   def self.discover(code)
     # Intelipost discovers this in intelipost_controller
-    return 'correios' if code.match?(/[A-Z]{2}[0-9]{9}[A-Z]{2}/)
+    return 'correios' if code.match?(/^[a-zA-Z]{2}[0-9]{9}[a-zA-Z]{2}$/)
     return 'tnt' if code =~ /^.{12}$/ && @shop.tnt_enabled?
-    return 'jadlog' if code.match?(/[0-9]{8,14}/)
+    return 'jadlog' if code.match?(/^[0-9]{8,14}$/)
     'unknown'
   end
 
