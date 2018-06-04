@@ -19,6 +19,7 @@ class IntelipostController < ApplicationController
   private
 
   def discover_tracker_url
-    "https://status.ondeestameupedido.com/tracking/#{@shop.intelipost_id}/#{params['order_number']}"
+    'https://status.ondeestameupedido.com/tracking/' \
+    "#{@shop.intelipost_id}/#{params['order_number']}"
   end
 end

@@ -37,9 +37,9 @@ class Correios
       'RO-01' => 'in_transit', # Objeto encaminhado
       'DO-01' => 'in_transit', # Objeto encaminhado
       'OEC-01' => 'out_of_delivery', # Saiu para Entrega
-      'BDE-20' => 'out_of_delivery', # A entrega não pode ser efetuada - Carteiro não atendido
-      'BDI-20' => 'out_of_delivery', # A entrega não pode ser efetuada - Carteiro não atendido
-      'BDR-20' => 'out_of_delivery', # A entrega não pode ser efetuada - Carteiro não atendido
+      'BDE-20' => 'out_of_delivery', # Não entregue - Carteiro não atendido
+      'BDI-20' => 'out_of_delivery', # Não entregue - Carteiro não atendido
+      'BDR-20' => 'out_of_delivery', # Não entregue - Carteiro não atendido
       'BDE-25' => 'out_of_delivery', # A entrega ocorrerá no prox dia util
       'BDI-25' => 'out_of_delivery', # A entrega ocorrerá no prox dia util
       'BDR-25' => 'out_of_delivery', # A entrega ocorrerá no prox dia util

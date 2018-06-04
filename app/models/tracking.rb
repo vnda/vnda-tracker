@@ -17,7 +17,8 @@ class Tracking < ApplicationRecord
   validates :delivery_status, presence: :true
   validates :code, uniqueness: { scope: %i[shop_id carrier], allow_blank: true }
 
-  before_validation :default_delivery_status, :discover_carrier, :discover_tracker_url
+  before_validation :default_delivery_status, :discover_carrier,
+    :discover_tracker_url
   after_commit :schedule_update, :forward_to_intelipost, on: [:create]
 
   def searchable

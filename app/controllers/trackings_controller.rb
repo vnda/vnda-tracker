@@ -34,11 +34,18 @@ class TrackingsController < ApplicationController
 
     respond_to do |format|
       if @tracking.save
-        format.html { redirect_to shop_trackings_url(params[:shop_id]), notice: 'Tracking was successfully created.' }
+        format.html do
+          redirect_to(
+            shop_trackings_url(params[:shop_id]),
+            notice: 'Tracking was successfully created.'
+          )
+        end
         format.json { render :show, status: :created, location: @tracking }
       else
         format.html { render :new }
-        format.json { render json: @tracking.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @tracking.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -48,11 +55,18 @@ class TrackingsController < ApplicationController
   def update
     respond_to do |format|
       if @tracking.update(tracking_params)
-        format.html { redirect_to shop_trackings_url(params[:shop_id]), notice: 'Tracking was successfully updated.' }
+        format.html do
+          redirect_to(
+            shop_trackings_url(params[:shop_id]),
+            notice: 'Tracking was successfully updated.'
+          )
+        end
         format.json { render :show, status: :ok, location: @tracking }
       else
         format.html { render :edit }
-        format.json { render json: @tracking.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @tracking.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -62,7 +76,12 @@ class TrackingsController < ApplicationController
   def destroy
     @tracking.destroy
     respond_to do |format|
-      format.html { redirect_to shop_trackings_url(params[:shop_id]), notice: 'Tracking was successfully destroyed.' }
+      format.html do
+        redirect_to(
+          shop_trackings_url(params[:shop_id]),
+          notice: 'Tracking was successfully destroyed.'
+        )
+      end
       format.json { head :no_content }
     end
   end
@@ -70,7 +89,12 @@ class TrackingsController < ApplicationController
   def refresh
     RefreshTrackingStatus.perform_async(params[:tracking_id])
     respond_to do |format|
-      format.html { redirect_to shop_trackings_url(params[:shop_id]), notice: 'Refresh Tracking scheduled.' }
+      format.html do
+        redirect_to(
+          shop_trackings_url(params[:shop_id]),
+          notice: 'Refresh Tracking scheduled.'
+        )
+      end
       format.json { head :no_content }
     end
   end
