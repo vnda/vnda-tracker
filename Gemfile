@@ -18,7 +18,7 @@ gem 'jquery-rails', '4.3.1'
 gem 'nokogiri', '1.8.2'
 gem 'pg', '0.21.0'
 gem 'puma', '3.11.2'
-gem 'rails', '5.1.5'
+gem 'rails', '5.1.6'
 gem 'sass-rails', '~> 5.0'
 gem 'therubyracer', platforms: :ruby
 gem 'uglifier', '>= 1.3.0'
@@ -37,11 +37,14 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'rspec-rails'
+  gem 'rspec_junit_formatter', '0.3.0'
   gem 'rubocop', '~> 0.56.0', require: false
   gem 'rubocop-rspec'
 end
 
 group :test do
+  gem 'codecov', '0.1.10', require: false
+  gem 'simplecov', '0.12.0', require: false
   gem 'timecop', '0.9.1'
   gem 'webmock', require: 'webmock/rspec'
 end
