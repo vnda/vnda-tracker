@@ -30,8 +30,10 @@ describe Postmon do
   describe '#parse_status' do
     STATUSES = {
       'Objeto postado' => 'in_transit',
+      'Objeto postado após o horário limite da unidade' => 'in_transit',
       'Postado depois do horário limite da agência' => 'in_transit',
       'Objeto encaminhado' => 'in_transit',
+      'Objeto encaminhado de Unidade de Tratamento em BLUMENAU' => 'in_transit',
       'Saiu para Entrega' => 'out_of_delivery',
       'A entrega não pode ser efetuada' => 'out_of_delivery',
       'A entrega não pode ser efetuada - Carteiro não atendido' => 'out_of_de' \

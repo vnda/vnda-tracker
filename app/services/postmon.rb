@@ -27,13 +27,13 @@ class Postmon
   end
 
   def parse_status(status)
-    if status == 'Objeto postado'
+    if /Objeto postado/.match?(status)
       'in_transit'
     elsif /Postado depois do hor.*rio limite da ag.*ncia/.match?(status)
       'in_transit'
-    elsif status == 'Objeto encaminhado'
+    elsif /Objeto encaminhado/.match?(status)
       'in_transit'
-    elsif status == 'Saiu para Entrega'
+    elsif /Saiu para Entrega/.match?(status)
       'out_of_delivery'
     elsif /A entrega n.*o pode ser efetuada/.match?(status)
       'out_of_delivery'
@@ -51,9 +51,7 @@ class Postmon
       'out_of_delivery'
     elsif /Objeto saiu para entrega ao destinat.*rio/.match?(status)
       'out_of_delivery'
-    elsif /Objeto entregue ao destinat.*rio/.match?(status)
-      'delivered'
-    elsif status == 'Objeto entregue'
+    elsif /Objeto entregue/.match?(status)
       'delivered'
     elsif status == 'Objeto devolvido ao remetente'
       'expired'
