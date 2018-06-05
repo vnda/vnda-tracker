@@ -7,7 +7,7 @@ describe Postmon do
 
   let(:url) { 'http://api.postmon.com.br/v1/rastreio/ect' }
 
-  describe '.status' do
+  describe '#status' do
     it 'returns tracking code status' do
       stub_request(:get, "#{url}/DW962413465BR")
         .to_return(status: 200, body: response_with_event.to_json)
@@ -24,6 +24,39 @@ describe Postmon do
       expect(subject.status('DW962413465BR')).to eq(
         date: nil, status: 'pending'
       )
+    end
+  end
+
+  describe '#parse_status' do
+    STATUSES = {
+      'Objeto postado' => 'in_transit',
+      'Postado depois do horário limite da agência' => 'in_transit',
+      'Objeto encaminhado' => 'in_transit',
+      'Saiu para Entrega' => 'out_of_delivery',
+      'A entrega não pode ser efetuada' => 'out_of_delivery',
+      'A entrega não pode ser efetuada - Carteiro não atendido' => 'out_of_de' \
+                                                                   'livery',
+      'A entrega ocorrerá no prox dia útil' => 'out_of_delivery',
+      'Logradouro com numeração irregular' => 'out_of_delivery',
+      'Coleta ou entrega de objeto não efetuada' => 'out_of_delivery',
+      'Tentativa de entrega não efetuada' => 'out_of_delivery',
+      'Saída para entrega cancelada' => 'out_of_delivery',
+      'Objeto saiu para entrega ao destinatário' => 'out_of_delivery',
+      'Objeto entregue ao destinatário' => 'delivered',
+      'Objeto entregue' => 'delivered',
+      'Objeto devolvido ao remetente' => 'expired'
+    }.freeze
+
+    STATUSES.each do |postmon_status, app_status|
+      it 'returns parsed status' do
+        expect(subject.parse_status(postmon_status)).to eq(app_status)
+      end
+    end
+
+    context 'with unexpected status' do
+      it 'returns "exception" status' do
+        expect(subject.parse_status('foo')).to eq('exception')
+      end
     end
   end
 

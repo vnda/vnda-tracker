@@ -49,6 +49,8 @@ class Postmon
       'out_of_delivery'
     elsif /Sa.*da para entrega cancelada/.match?(status)
       'out_of_delivery'
+    elsif /Objeto saiu para entrega ao destinat.*rio/.match?(status)
+      'out_of_delivery'
     elsif /Objeto entregue ao destinat.*rio/.match?(status)
       'delivered'
     elsif status == 'Objeto entregue'
@@ -56,7 +58,7 @@ class Postmon
     elsif status == 'Objeto devolvido ao remetente'
       'expired'
     else
-      'expection'
+      'exception'
     end
   end
 end
