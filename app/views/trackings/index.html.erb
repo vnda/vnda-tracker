@@ -1,9 +1,10 @@
 <div class="row page-header">
   <div class="col-lg-6">
-      <h3>Trackings</h3>
+      <h3>Rastreios</h3>
   </div>
   <div class="col-lg-6">
-    <%= link_to('Adicionar', new_shop_tracking_path(params[:shop_id]), class: 'btn btn-primary float-xs-right') %>
+    <%= link_to('Adicionar', new_shop_tracking_path(params[:shop_id]),
+      class: 'btn btn-primary float-right') %>
   </div>
 </div>
 
@@ -12,11 +13,11 @@
     <table class="table table-shops table-striped table-hover small">
       <thead>
         <tr>
-          <th>Code</th>
-          <th>Package</th>
-          <th>Carrier</th>
-          <th>Delivery status</th>
-          <th>Url</th>
+          <th><%=t 'code', scope: [:activerecord, :attributes, :tracking] %></th>
+          <th><%=t 'package', scope: [:activerecord, :attributes, :tracking] %></th>
+          <th><%=t 'carrier', scope: [:activerecord, :attributes, :tracking] %></th>
+          <th><%=t 'delivery_status', scope: [:activerecord, :attributes, :tracking] %></th>
+          <th><%=t 'tracker_url', scope: [:activerecord, :attributes, :tracking] %></th>
           <th>Job</th>
           <th>&nbsp;</th>
         </tr>

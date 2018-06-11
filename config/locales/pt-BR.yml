@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    models:
+      tracking: "Rastreio"
+      shop: "Loja"
+    attributes:
+      tracking:
+        code: "Código de rastreio"
+        carrier: Transportadora
+        notification_url: "URL de notificação"
+        delivery_status: "Status da entrega"
+        tracker_url: "URL de acompanhamento"
+        created_at: "Criado em"
+        updated_at: "Atualizado em"
+        last_checkpoint_at: "Status checado em"
+        package: Pacote
+
