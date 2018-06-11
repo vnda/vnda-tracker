@@ -67,7 +67,7 @@ class Tracking < ApplicationRecord
   end
 
   def discover_carrier
-    self.carrier ||= Carrier.discover(code)
+    self.carrier ||= Carrier.discover(code, shop)
   end
 
   def discover_tracker_url
