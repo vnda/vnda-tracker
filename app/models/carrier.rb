@@ -21,10 +21,10 @@ class Carrier
 
   delegate :status, to: :service
 
-  def self.discover(code)
+  def self.discover(code, shop = nil)
     # Intelipost discovers this in intelipost_controller
     return 'correios' if code.match?(/^[a-zA-Z]{2}[0-9]{9}[a-zA-Z]{2}$/)
-    return 'tnt' if code =~ /^.{12}$/ && @shop.tnt_enabled?
+    return 'tnt' if code =~ /^.{12}$/ && shop && shop.tnt_enabled?
     return 'jadlog' if code.match?(/^[0-9]{8,14}$/)
     'unknown'
   end

@@ -8,6 +8,11 @@ class TrackingsController < ApplicationController
   # GET /trackings.json
   def index
     @trackings = scopped_trackings.order(created_at: :desc)
+
+    if params[:status].present?
+      @trackings = @trackings.where(delivery_status: params[:status])
+    end
+
     @scheduled_tracking_ids = Sidekiq::ScheduledSet.new.map do |j|
       j.args.first if j.klass == 'RefreshTrackingStatus'
     end
@@ -102,14 +107,8 @@ class TrackingsController < ApplicationController
   private
 
   def tracking_params
-    params.require(:tracking).permit(
-      :code,
-      :package,
-      :carrier,
-      :notification_url,
-      :delivery_status,
-      :tracker_url
-    )
+    params.require(:tracking).permit(:code, :package, :carrier,
+      :notification_url, :delivery_status, :tracker_url)
   end
 
   def set_tracking
