@@ -12,18 +12,15 @@ class Postmon
       Honeybadger.notify(e, context: { tracking_code: tracking_code })
     end
 
-    date, status =
-      if hash['historico']
-        last_event = hash['historico'].last
-        [
-          "#{last_event['data']} -3UTC".to_datetime,
-          parse_status(last_event['situacao'])
-        ]
-      else
-        [nil, 'pending']
-      end
+    last_event = hash['historico']&.last
 
-    { date: date, status: status }
+    return { date: nil, status: 'pending', message: nil } unless last_event
+
+    {
+      date: "#{last_event['data']} -3UTC".to_datetime,
+      status: parse_status(last_event['situacao']),
+      message: last_event['detalhes']
+    }
   end
 
   def parse_status(status)

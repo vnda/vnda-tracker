@@ -18,16 +18,13 @@ class Correios
     object = response.body[:busca_eventos_response][:return][:objeto]
     event = object[:evento]
 
-    date, status = if event
-                     [
-                       "#{event[:data]} #{event[:hora]} -3UTC".to_datetime,
-                       parse_status("#{event[:tipo]}-#{event[:status]}")
-                     ]
-                   else
-                     [nil, 'pending']
-    end
+    return { date: nil, status: 'pending', message: nil } unless event
 
-    { date: date, status: status }
+    {
+      date: "#{event[:data]} #{event[:hora]} -3UTC".to_datetime,
+      status: parse_status("#{event[:tipo]}-#{event[:status]}"),
+      message: event[:descricao]
+    }
   end
 
   def parse_status(status)
@@ -61,7 +58,7 @@ class Correios
       'BDE-23' => 'expired', # Objeto devolvido ao remetente
       'BDI-23' => 'expired', # Objeto devolvido ao remetente
       'BDR-23' => 'expired'  # Objeto devolvido ao remetente
-    }.fetch(status, 'expection')
+    }.fetch(status, 'exception')
   end
 
   private
