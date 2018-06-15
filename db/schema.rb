@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502165924) do
+ActiveRecord::Schema.define(version: 20180615210156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "shops", force: :cascade do |t|
+  create_table "shops", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "token"
     t.datetime "created_at", null: false
@@ -34,7 +34,28 @@ ActiveRecord::Schema.define(version: 20180502165924) do
     t.string "jadlog_password"
   end
 
-  create_table "trackings", force: :cascade do |t|
+  create_table "tracking_events", force: :cascade do |t|
+    t.string "delivery_status"
+    t.datetime "checkpoint_at"
+    t.string "message"
+    t.text "response_data"
+    t.bigint "tracking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tracking_id"], name: "index_tracking_events_on_tracking_id"
+  end
+
+  create_table "tracking_notifications", force: :cascade do |t|
+    t.string "url"
+    t.text "data"
+    t.text "response"
+    t.bigint "tracking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tracking_id"], name: "index_tracking_notifications_on_tracking_id"
+  end
+
+  create_table "trackings", id: :serial, force: :cascade do |t|
     t.string "code"
     t.string "carrier"
     t.string "notification_url"
