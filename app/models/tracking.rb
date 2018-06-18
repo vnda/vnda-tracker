@@ -12,6 +12,9 @@ class Tracking < ApplicationRecord
   ].freeze
 
   belongs_to :shop
+  has_many :notifications,
+    class_name: 'TrackingNotification',
+    dependent: :destroy
 
   validates :code, presence: true, if: ->(o) { o.carrier != 'intelipost' }
   validates :delivery_status, presence: :true

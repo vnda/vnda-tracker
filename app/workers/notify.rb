@@ -10,8 +10,24 @@ class Notify
     tracking = Tracking.find(tracking_id)
     return false if tracking.shop.notification_url.blank?
 
-    Excon.post(tracking.shop.notification_url,
-      body: tracking.to_json,
-      headers: { 'Content-Type' => 'application/json' })
+    res = send_notification(tracking.shop.notification_url, tracking.to_json)
+
+    tracking.notifications.create(
+      url: tracking.shop.notification_url,
+      data: tracking.to_json,
+      response: res.body
+    )
+
+    true
+  end
+
+  private
+
+  def send_notification(url, json)
+    Excon.post(
+      url,
+      body: json,
+      headers: { 'Content-Type' => 'application/json' }
+    )
   end
 end
