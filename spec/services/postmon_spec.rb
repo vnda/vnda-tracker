@@ -13,7 +13,9 @@ describe Postmon do
         .to_return(status: 200, body: response_with_event.to_json)
 
       expect(subject.status('DW962413465BR')).to eq(
-        date: '04/04/2018 17:14 -3UTC'.to_datetime, status: 'delivered'
+        date: '04/04/2018 17:14 -3UTC'.to_datetime,
+        status: 'delivered',
+        message: 'Objeto entregue ao destinat\u00ef\u00bf\u00bdrio'
       )
     end
 
@@ -22,7 +24,9 @@ describe Postmon do
         .to_return(status: 404)
 
       expect(subject.status('DW962413465BR')).to eq(
-        date: nil, status: 'pending'
+        date: nil,
+        status: 'pending',
+        message: nil
       )
     end
   end
@@ -74,10 +78,10 @@ describe Postmon do
           situacao: 'Objeto postado'
         },
         {
-          detalhes: '',
+          detalhes: 'Objeto entregue ao destinat\u00ef\u00bf\u00bdrio',
           local: 'SAO BERNARDO DO CAMPO/SP',
           data: '04/04/2018 17:14',
-          situacao: 'Objeto entregue ao destinat\u00ef\u00bf\u00bdrio'
+          situacao: 'Objeto entregue'
         }
       ]
     }

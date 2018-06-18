@@ -15,3 +15,26 @@
     </dl>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <table class="table table-shops table-striped table-hover small">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Status</th>
+          <th>Menssagem</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tracking.events.each do |event| %>
+        <tr>
+          <td><%= event.checkpoint_at %></td>
+          <td><%= event.delivery_status %></td>
+          <td><%= event.message %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

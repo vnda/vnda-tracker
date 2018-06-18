@@ -12,6 +12,7 @@ class Tracking < ApplicationRecord
   ].freeze
 
   belongs_to :shop
+  has_many :events, class_name: 'TrackingEvent', dependent: :destroy
   has_many :notifications,
     class_name: 'TrackingNotification',
     dependent: :destroy
@@ -36,14 +37,14 @@ class Tracking < ApplicationRecord
     if hash[:date].present?
       if 30.days.ago > hash[:date]
         self.delivery_status = 'expired'
-        save!
-        return true
-      end
-
-      if last_checkpoint_at.nil? || last_checkpoint_at < hash[:date]
+      elsif last_checkpoint_at.nil? || last_checkpoint_at < hash[:date]
         self.delivery_status = hash[:status]
         self.last_checkpoint_at = hash[:date]
+      end
+
+      if changed?
         save!
+        events.register(delivery_status, hash[:date], hash[:message])
         return true
       end
     end
@@ -62,6 +63,7 @@ class Tracking < ApplicationRecord
   private
 
   def forward_to_intelipost
+    return unless shop.forward_to_intelipost
     Intelipost.new(shop).update_tracking(package, code)
   end
 
