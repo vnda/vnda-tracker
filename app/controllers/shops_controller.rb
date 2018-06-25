@@ -64,21 +64,6 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    params.require(:shop).permit(
-      :name,
-      :token,
-      :notification_url,
-      :tnt_enabled,
-      :tnt_email,
-      :tnt_cnpj,
-      :intelipost_enabled,
-      :intelipost_id,
-      :intelipost_api_key,
-      :forward_to_intelipost,
-      :jadlog_enabled,
-      :jadlog_registered_cnpj,
-      :jadlog_user_code,
-      :jadlog_password
-    )
+    params.require(:shop).permit!
   end
 end

@@ -20,7 +20,7 @@
         </tr>
       </thead>
       <tbody>
-        <% if @shops.size > 0 %>
+        <% if @shops.any? %>
           <% @shops.each do |shop| %>
           <tr>
             <td><%= shop.name %></td>
@@ -28,7 +28,7 @@
             <td class="text-center">
               <%= link_to "#{shop.trackings.count} trackings", shop_trackings_url(shop) %>
             </td>
-            <td class="text-xs-right">
+            <td class="text-right">
               <div class="btn-group">
                 <a href="<%= edit_shop_url(shop) %>" class="btn btn-secondary btn-sm">
                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar
@@ -43,7 +43,7 @@
           <% end %>
         <% else %>
         <tr>
-          <td colspan="3" class="text-xs-center">
+          <td colspan="4" class="text-xs-center">
             <small>Nenhuma loja cadastrada</small>
           </td>
         </tr>
