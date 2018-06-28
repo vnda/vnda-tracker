@@ -22,7 +22,11 @@ describe Carrier, type: :model do
       'jadlog_enabled': true,
       'jadlog_registered_cnpj': '32124427000198',
       'jadlog_user_code': '12345',
-      'jadlog_password': 'pwd1'
+      'jadlog_password': 'pwd1',
+      'total_enabled': true,
+      'total_client_id': '123',
+      'total_user': 'foo',
+      'total_password': 'bar'
     }
   end
 
@@ -45,6 +49,11 @@ describe Carrier, type: :model do
     it 'recognizes jadlog 8 digit tracking code' do
       tracker = carrier.discover('80605889')
       expect(tracker).to eq('jadlog')
+    end
+
+    it 'recognizes total_express tracking code' do
+      tracker = carrier.discover('VN123')
+      expect(tracker).to eq('totalexpress')
     end
 
     it 'does not recognize unexpected tracking code' do
@@ -78,22 +87,29 @@ describe Carrier, type: :model do
 
   describe '.url' do
     it 'returns correios url' do
-      url = carrier.url('correios', 'code123')
+      url = carrier.url(carrier: 'correios', code: 'code123')
       expect(url)
         .to eq('https://track.aftership.com/brazil-correios/code123')
     end
 
     it 'returns tnt url' do
-      url = carrier.url('tnt', 'code123')
+      url = carrier.url(carrier: 'tnt', code: 'code123')
       expect(url)
         .to eq('http://app.tntbrasil.com.br/radar/public/'\
           'localizacaoSimplificadaDetail/code123')
     end
 
     it 'returns jadlog url' do
-      url = carrier.url('jadlog', 'code123')
+      url = carrier.url(carrier: 'jadlog', code: 'code123')
       expect(url)
         .to eq('http://www.jadlog.com.br/siteDpd/''tracking.jad?cte=code123')
+    end
+
+    it 'returns totalexpress url' do
+      url = carrier.url(carrier: 'totalexpress', code: 'VN123', shop: shop)
+      expect(url)
+        .to eq('https://tracking.totalexpress.com.br/poupup_track.php?reid=123'\
+               '&pedido=VN123&nfiscal=123')
     end
   end
 

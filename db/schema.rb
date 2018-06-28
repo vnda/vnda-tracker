@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180615210156) do
+ActiveRecord::Schema.define(version: 20180625200517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 20180615210156) do
     t.string "jadlog_registered_cnpj"
     t.string "jadlog_user_code"
     t.string "jadlog_password"
+    t.string "total_client_id"
+    t.string "total_user"
+    t.string "total_password"
+    t.boolean "total_enabled", default: false
   end
 
   create_table "tracking_events", force: :cascade do |t|

@@ -76,7 +76,11 @@ class Tracking < ApplicationRecord
   end
 
   def discover_tracker_url
-    self.tracker_url ||= Carrier.url(carrier, searchable)
+    self.tracker_url ||= Carrier.url(
+      carrier: carrier,
+      code: searchable,
+      shop: shop
+    )
   end
 
   def default_delivery_status

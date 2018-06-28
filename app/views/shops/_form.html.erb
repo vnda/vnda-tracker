@@ -91,6 +91,32 @@
         <%= f.text_field :jadlog_password, class: 'form-control' %>
       </div>
 
+      <hr />
+
+      <h4>Total Express</h4>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <%= f.check_box :total_enabled, class: 'form-check-input' %>
+          Habilitado
+        </label>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :total_client_id %><br>
+        <%= f.text_field :total_client_id, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :total_user %><br>
+        <%= f.text_field :total_user, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :total_password %><br>
+        <%= f.text_field :total_password, class: 'form-control' %>
+      </div>
+
       <div class="actions">
         <%= f.submit 'Salvar', class: 'btn btn-primary' %>
         <%= link_to 'Cancelar', :back, class: 'btn btn-default'  %>
