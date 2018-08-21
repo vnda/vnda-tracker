@@ -44,7 +44,7 @@ end
 
 group :test do
   gem 'codecov', '0.1.10', require: false
-  gem 'simplecov', '0.12.0', require: false
+  gem 'simplecov', '0.16.1', require: false
   gem 'timecop', '0.9.1'
   gem 'webmock', require: 'webmock/rspec'
 end
