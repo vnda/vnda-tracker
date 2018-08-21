@@ -24,10 +24,6 @@ class RefreshTrackingStatus
       schedule_next_checking(tracking)
     elsif tracking.delivery_status == 'delivered'
       Notify.perform_async(tracking.id)
-      retention_days = ENV['TRACKING_CODE_RETENTION_DAYS'].to_i
-      if retention_days > 0
-        DeleteTracking.perform_at(retention_days.days.from_now, tracking.id)
-      end
     elsif %w[out_of_delivery failed_attempt].include?(tracking.delivery_status)
       # send email
       schedule_next_checking(tracking)

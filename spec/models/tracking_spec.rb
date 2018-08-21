@@ -27,6 +27,9 @@ describe Tracking, type: :model do
     }
   end
 
+  before { Timecop.freeze(Time.zone.parse('2018-06-12')) }
+  after { Timecop.return }
+
   context 'without delivery_status' do
     let(:tracking_attributes) { { code: 'PM135787152BR' } }
 
@@ -71,6 +74,28 @@ describe Tracking, type: :model do
       it 'returns package' do
         expect(tracking.searchable).to eq('BBA1B3509E-01')
       end
+    end
+  end
+
+  describe '#has_job?' do
+    subject(:has_job) { tracking.has_job? }
+
+    let(:jobs) { [instance_double(Sidekiq::SortedEntry)] }
+
+    before do
+      allow(Sidekiq::ScheduledSet).to receive(:new).and_return(
+        ss = instance_double(Sidekiq::ScheduledSet)
+      )
+
+      allow(ss).to receive(:find).and_return(jobs)
+    end
+
+    it { expect(has_job).to eq(true) }
+
+    context 'without scheduled job' do
+      let(:jobs) { [] }
+
+      it { expect(has_job).to eq(false) }
     end
   end
 
