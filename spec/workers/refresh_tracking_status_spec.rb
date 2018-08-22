@@ -60,27 +60,6 @@ describe RefreshTrackingStatus do
 
         subject.perform(tracking.id)
       end
-
-      context 'with retention days' do
-        before do
-          expect(ENV)
-            .to receive(:[])
-            .with('TRACKING_CODE_RETENTION_DAYS')
-            .and_return(1)
-        end
-
-        it 'schedules tracking deletation and send notification' do
-          expect(DeleteTracking)
-            .to receive(:perform_at)
-            .with(1.day.from_now, tracking.id)
-
-          expect(Notify)
-            .to receive(:perform_async)
-            .with(tracking.id)
-
-          subject.perform(tracking.id)
-        end
-      end
     end
 
     context 'to out_of_delivery' do
