@@ -45,7 +45,8 @@ class Carrier
 
   def correios_service
     @correios_service ||= begin
-      return Postmon.new if ENV['CORREIOS_FROM_POSTMON']
+      return CorreiosHtml.new if ENV['CORREIOS_DATA_FROM'] == 'html'
+      return Postmon.new if ENV['CORREIOS_DATA_FROM'] == 'postmon'
       Correios.new
     end
   end
