@@ -78,10 +78,24 @@ describe Carrier, type: :model do
       expect(service).to be_a(Correios)
     end
 
-    it 'returns postmon tracker instance' do
-      ENV['CORREIOS_FROM_POSTMON'] = 'true'
-      service = carrier.new(shop, 'correios').service
-      expect(service).to be_a(Postmon)
+    context 'with Correios from Postmon' do
+      before { ENV['CORREIOS_DATA_FROM'] = 'postmon' }
+      after { ENV['CORREIOS_DATA_FROM'] = nil }
+
+      it 'returns postmon tracker instance' do
+        service = carrier.new(shop, 'correios').service
+        expect(service).to be_a(Postmon)
+      end
+    end
+
+    context 'with Correios from HTML parser' do
+      before { ENV['CORREIOS_DATA_FROM'] = 'html' }
+      after { ENV['CORREIOS_DATA_FROM'] = nil }
+
+      it 'returns correios html tracker instance' do
+        service = carrier.new(shop, 'correios').service
+        expect(service).to be_a(CorreiosHtml)
+      end
     end
   end
 
