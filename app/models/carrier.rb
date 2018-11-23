@@ -4,7 +4,7 @@ class Carrier
   CARRIERS = {
     'tnt' => Tnt,
     'intelipost' => Intelipost,
-    'jadlog' => Jadlog::Tracker,
+    'jadlog' => Jadlog,
     'totalexpress' => TotalExpress::Tracker
   }.freeze
 

@@ -50,8 +50,6 @@ class Tnt
   def parse_status(status)
     {
       'Nenhum registro encontrado.' => 'pending',
-      '' => 'in_transit',
-      '' => 'out_of_delivery',
       'ENTREGA REALIZADA' => 'delivered'
     }.fetch(status, 'expection')
   end

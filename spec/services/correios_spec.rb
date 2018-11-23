@@ -49,7 +49,7 @@ describe Correios do
   end
 
   describe '#parse_status' do
-    STATUSES = {
+    statuses = {
       'PO-01' => 'in_transit',
       'PO-09' => 'in_transit',
       'RO-01' => 'in_transit',
@@ -82,7 +82,7 @@ describe Correios do
       'foo' => 'exception'
     }.freeze
 
-    STATUSES.each do |postmon_status, app_status|
+    statuses.each do |postmon_status, app_status|
       it 'returns parsed status' do
         expect(correios.parse_status(postmon_status)).to eq(app_status)
       end
