@@ -65,7 +65,7 @@ describe Carrier, type: :model do
   describe '#service' do
     it 'returns jadlog tracker instance' do
       service = carrier.new(shop, 'jadlog').service
-      expect(service).to be_a(Jadlog::Tracker)
+      expect(service).to be_a(Jadlog)
     end
 
     it 'returns tnt tracker instance' do
