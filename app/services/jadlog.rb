@@ -37,7 +37,7 @@ class Jadlog
         'Content-Type' => 'application/json',
         'Authorization' => "Bearer #{@token}"
       },
-      body: { 'consulta' => [{ 'codigo' => tracking_code }] }.to_json
+      body: { 'consulta' => [{ 'shipmentId' => tracking_code }] }.to_json
     )
   rescue Excon::Errors::Error => e
     Honeybadger.notify(e, context: { tracking_code: tracking_code })

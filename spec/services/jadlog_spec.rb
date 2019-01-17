@@ -19,6 +19,7 @@ describe Jadlog do
     it 'returns tracking code status' do
       stub_request(:post, url)
         .with(
+          body: { 'consulta' => [{ 'shipmentId' => '1800000000002' }] }.to_json,
           headers: {
             'Authorization' => 'Bearer foo',
             'Content-Type' => 'application/json'
@@ -36,6 +37,7 @@ describe Jadlog do
     it 'returns pending when does not have events' do
       stub_request(:post, url)
         .with(
+          body: { 'consulta' => [{ 'shipmentId' => '1800000000002' }] }.to_json,
           headers: {
             'Authorization' => 'Bearer foo',
             'Content-Type' => 'application/json'
