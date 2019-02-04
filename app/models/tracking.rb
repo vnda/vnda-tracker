@@ -7,7 +7,7 @@ class Tracking < ApplicationRecord
     out_of_delivery
     delivered
     failed_attempt
-    expection
+    exception
     expired
   ].freeze
 
