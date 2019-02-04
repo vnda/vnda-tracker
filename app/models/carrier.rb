@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Carrier
+  UnsupportedCarrierError = Class.new(StandardError)
+
   CARRIERS = {
     'tnt' => Tnt,
     'intelipost' => Intelipost,
@@ -37,7 +39,9 @@ class Carrier
 
   def service
     return correios_service if @carrier == 'correios'
-    raise 'Unsupported Carrier' unless CARRIERS.key?(@carrier)
+    unless CARRIERS.key?(@carrier)
+      raise UnsupportedCarrierError, "Carrier #{@carrier} is unsupported"
+    end
     CARRIERS[@carrier].new(@shop)
   end
 
