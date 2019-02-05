@@ -63,6 +63,13 @@ describe Carrier, type: :model do
   end
 
   describe '#service' do
+    it 'raises error with an unsupported carrier' do
+      expect { carrier.new(shop, 'foo').service }.to raise_error(
+        Carrier::UnsupportedCarrierError,
+        'Carrier foo is unsupported'
+      )
+    end
+
     it 'returns jadlog tracker instance' do
       service = carrier.new(shop, 'jadlog').service
       expect(service).to be_a(Jadlog)

@@ -10,6 +10,8 @@ class RefreshTrackingStatus
     else
       schedule_next_checking(tracking)
     end
+  rescue Carrier::UnsupportedCarrierError
+    logger.info("Tracking #{tracking.attributes} have an unsupported carrier")
   end
 
   protected
