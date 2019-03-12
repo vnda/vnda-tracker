@@ -24,6 +24,7 @@ class Carrier
     return 'tnt' if code =~ /^.{12}$/ && shop && shop.tnt_enabled?
     return 'jadlog' if code.match?(/^[0-9]{8,14}$/)
     return 'totalexpress' if code.match?(/^VN\w{1,}$/)
+
     'unknown'
   end
   # rubocop:enable Metrics/CyclomaticComplexity
@@ -39,9 +40,11 @@ class Carrier
 
   def service
     return correios_service if @carrier == 'correios'
+
     unless CARRIERS.key?(@carrier)
       raise UnsupportedCarrierError, "Carrier #{@carrier} is unsupported"
     end
+
     CARRIERS[@carrier].new(@shop)
   end
 
@@ -51,6 +54,7 @@ class Carrier
     @correios_service ||= begin
       return CorreiosHtml.new if ENV['CORREIOS_DATA_FROM'] == 'html'
       return Postmon.new if ENV['CORREIOS_DATA_FROM'] == 'postmon'
+
       Correios.new
     end
   end

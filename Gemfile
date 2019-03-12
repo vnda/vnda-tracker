@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.4.3'
+ruby '2.5.3'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -10,23 +10,25 @@ git_source(:github) do |repo_name|
 end
 
 gem 'coffee-rails', '~> 4.2'
-gem 'faraday', '0.11.0'
-gem 'faraday_middleware', '0.11.0.1'
-gem 'httparty', '0.15.3'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '4.3.1'
-gem 'nokogiri', '1.8.2'
-gem 'pg', '0.21.0'
-gem 'puma', '3.11.2'
-gem 'rails', '5.1.6'
 gem 'sass-rails', '~> 5.0'
 gem 'therubyracer', platforms: :ruby
 gem 'uglifier', '>= 1.3.0'
 source 'https://rails-assets.org' do
   gem 'rails-assets-sweetalert'
 end
-gem 'excon', '0.60.0'
-gem 'honeybadger', '3.3.0'
+
+gem 'bootsnap', require: false
+gem 'excon', '0.62.0'
+gem 'faraday', '0.15.4'
+gem 'faraday_middleware', '0.13.1'
+gem 'honeybadger', '3.3.1'
+gem 'httparty', '0.16.4'
+gem 'nokogiri', '1.10.1'
+gem 'pg', '0.21.0'
+gem 'puma', '3.12.0'
+gem 'rails', '5.2.2'
 gem 'savon', '2.12.0'
 gem 'sidekiq', '4.2.10'
 gem 'sinatra', require: nil
@@ -36,14 +38,14 @@ group :development, :test do
   gem 'faker'
   gem 'pry'
   gem 'pry-byebug'
-  gem 'rspec-rails'
-  gem 'rspec_junit_formatter', '0.3.0'
-  gem 'rubocop', '~> 0.56.0', require: false
-  gem 'rubocop-rspec'
+  gem 'rspec-rails', '3.8.2'
+  gem 'rspec_junit_formatter', '0.4.1'
+  gem 'rubocop', '~> 0.65.0', require: false
+  gem 'rubocop-rspec', '1.32.0'
 end
 
 group :test do
-  gem 'codecov', '0.1.10', require: false
+  gem 'codecov', '0.1.14', require: false
   gem 'simplecov', '0.16.1', require: false
   gem 'timecop', '0.9.1'
   gem 'webmock', require: 'webmock/rspec'

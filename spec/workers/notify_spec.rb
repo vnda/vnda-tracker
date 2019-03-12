@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 describe Notify do
-  around { |example| Sidekiq::Testing.fake! { example.run } }
-
   subject(:worker) { described_class.new }
+
+  around { |example| Sidekiq::Testing.fake! { example.run } }
 
   let(:shop) { Shop.create(name: 'foo', notification_url: 'http://foo.com') }
   let(:tracking) do

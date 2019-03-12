@@ -15,6 +15,7 @@ describe RefreshTrackingStatus do
   end
 
   before { Timecop.freeze(Time.zone.parse('2018-02-28')) }
+
   after { Timecop.return }
 
   it 'schedules next verification if delivery status not change' do

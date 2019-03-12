@@ -29,6 +29,7 @@ class CorreiosHtml
 
     event = parse(response.body)
     return { date: nil, status: 'pending', message: nil } unless event
+
     event
   end
 

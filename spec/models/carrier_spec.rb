@@ -87,6 +87,7 @@ describe Carrier, type: :model do
 
     context 'with Correios from Postmon' do
       before { ENV['CORREIOS_DATA_FROM'] = 'postmon' }
+
       after { ENV['CORREIOS_DATA_FROM'] = nil }
 
       it 'returns postmon tracker instance' do
@@ -97,6 +98,7 @@ describe Carrier, type: :model do
 
     context 'with Correios from HTML parser' do
       before { ENV['CORREIOS_DATA_FROM'] = 'html' }
+
       after { ENV['CORREIOS_DATA_FROM'] = nil }
 
       it 'returns correios html tracker instance' do

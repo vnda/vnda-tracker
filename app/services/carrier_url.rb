@@ -24,6 +24,7 @@ class CarrierURL
 
   def fetch
     return '' unless URLS.key?(carrier)
+
     format_url
   end
 

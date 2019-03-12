@@ -28,19 +28,20 @@ describe Tracking, type: :model do
   end
 
   before { Timecop.freeze(Time.zone.parse('2018-06-12')) }
+
   after { Timecop.return }
 
   context 'without delivery_status' do
-    let(:tracking_attributes) { { code: 'PM135787152BR' } }
+    let(:tracking_attributes) { { code: 'PM135787152BR', shop: shop } }
 
-    it 'raises validation error' do
-      expect { tracking } .to raise_error(ActiveRecord::RecordInvalid)
+    it 'uses default' do
+      expect(tracking.delivery_status).to eq('pending')
     end
   end
 
   context 'without code' do
     let(:tracking_attributes) do
-      { delivery_status: 'pending', carrier: 'correios' }
+      { delivery_status: 'pending', carrier: 'correios', shop: shop }
     end
 
     it 'raises validation error' do

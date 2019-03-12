@@ -26,6 +26,7 @@ RSpec.describe Tracking do
     end
 
     before { Timecop.freeze('2018-06-12 17:36:44 +0000') }
+
     after { Timecop.return }
 
     context 'with changes' do
