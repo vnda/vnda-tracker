@@ -2,7 +2,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/ruby:2.4.3
+      - image: circleci/ruby:2.5.3
         environment:
           DATABASE_URL: "postgres://root:password@localhost/tracker_test"
           RAILS_ENV: test

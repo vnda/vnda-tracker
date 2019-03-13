@@ -64,6 +64,7 @@ class Tracking < ApplicationRecord
 
   def forward_to_intelipost
     return unless shop.forward_to_intelipost
+
     Intelipost.new(shop).update_tracking(package, code)
   end
 

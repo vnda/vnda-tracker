@@ -29,7 +29,7 @@ describe CorreiosHtml do
       end
 
       it do
-        is_expected.to eq(
+        expect(status).to eq(
           date: '27/08/2018 12:43'.to_datetime,
           status: 'delivered',
           message: 'Objeto entregue ao destinatário'
