@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-require 'httparty'
-
 class Intelipost
-  include HTTParty
-
   def initialize(shop)
     @base_uri = 'api.intelipost.com.br'
     @token = shop.intelipost_api_key
@@ -22,19 +18,14 @@ class Intelipost
       package_response = response['content']['shipment_order_volume_array'][0]
     end
 
-    date, text =
-      if response['status'] == 'OK'
-        [
-          package_response['delivered_date'] || Time.now,
-          parse_status(
-            package_response['shipment_order_volume_state_localized']
-          )
-        ]
-      else
-        [Time.now, 'pending']
-      end
+    return { date: nil, status: 'pending' } unless response['status'] == 'OK'
 
-    { date: "#{date} -3UTC".to_datetime, status: text }
+    event_date = package_response['delivered_date'] || Time.now
+    event_status = package_response['shipment_order_volume_state_localized']
+    {
+      date: "#{event_date} -3UTC".to_datetime,
+      status: parse_status(event_status)
+    }
   end
 
   def update_tracking(package_code, code)
@@ -63,22 +54,6 @@ class Intelipost
     response['status'] == 'OK'
   end
 
-  private
-
-  def get(url)
-    JSON.parse(self.class.get(url, headers: @headers).body)
-  end
-
-  def post(url, params)
-    JSON.parse(
-      self.class.post(
-        url,
-        body: params.to_json,
-        headers: @headers
-      ).body
-    )
-  end
-
   def parse_status(status)
     {
       'Criado' => 'pending',
@@ -88,6 +63,22 @@ class Intelipost
       'Saiu para Entrega' => 'out_of_delivery',
       'Entregue' => 'delivered',
       'Cancelado' => 'expired'
-    }.fetch(status, 'expection')
+    }.fetch(status, 'exception')
+  end
+
+  private
+
+  def get(url)
+    response = Excon.get(url, headers: @headers)
+    JSON.parse(response.body)
+  rescue JSON::ParserError
+    {}
+  end
+
+  def post(url, params)
+    response = Excon.post(url, body: params.to_json, headers: @headers)
+    JSON.parse(response.body)
+  rescue JSON::ParserError
+    {}
   end
 end
