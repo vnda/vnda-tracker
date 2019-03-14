@@ -51,6 +51,24 @@ describe Jadlog do
         message: nil
       )
     end
+
+    it 'returns pending with empty response' do
+      stub_request(:post, url)
+        .with(
+          body: { 'consulta' => [{ 'shipmentId' => '1800000000002' }] }.to_json,
+          headers: {
+            'Authorization' => 'Bearer foo',
+            'Content-Type' => 'application/json'
+          }
+        )
+        .to_return(status: 200, body: {}.to_json)
+
+      expect(jadlog.status('1800000000002')).to eq(
+        date: nil,
+        status: 'pending',
+        message: nil
+      )
+    end
   end
 
   describe '#parse_status' do

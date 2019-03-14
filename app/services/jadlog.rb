@@ -45,6 +45,8 @@ class Jadlog
 
   def parse(json)
     hash = JSON.parse(json)
+    return unless hash['consulta']
+
     tracking = hash['consulta'].first
 
     return if tracking['error'].present?
