@@ -4,6 +4,8 @@ pt-BR:
       tracking: "Rastreio"
       shop: "Loja"
     attributes:
+      shop:
+        mandae_pattern: Padrão para reconhecimento do rastreio (regex)
       tracking:
         code: "Código de rastreio"
         carrier: Transportadora

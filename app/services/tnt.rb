@@ -4,6 +4,7 @@ require 'savon'
 
 class Tnt
   def initialize(shop)
+    @shop = shop
     @email = shop.tnt_email
     @cnpj = shop.tnt_cnpj
   end
@@ -52,5 +53,12 @@ class Tnt
       'Nenhum registro encontrado.' => 'pending',
       'ENTREGA REALIZADA' => 'delivered'
     }.fetch(status, 'expection')
+  end
+
+  def accept?(tracking_code)
+    return false unless @shop
+    return false unless @shop.tnt_enabled?
+
+    tracking_code.match?(/^.{12}$/)
   end
 end

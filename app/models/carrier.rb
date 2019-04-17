@@ -7,6 +7,7 @@ class Carrier
     'tnt' => Tnt,
     'intelipost' => Intelipost,
     'jadlog' => Jadlog,
+    'mandae' => Mandae,
     'totalexpress' => TotalExpress::Tracker
   }.freeze
 
@@ -17,17 +18,16 @@ class Carrier
 
   delegate :status, to: :service
 
-  # rubocop:disable Metrics/CyclomaticComplexity
-  def self.discover(code, shop = nil)
+  def self.discover(code, shop)
     # Intelipost discovers this in intelipost_controller
     return 'correios' if code.match?(/^[a-zA-Z]{2}[0-9]{9}[a-zA-Z]{2}$/)
-    return 'tnt' if code =~ /^.{12}$/ && shop && shop.tnt_enabled?
+    return 'tnt' if Tnt.new(shop).accept?(code)
     return 'jadlog' if code.match?(/^[0-9]{8,14}$/)
+    return 'mandae' if Mandae.new(shop).accept?(code)
     return 'totalexpress' if code.match?(/^VN\w{1,}$/)
 
     'unknown'
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 
   def self.url(carrier:, code:, shop: nil)
     # Intelipost discovers this in intelipost_controller
