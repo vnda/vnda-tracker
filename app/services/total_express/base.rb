@@ -9,7 +9,7 @@ module TotalExpress
     private
 
     def carrier
-      @carrier ||= Carrier.discover(code)
+      @carrier ||= Carrier.discover(code, @shop)
     end
 
     def tracking_url

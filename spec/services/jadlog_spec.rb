@@ -15,6 +15,63 @@ describe Jadlog do
     )
   end
 
+  let(:response_with_error) do
+    {
+      'consulta': [
+        {
+          'cte': '1800000000000',
+          'error': { 'id': -1, 'descricao': 'Nao localizado.' }
+        }
+      ]
+    }
+  end
+
+  let(:response_with_event) do
+    {
+      'consulta': [
+        {
+          'cte': '1800000000002',
+          'tracking': {
+            'codigo': '1800000000002',
+            'shipmentId': '00000000000000',
+            'dacte': '000000000000000000000000000000000000000000000',
+            'dtEmissao': '19/04/2018',
+            'status': 'EMISSAO',
+            'valor': 32.75,
+            'peso': 20,
+            'eventos': [
+              {
+                'data': '2018-04-19 20:33:39',
+                'status': 'EMISSAO',
+                'unidade': 'JADLOG SEDE'
+              }
+            ]
+          }
+        }
+      ]
+    }
+  end
+
+  let(:response_without_event) do
+    {
+      'consulta': [
+        {
+          'cte': '1800000000002',
+          'tracking': {
+            'codigo': '1800000000002',
+            'shipmentId': '00000000000000',
+            'dacte': '000000000000000000000000000000000000000000000',
+            'dtEmissao': '19/04/2018',
+            'status': 'EMISSAO',
+            'valor': 32.75,
+            'peso': 20,
+            'eventos': []
+          }
+        }
+      ]
+    }
+  end
+
   describe '#status' do
     it 'returns tracking code status' do
       stub_request(:post, url)
@@ -25,7 +82,7 @@ describe Jadlog do
             'Content-Type' => 'application/json'
           }
         )
-        .to_return(status: 200, body: RESPONSE_WITH_EVENT.to_json)
+        .to_return(status: 200, body: response_with_event.to_json)
 
       expect(jadlog.status('1800000000002')).to eq(
         date: '2018-04-19 20:33:39 -0300'.to_datetime,
@@ -43,7 +100,7 @@ describe Jadlog do
             'Content-Type' => 'application/json'
           }
         )
-        .to_return(status: 200, body: RESPONSE_WITH_ERROR.to_json)
+        .to_return(status: 200, body: response_with_error.to_json)
 
       expect(jadlog.status('1800000000002')).to eq(
         date: nil,
@@ -92,55 +149,4 @@ describe Jadlog do
       end
     end
   end
-
-  RESPONSE_WITH_ERROR = {
-    'consulta': [
-      {
-        'cte': '1800000000000',
-        'error': { 'id': -1, 'descricao': 'Nao localizado.' }
-      }
-    ]
-  }.freeze
-
-  RESPONSE_WITH_EVENT = {
-    'consulta': [
-      {
-        'cte': '1800000000002',
-        'tracking': {
-          'codigo': '1800000000002',
-          'shipmentId': '00000000000000',
-          'dacte': '000000000000000000000000000000000000000000000',
-          'dtEmissao': '19/04/2018',
-          'status': 'EMISSAO',
-          'valor': 32.75,
-          'peso': 20,
-          'eventos': [
-            {
-              'data': '2018-04-19 20:33:39',
-              'status': 'EMISSAO',
-              'unidade': 'JADLOG SEDE'
-            }
-          ]
-        }
-      }
-    ]
-  }.freeze
-
-  RESPONSE_WITHOUT_EVENT = {
-    'consulta': [
-      {
-        'cte': '1800000000002',
-        'tracking': {
-          'codigo': '1800000000002',
-          'shipmentId': '00000000000000',
-          'dacte': '000000000000000000000000000000000000000000000',
-          'dtEmissao': '19/04/2018',
-          'status': 'EMISSAO',
-          'valor': 32.75,
-          'peso': 20,
-          'eventos': []
-        }
-      }
-    ]
-  }.freeze
 end

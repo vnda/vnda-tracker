@@ -26,38 +26,45 @@ describe Carrier, type: :model do
       'total_enabled': true,
       'total_client_id': '123',
       'total_user': 'foo',
-      'total_password': 'bar'
+      'total_password': 'bar',
+      'mandae_enabled': true,
+      'mandae_pattern': 'VNDA[0-9]{3}'
     }
   end
 
   describe '.discover' do
     it 'recognizes correios tracking code' do
-      tracker = carrier.discover('OF323444460BR')
+      tracker = carrier.discover('OF323444460BR', shop)
       expect(tracker).to eq('correios')
     end
 
     it 'recognizes correios tracking code with lowercase characters' do
-      tracker = carrier.discover('of323444460br')
+      tracker = carrier.discover('of323444460br', shop)
       expect(tracker).to eq('correios')
     end
 
     it 'recognizes jadlog 14 digit tracking code' do
-      tracker = carrier.discover('10084882066034')
+      tracker = carrier.discover('10084882066034', shop)
       expect(tracker).to eq('jadlog')
     end
 
     it 'recognizes jadlog 8 digit tracking code' do
-      tracker = carrier.discover('80605889')
+      tracker = carrier.discover('80605889', shop)
       expect(tracker).to eq('jadlog')
     end
 
     it 'recognizes total_express tracking code' do
-      tracker = carrier.discover('VN123')
+      tracker = carrier.discover('VN123', shop)
       expect(tracker).to eq('totalexpress')
     end
 
+    it 'recognizes mandae tracking code' do
+      tracker = carrier.discover('VNDA123', shop)
+      expect(tracker).to eq('mandae')
+    end
+
     it 'does not recognize unexpected tracking code' do
-      tracker = carrier.discover('of00000000000000br')
+      tracker = carrier.discover('of00000000000000br', shop)
       expect(tracker).to eq('unknown')
     end
   end
@@ -78,6 +85,11 @@ describe Carrier, type: :model do
     it 'returns tnt tracker instance' do
       service = carrier.new(shop, 'tnt').service
       expect(service).to be_a(Tnt)
+    end
+
+    it 'returns mandae tracker instance' do
+      service = carrier.new(shop, 'mandae').service
+      expect(service).to be_a(Mandae)
     end
 
     it 'returns correios tracker instance' do
