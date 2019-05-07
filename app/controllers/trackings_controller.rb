@@ -106,6 +106,15 @@ class TrackingsController < ApplicationController
 
   private
 
+  def shop
+    @shop ||=
+      if params[:token].present?
+        Shop.where(token: params[:token]).first
+      else
+        Shop.find(params[:shop_id])
+      end
+  end
+
   def tracking_params
     params.require(:tracking).permit(:code, :package, :carrier,
       :notification_url, :delivery_status, :tracker_url)
@@ -116,11 +125,6 @@ class TrackingsController < ApplicationController
   end
 
   def scopped_trackings
-    shop = if params[:token].present?
-             Shop.where(token: params[:token]).first
-           else
-             Shop.find(params[:shop_id])
-    end
     @trackings ||= shop.trackings
   end
 end
