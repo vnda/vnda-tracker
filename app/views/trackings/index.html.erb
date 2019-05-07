@@ -1,6 +1,12 @@
 <div class="row page-header mb-0">
   <div class="col-lg-6">
-      <h3>Rastreios</h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to 'Lojas', shops_path %></li>
+        <li class="breadcrumb-item"><%= link_to @shop.name, shop_path(@shop) %></li>
+        <li class="breadcrumb-item active" aria-current="page">Rastreios</li>
+      </ol>
+    </nav>
   </div>
   <div class="col-lg-6">
     <%= link_to('Adicionar', new_shop_tracking_path(params[:shop_id]),
