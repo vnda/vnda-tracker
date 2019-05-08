@@ -14,8 +14,7 @@ describe CorreiosHtml do
   end
 
   let(:url) do
-    'https://www2.correios.com.br/sistemas/rastreamento/resultado_semcontent.' \
-    'cfm'
+    'https://www2.correios.com.br/sistemas/rastreamento/resultado.cfm'
   end
 
   describe '#status' do

@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class CorreiosHtml
-  URL = 'https://www2.correios.com.br/sistemas/rastreamento/resultado_semcont' \
-    'ent.cfm'
+  URL = 'https://www2.correios.com.br/sistemas/rastreamento/resultado.cfm'
 
   STATUS_MAPPING = {
     'Objeto postado' => 'in_transit',
