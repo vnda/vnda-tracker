@@ -69,7 +69,7 @@ describe RefreshTrackingStatus do
       it 'schedules next verification' do
         expect(described_class)
           .to receive(:perform_at)
-          .with(24.hours.from_now, tracking.id)
+          .with(6.hours.from_now, tracking.id)
 
         subject.perform(tracking.id)
       end
@@ -81,7 +81,7 @@ describe RefreshTrackingStatus do
       it 'schedules next verification' do
         expect(described_class)
           .to receive(:perform_at)
-          .with(24.hours.from_now, tracking.id)
+          .with(6.hours.from_now, tracking.id)
 
         subject.perform(tracking.id)
       end

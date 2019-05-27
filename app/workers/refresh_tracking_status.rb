@@ -16,8 +16,8 @@ class RefreshTrackingStatus
 
   protected
 
-  def schedule_next_checking(tracking)
-    RefreshTrackingStatus.perform_at(24.hours.from_now, tracking.id)
+  def schedule_next_checking(tracking, interval = 24)
+    RefreshTrackingStatus.perform_at(interval.hours.from_now, tracking.id)
   end
 
   def notify_changes(tracking)
@@ -28,7 +28,7 @@ class RefreshTrackingStatus
       Notify.perform_async(tracking.id)
     elsif %w[out_of_delivery failed_attempt].include?(tracking.delivery_status)
       # send email
-      schedule_next_checking(tracking)
+      schedule_next_checking(tracking, 6)
     elsif tracking.delivery_status == 'expired'
       # do nothing
     else
