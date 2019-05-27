@@ -34,7 +34,7 @@
         <% @tracking.events.each do |event| %>
         <tr>
           <td><%= event.checkpoint_at %></td>
-          <td><%= event.delivery_status %></td>
+          <td class="text-center"><i title='<%=t event.delivery_status, scope: :delivery_status %>' class='fas <%=t event.delivery_status, scope: :delivery_status_icon %> fa-2x'></i></td>
           <td><%= event.message %></td>
         </tr>
         <% end %>

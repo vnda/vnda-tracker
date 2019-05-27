@@ -20,9 +20,18 @@
       Status da entrega
     </button>
     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-      <a class="dropdown-item" href="?">Todos</a>
+      <a class="dropdown-item" href="?">
+        <span class="text-center" style="min-width: 20px; display: inline-block;">
+        </span>
+        Todos
+      </a>
       <% Tracking::STATUSES.each do |status| %>
-        <a class="dropdown-item" href="?status=<%= status %>"><%=t status %></a>
+        <a class="dropdown-item" href="?status=<%= status %>">
+          <span class="text-center" style="min-width: 20px; display: inline-block;">
+            <i class='fas <%=t status, scope: :delivery_status_icon %>'></i>
+          </span>
+          <%=t status, scope: :delivery_status %>
+        </a>
       <% end %>
     </div>
   </div>
@@ -51,7 +60,9 @@
             <td><%= tracking.code %></td>
             <td><%= tracking.package %></td>
             <td><%= tracking.carrier %></td>
-            <td><%= tracking.delivery_status %></td>
+            <td class="text-center">
+              <i title='<%=t tracking.delivery_status, scope: :delivery_status %>' class='fas <%=t tracking.delivery_status, scope: :delivery_status_icon %> fa-2x'></i>
+            </td>
             <td><%= link_to_if(tracking.tracker_url.present?, tracking.tracker_url, tracking.tracker_url, target: "_blank") %></td>
             <td>
               <% if @scheduled_tracking_ids.include?(tracking.id) %>

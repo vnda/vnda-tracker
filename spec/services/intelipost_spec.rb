@@ -81,7 +81,7 @@ describe Intelipost do
   end
 
   describe '#parse_status' do
-    STATUSES = {
+    statuses = {
       'Criado' => 'pending',
       'Pronto para envio' => 'pending',
       'Despachado' => 'in_transit',
@@ -89,9 +89,9 @@ describe Intelipost do
       'Saiu para Entrega' => 'out_of_delivery',
       'Entregue' => 'delivered',
       'Cancelado' => 'expired'
-    }.freeze
+    }
 
-    STATUSES.each do |intelipost_status, app_status|
+    statuses.each do |intelipost_status, app_status|
       it 'returns parsed status' do
         expect(service.parse_status(intelipost_status)).to eq(app_status)
       end

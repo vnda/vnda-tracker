@@ -1,4 +1,22 @@
 pt-BR:
+  delivery_status:
+    pending: Pendente
+    in_transit: Em trânsito
+    out_of_delivery: Saiu para entrega
+    delivered: Entregue
+    failed_attempt: Tentativa de entrega
+    exception: Erro
+    expired: Expirado
+
+  delivery_status_icon:
+    pending: fa-dolly
+    in_transit: fa-shipping-fast
+    out_of_delivery: fa-concierge-bell
+    delivered: fa-home
+    failed_attempt: fa-exclamation
+    exception: fa-exclamation-triangle
+    expired: fa-check
+
   activerecord:
     models:
       tracking: "Rastreio"
