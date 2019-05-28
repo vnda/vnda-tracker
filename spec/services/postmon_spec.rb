@@ -32,7 +32,7 @@ describe Postmon do
   end
 
   describe '#parse_status' do
-    STATUSES = {
+    statuses = {
       'Objeto postado' => 'in_transit',
       'Objeto postado após o horário limite da unidade' => 'in_transit',
       'Postado depois do horário limite da agência' => 'in_transit',
@@ -51,9 +51,9 @@ describe Postmon do
       'Objeto entregue ao destinatário' => 'delivered',
       'Objeto entregue' => 'delivered',
       'Objeto devolvido ao remetente' => 'expired'
-    }.freeze
+    }
 
-    STATUSES.each do |postmon_status, app_status|
+    statuses.each do |postmon_status, app_status|
       it 'returns parsed status' do
         expect(subject.parse_status(postmon_status)).to eq(app_status)
       end

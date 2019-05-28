@@ -58,7 +58,7 @@ describe CorreiosHtml do
   end
 
   describe '#parse_status' do
-    STATUSES = {
+    statuses = {
       'Objeto postado' => 'in_transit',
       'Objeto postado após o horário limite da unidade' => 'in_transit',
       'Postado depois do horário limite da agência' => 'in_transit',
@@ -79,9 +79,9 @@ describe CorreiosHtml do
       'Objeto entregue ao destinatário' => 'delivered',
       'Objeto entregue' => 'delivered',
       'Objeto devolvido ao remetente' => 'expired'
-    }.freeze
+    }
 
-    STATUSES.each do |correios_status, app_status|
+    statuses.each do |correios_status, app_status|
       it 'returns parsed status' do
         expect(correios.parse_status(correios_status)).to eq(app_status)
       end
