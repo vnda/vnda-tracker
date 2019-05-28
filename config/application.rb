@@ -14,5 +14,7 @@ module VndaTracker
     # here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.i18n.default_locale = 'pt-BR'
+    config.time_zone = 'Brasilia'
   end
 end
