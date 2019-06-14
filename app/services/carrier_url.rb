@@ -6,6 +6,7 @@ class CarrierURL
     'tnt' => 'http://app.tntbrasil.com.br/radar/public/'\
       'localizacaoSimplificadaDetail/%<code>s',
     'jadlog' => 'http://www.jadlog.com.br/siteDpd/tracking.jad?cte=%<code>s',
+    'mandae' => 'https://rastreae.com.br/resultado/%<code>s',
     'totalexpress' => 'https://tracking.totalexpress.com.br/poupup_track.php?'\
       'reid=%<reid>s&pedido=%<code>s&nfiscal=%<invoice>s'
   }.freeze
