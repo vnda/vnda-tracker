@@ -64,8 +64,8 @@ class CorreiosHtml
   end
 
   def parse_event_time(text)
-    array = text.split("\r\n").select(&:present?).map(&:strip)
+    array = text.split("\n").select(&:present?).map(&:strip)
     date, time, _city = array
-    "#{date} #{time}".to_datetime
+    "#{date} #{time} -3UTC".to_datetime
   end
 end
