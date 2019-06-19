@@ -31,6 +31,23 @@ describe Postmon do
     end
   end
 
+  describe '#events' do
+    it 'returns tracking code status' do
+      stub_request(:get, "#{url}/DW962413465BR")
+        .to_return(status: 200, body: response_with_event.to_json)
+
+      expect(subject.events('DW962413465BR')).to eq(
+        [
+          {
+            date: '04/04/2018 17:14 -3UTC'.to_datetime,
+            status: 'delivered',
+            message: 'Objeto entregue ao destinat\u00ef\u00bf\u00bdrio'
+          }
+        ]
+      )
+    end
+  end
+
   describe '#parse_status' do
     statuses = {
       'Objeto postado' => 'in_transit',

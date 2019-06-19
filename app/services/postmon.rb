@@ -23,6 +23,10 @@ class Postmon
     }
   end
 
+  def events(tracking_code)
+    [status(tracking_code)]
+  end
+
   def parse_status(status)
     if /Objeto postado/.match?(status)
       'in_transit'

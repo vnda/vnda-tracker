@@ -128,6 +128,32 @@ describe Jadlog do
     end
   end
 
+  describe '#events' do
+    before do
+      stub_request(:post, url)
+        .with(
+          body: { 'consulta' => [{ 'shipmentId' => '1800000000002' }] }.to_json,
+          headers: {
+            'Authorization' => 'Bearer foo',
+            'Content-Type' => 'application/json'
+          }
+        )
+        .to_return(status: 200, body: response_with_event.to_json)
+    end
+
+    it do
+      expect(jadlog.events('1800000000002')).to eq(
+        [
+          {
+            date: '2018-04-19 20:33:39 -0300'.to_datetime,
+            status: 'in_transit',
+            message: 'EMISSAO'
+          }
+        ]
+      )
+    end
+  end
+
   describe '#parse_status' do
     statuses = {
       'EMISSAO' => 'in_transit',

@@ -20,16 +20,18 @@ class CorreiosHtml
   }.freeze
 
   def status(tracking_code)
-    begin
-      response = request(tracking_code)
-    rescue Excon::Errors::Error => e
-      Honeybadger.notify(e, context: { tracking_code: tracking_code })
-    end
-
-    event = parse(response.body)
+    event = events(tracking_code).first
     return { date: nil, status: 'pending', message: nil } unless event
 
     event
+  end
+
+  def events(tracking_code)
+    @events ||= {}
+    @events[tracking_code] ||= begin
+      response = request(tracking_code)
+      parse(response.body)
+    end
   end
 
   def parse_status(text)
@@ -48,19 +50,22 @@ class CorreiosHtml
       body: URI.encode_www_form(objetos: tracking_code),
       headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
     )
+  rescue Excon::Errors::Error => e
+    Honeybadger.notify(e, context: { tracking_code: tracking_code })
   end
 
   def parse(html)
     n = Nokogiri::HTML(html)
     lines = n.css('table.listEvent tr')
-    return unless lines.any?
+    return [] unless lines.any?
 
-    line = lines.first
-    {
-      date: parse_event_time(line.css('td.sroDtEvent').text),
-      status: parse_status(line.css('td.sroLbEvent').text.strip),
-      message: line.css('td.sroLbEvent').text.strip
-    }
+    lines.map do |line|
+      {
+        date: parse_event_time(line.css('td.sroDtEvent').text),
+        status: parse_status(line.css('td.sroLbEvent').text.strip),
+        message: line.css('td.sroLbEvent').text.strip
+      }
+    end
   end
 
   def parse_event_time(text)

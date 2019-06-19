@@ -48,6 +48,10 @@ class Tnt
     { date: "#{date} -3UTC".to_datetime, status: parse_status(text) }
   end
 
+  def events(tracking_code)
+    [status(tracking_code)]
+  end
+
   def parse_status(status)
     {
       'Nenhum registro encontrado.' => 'pending',

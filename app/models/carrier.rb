@@ -16,7 +16,7 @@ class Carrier
     @carrier = carrier
   end
 
-  delegate :status, to: :service
+  delegate :status, :events, to: :service
 
   def self.discover(code, shop)
     # Intelipost discovers this in intelipost_controller

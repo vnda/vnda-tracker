@@ -48,6 +48,35 @@ describe Correios do
     end
   end
 
+  describe '#events' do
+    before do
+      stub_request(
+        :get,
+        'http://webservice.correios.com.br/service/rastro/Rastro.wsdl'
+      ).to_return(status: 200, body: wsdl)
+    end
+
+    it 'returns tracking code status' do
+      stub_request(
+        :post,
+        'http://webservice.correios.com.br/service/rastro'
+      ).with(body: request_xml).to_return(
+        status: 200,
+        body: xml_with_event
+      )
+
+      expect(correios.events('DW962413465BR')).to eq(
+        [
+          {
+            date: '08/06/2018 16:09 -3UTC'.to_datetime,
+            status: 'in_transit',
+            message: 'Objeto postado'
+          }
+        ]
+      )
+    end
+  end
+
   describe '#parse_status' do
     statuses = {
       'PO-01' => 'in_transit',

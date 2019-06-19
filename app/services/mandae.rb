@@ -35,6 +35,10 @@ class Mandae
     }
   end
 
+  def events(tracking_code)
+    [status(tracking_code)]
+  end
+
   def parse_status(status)
     STATUSES.fetch(status, 'exception')
   end

@@ -27,6 +27,10 @@ class Correios
     }
   end
 
+  def events(tracking_code)
+    [status(tracking_code)]
+  end
+
   def parse_status(status)
     {
       'PO-01' => 'in_transit', # Postado

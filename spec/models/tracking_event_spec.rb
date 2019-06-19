@@ -20,16 +20,63 @@ describe TrackingEvent, type: :model do
   end
 
   describe '#register' do
-    it 'raises error if no delivery_status' do
-      expect do
-        tracking.events.register(nil, Time.current, 'Objeto postado')
-      end.to raise_error(ActiveRecord::RecordInvalid)
+    context 'without event' do
+      let(:events) { [] }
+
+      it { expect(tracking.events.size).to eq(0) }
     end
 
-    it 'registers an event' do
-      tracking.events.register('in_transit', Time.current, 'Objeto postado')
+    context 'with invalid' do
+      let(:events) do
+        [
+          {
+            date: Time.current,
+            status: nil,
+            message: 'Objeto postado'
+          }
+        ]
+      end
 
-      expect(tracking.events.size).to eq(1)
+      it { expect(tracking.events.size).to eq(0) }
+    end
+
+    context 'with event' do
+      let(:events) do
+        [
+          {
+            date: Time.current,
+            status: 'in_transit',
+            message: 'Objeto postado'
+          }
+        ]
+      end
+
+      before { tracking.events.register(events, tracking) }
+
+      it { expect(tracking.events.size).to eq(1) }
+    end
+
+    context 'with events' do
+      let(:events) do
+        [
+          {
+            date: Time.current,
+            status: 'in_transit',
+            message: 'Objeto postado'
+          },
+          {
+            date: Time.current,
+            status: 'delivered',
+            message: 'Objeto entregue'
+          }
+        ]
+      end
+
+      before { tracking.events.register(events, tracking) }
+
+      it { expect(tracking.events.size).to eq(2) }
+      it { expect(tracking.events[0].delivery_status).to eq('in_transit') }
+      it { expect(tracking.events[1].delivery_status).to eq('delivered') }
     end
   end
 end

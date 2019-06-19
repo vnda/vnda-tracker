@@ -57,6 +57,61 @@ describe CorreiosHtml do
     end
   end
 
+  describe '#events' do
+    context 'with events' do
+      subject(:events) { correios.events('OF526553827BR') }
+
+      before do
+        stub_request(:post, url)
+          .with(body: { 'objetos' => 'OF526553827BR' })
+          .to_return(status: 200, body: html_with_events)
+      end
+
+      it do
+        expect(events).to eq(
+          [
+            {
+              date: '27/08/2018 12:43 -3UTC'.to_datetime,
+              message: 'Objeto entregue ao destinatário',
+              status: 'delivered'
+            },
+            {
+              date: '27/08/2018 9:59 -3UTC'.to_datetime,
+              message: 'Objeto saiu para entrega ao destinatário',
+              status: 'out_of_delivery'
+            },
+            {
+              date: '25/08/2018 5:44 -3UTC'.to_datetime,
+              message: "Objeto encaminhado\n               \n\n\n\n          " \
+                '          de Unidade de Tratamento em SAO PAULO / SP para Un' \
+                'idade de Distribuição em BARUERI / SP',
+              status: 'in_transit'
+            },
+            {
+              date: '24/08/2018 22:13 -3UTC'.to_datetime,
+              message: "Objeto encaminhado\n               \n\n\n\n          " \
+                '          de Unidade de Tratamento em PORTO ALEGRE / RS para' \
+                ' Unidade de Tratamento em SAO PAULO / SP',
+              status: 'in_transit'
+            },
+            {
+              date: '24/08/2018 15:24 -3UTC'.to_datetime,
+              message: "Objeto encaminhado\n               \n\n\n\n          " \
+                '          de Agência dos Correios em Porto Alegre / RS para ' \
+                'Unidade de Tratamento em PORTO ALEGRE / RS',
+              status: 'in_transit'
+            },
+            {
+              date: '24/08/2018 14:46 -3UTC'.to_datetime,
+              message: 'Objeto postado',
+              status: 'in_transit'
+            }
+          ]
+        )
+      end
+    end
+  end
+
   describe '#parse_status' do
     statuses = {
       'Objeto postado' => 'in_transit',
