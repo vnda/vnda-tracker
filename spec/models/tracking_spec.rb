@@ -114,6 +114,17 @@ describe Tracking, type: :model do
           status: 'in_transit',
           message: 'Objeto postado'
         )
+
+      allow(carrier_service).to receive(:events).with('PM135787152BR')
+        .and_return(
+          [
+            {
+              date: checkpoint_at,
+              status: 'in_transit',
+              message: 'Objeto postado'
+            }
+          ]
+        )
     end
 
     it 'updates delivery_status' do

@@ -80,6 +80,40 @@ describe Intelipost do
     end
   end
 
+  describe '#events' do
+    context 'with events' do
+      subject(:events) { service.events('OF526553827BR') }
+
+      before do
+        stub_request(:get, 'https://api.intelipost.com.br/api/v1/shipment_order/OF526553827BR')
+          .with(headers: headers)
+          .to_return(
+            status: 200,
+            body: {
+              status: 'OK',
+              content: {
+                shipment_order_volume_array: [
+                  delivered_date: '27/08/2018 12:43',
+                  shipment_order_volume_state_localized: 'Entregue'
+                ]
+              }
+            }.to_json
+          )
+      end
+
+      it do
+        expect(events).to eq(
+          [
+            {
+              date: '27/08/2018 12:43 -0300'.to_datetime,
+              status: 'delivered'
+            }
+          ]
+        )
+      end
+    end
+  end
+
   describe '#parse_status' do
     statuses = {
       'Criado' => 'pending',

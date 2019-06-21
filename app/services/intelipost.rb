@@ -28,6 +28,10 @@ class Intelipost
     }
   end
 
+  def events(tracking_code)
+    [status(tracking_code)]
+  end
+
   def update_tracking(package_code, code)
     return unless order_code = package_code.to_s.split('-').first
 

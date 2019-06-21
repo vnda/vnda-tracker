@@ -5,11 +5,14 @@ class TrackingEvent < ApplicationRecord
 
   validates :delivery_status, :tracking, presence: true
 
-  def self.register(status, date, message)
-    create!(
-      delivery_status: status,
-      checkpoint_at: date,
-      message: message
-    )
+  def self.register(events, tracking)
+    events.each do |event|
+      find_or_create_by(
+        checkpoint_at: event[:date],
+        delivery_status: event[:status],
+        message: event[:message],
+        tracking_id: tracking.id
+      )
+    end
   end
 end

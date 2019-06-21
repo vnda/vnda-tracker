@@ -98,6 +98,31 @@ describe Mandae do
     end
   end
 
+  describe '#events' do
+    before do
+      stub_request(:get, url)
+        .with(
+          headers: {
+            'Authorization' => 'foo',
+            'Content-Type' => 'application/json'
+          }
+        )
+        .to_return(status: 200, body: response_with_event.to_json)
+    end
+
+    it do
+      expect(mandae.events('134763521')).to eq(
+        [
+          {
+            date: '2019-03-23 17:28 -0300'.to_datetime,
+            status: 'delivered',
+            message: 'A entrega foi realizada'
+          }
+        ]
+      )
+    end
+  end
+
   describe '#parse_status' do
     statuses = {
       'Encomenda coletada' => 'in_transit',

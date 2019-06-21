@@ -32,19 +32,20 @@ class Tracking < ApplicationRecord
   end
 
   def update_status!
-    hash = Carrier.new(shop, carrier).status(searchable)
+    service = Carrier.new(shop, carrier)
+    last_event = service.status(searchable)
 
-    if hash[:date].present?
-      if 30.days.ago > hash[:date]
+    if last_event[:date].present?
+      if 30.days.ago > last_event[:date]
         self.delivery_status = 'expired'
-      elsif last_checkpoint_at.nil? || last_checkpoint_at < hash[:date]
-        self.delivery_status = hash[:status]
-        self.last_checkpoint_at = hash[:date]
+      elsif last_checkpoint_at.nil? || last_checkpoint_at < last_event[:date]
+        self.delivery_status = last_event[:status]
+        self.last_checkpoint_at = last_event[:date]
       end
 
       if changed?
         save!
-        events.register(delivery_status, hash[:date], hash[:message])
+        TrackingEvent.register(service.events(searchable), self)
         return true
       end
     end

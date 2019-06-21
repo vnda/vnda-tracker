@@ -17,5 +17,9 @@ module TotalExpress
         )
       }
     end
+
+    def events(tracking_code)
+      [status(tracking_code)]
+    end
   end
 end
