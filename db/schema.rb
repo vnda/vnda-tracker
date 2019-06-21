@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_17_135630) do
+ActiveRecord::Schema.define(version: 2019_06_21_141243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_04_17_135630) do
     t.boolean "mandae_enabled"
     t.string "mandae_token"
     t.string "mandae_pattern"
+    t.string "slug"
   end
 
   create_table "tracking_events", force: :cascade do |t|

@@ -3,11 +3,17 @@
 class Shop < ApplicationRecord
   has_many :trackings, dependent: :destroy
 
-  before_validation :default_token
+  validates :slug, :name, :token, presence: true
+
+  before_validation :default_token, :default_slug
 
   protected
 
   def default_token
     self.token = SecureRandom.hex(16) unless token.presence
+  end
+
+  def default_slug
+    self.slug = name&.parameterize
   end
 end

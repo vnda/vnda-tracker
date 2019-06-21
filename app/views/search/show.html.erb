@@ -1,0 +1,49 @@
+<div class="row my-4">
+  <div class="col-md-8 offset-md-2 text-center">
+    <h4><%= @tracking.shop.name %> - <%= @tracking.code %></h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <table class="table table-shops small">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th></th>
+          <th>Evento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tracking.events.each_with_index do |event, index| %>
+          <tr>
+            <td class="text-center">
+              <%=l event.checkpoint_at.to_date %><br />
+              <%=l event.checkpoint_at, format: :time %>
+            </td>
+            <td class="text-center">
+              <i
+                title='<%=t event.delivery_status, scope: :delivery_status %>'
+                class='fas fa-2x <%=t event.delivery_status, scope: :delivery_status_icon %> <%= 'event-icon-muted' if index > 0 %>'
+              ></i>
+            </td>
+            <td><%= event.message %></td>
+          </tr>
+        <% end %>
+        <tr>
+          <td class="text-center">
+            <%=l @tracking.created_at.to_date %><br />
+            <%=l @tracking.created_at, format: :time %>
+          </td>
+          <td class="text-center">
+            <i
+              title='<%=t 'pending', scope: :delivery_status %>'
+              class='fas fa-dolly fa-2x <%= 'event-icon-muted' if @tracking.events.any? %>'
+            ></i>
+          </td>
+          <td>Aguardando postagem do pedido</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
