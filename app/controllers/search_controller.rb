@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class SearchController < ApplicationController
+  layout 'public', only: :show
+
   skip_before_action :verify_authenticity_token
   before_action :set_tracking, only: %i[show edit update destroy]
 
@@ -24,11 +26,12 @@ class SearchController < ApplicationController
   end
 
   def scopped_trackings
-    shop = if params[:token].present?
-             Shop.where(token: params[:token]).first
-           else
-             Shop.find(params[:shop_id])
-    end
+    shop_query = {
+      token: params[:token].presence,
+      slug: params[:shop_name].presence,
+      id: params[:shop_id].presence
+    }.compact
+    shop = Shop.find_by(shop_query)
     @trackings ||= shop.trackings
   end
 end

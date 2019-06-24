@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get  ':token/search', to: 'search#show', defaults: { format: 'json' }
   get  ':token/search/:code', to: 'search#show', defaults: { format: 'json' }
+  get  ':shop_name/:code', to: 'search#show'
   post 'intelipost/receive_hook', to: 'intelipost#receive_hook'
 
   mount Sidekiq::Web => '/sidekiq'
