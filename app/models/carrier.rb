@@ -30,7 +30,6 @@ class Carrier
   end
 
   def self.url(carrier:, code:, shop: nil)
-    # Intelipost discovers this in intelipost_controller
     CarrierURL.fetch(
       carrier: carrier,
       code: code,

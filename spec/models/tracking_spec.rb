@@ -64,6 +64,25 @@ describe Tracking, type: :model do
     end
   end
 
+  describe '#carrier' do
+    context 'when tracking code is equal to order code' do
+      subject(:tracking) { Tracking.new(tracking_attributes) }
+
+      let(:tracking_attributes) do
+        {
+          shop: shop,
+          code: 'BBA1B3509E',
+          delivery_status: 'pending',
+          package: 'BBA1B3509E-01'
+        }
+      end
+
+      before { tracking.valid? }
+
+      it { expect(tracking.carrier).to eq('intelipost') }
+    end
+  end
+
   describe '#searchable' do
     it 'returns tracking code' do
       expect(tracking.searchable).to eq('PM135787152BR')

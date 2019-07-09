@@ -74,7 +74,12 @@ class Tracking < ApplicationRecord
   end
 
   def discover_carrier
-    self.carrier ||= Carrier.discover(code, shop)
+    self.carrier ||=
+      if package&.include?(code)
+        'intelipost'
+      else
+        Carrier.discover(code, shop)
+      end
   end
 
   def discover_tracker_url
