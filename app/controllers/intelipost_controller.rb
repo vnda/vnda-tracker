@@ -3,7 +3,7 @@
 class IntelipostController < ApplicationController
   skip_before_action :verify_authenticity_token, :authenticate!
 
-  def receive_hook
+  def create
     @shop = Shop.find_by!(intelipost_api_key: request.headers['api-key'])
 
     tracking = @shop.trackings.find_or_create_by!(
@@ -19,7 +19,10 @@ class IntelipostController < ApplicationController
   private
 
   def discover_tracker_url
-    'https://status.ondeestameupedido.com/tracking/' \
-    "#{@shop.intelipost_id}/#{params['order_number']}"
+    CarrierURL.fetch(
+      carrier: 'intelipost',
+      code: params['order_number'],
+      shop: @shop
+    )
   end
 end

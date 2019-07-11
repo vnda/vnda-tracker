@@ -12,8 +12,17 @@ describe CarrierURL do
       name: 'Shop 1',
       token: 'shop1_token',
       notification_url: 'http://shop1.vnda.com.br',
-      intelipost_api_key: 'foo'
+      intelipost_api_key: 'foo',
+      intelipost_id: '12345'
     )
+  end
+
+  context 'with Intelipost' do
+    let(:carrier) { 'intelipost' }
+
+    it do
+      expect(url).to eq('https://status.ondeestameupedido.com/tracking/12345/A1B2C3D4E5')
+    end
   end
 
   context 'with Mandaê' do

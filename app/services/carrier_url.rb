@@ -3,10 +3,12 @@
 class CarrierURL
   URLS = {
     'correios' => 'https://track.aftership.com/brazil-correios/%<code>s',
-    'tnt' => 'http://app.tntbrasil.com.br/radar/public/'\
-      'localizacaoSimplificadaDetail/%<code>s',
+    'intelipost' => 'https://status.ondeestameupedido.com/tracking/' \
+      '%<intelipost_id>s/%<code>s',
     'jadlog' => 'http://www.jadlog.com.br/siteDpd/tracking.jad?cte=%<code>s',
     'mandae' => 'https://rastreae.com.br/resultado/%<code>s',
+    'tnt' => 'http://app.tntbrasil.com.br/radar/public/'\
+      'localizacaoSimplificadaDetail/%<code>s',
     'totalexpress' => 'https://tracking.totalexpress.com.br/poupup_track.php?'\
       'reid=%<reid>s&pedido=%<code>s&nfiscal=%<invoice>s'
   }.freeze
@@ -38,12 +40,19 @@ class CarrierURL
     shop.total_client_id
   end
 
+  def intelipost_id
+    return if shop.blank?
+
+    shop.intelipost_id
+  end
+
   def format_url
     format(
       URLS[carrier],
       code: code,
       reid: client_id,
-      invoice: code.to_s.gsub(/\D/, '')
+      invoice: code.to_s.gsub(/\D/, ''),
+      intelipost_id: intelipost_id
     )
   end
 end
