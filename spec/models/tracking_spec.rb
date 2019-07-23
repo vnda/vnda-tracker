@@ -83,20 +83,6 @@ describe Tracking, type: :model do
     end
   end
 
-  describe '#searchable' do
-    it 'returns tracking code' do
-      expect(tracking.searchable).to eq('PM135787152BR')
-    end
-
-    context 'with Interlipost as carrier' do
-      let(:carrier) { 'intelipost' }
-
-      it 'returns package' do
-        expect(tracking.searchable).to eq('BBA1B3509E-01')
-      end
-    end
-  end
-
   describe '#has_job?' do
     subject(:has_job) { tracking.has_job? }
 
