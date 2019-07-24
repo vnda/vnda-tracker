@@ -25,15 +25,9 @@ class Tracking < ApplicationRecord
     :discover_tracker_url
   after_commit :schedule_update, :forward_to_intelipost, on: [:create]
 
-  def searchable
-    return package if carrier == 'intelipost'
-
-    code
-  end
-
   def update_status!
     service = Carrier.new(shop, carrier)
-    last_event = service.status(searchable)
+    last_event = service.status(code)
 
     if last_event[:date].present?
       if 30.days.ago > last_event[:date]
@@ -45,7 +39,7 @@ class Tracking < ApplicationRecord
 
       if changed?
         save!
-        TrackingEvent.register(service.events(searchable), self)
+        TrackingEvent.register(service.events(code), self)
         return true
       end
     end
@@ -85,7 +79,7 @@ class Tracking < ApplicationRecord
   def discover_tracker_url
     self.tracker_url ||= Carrier.url(
       carrier: carrier,
-      code: searchable,
+      code: code,
       shop: shop
     )
   end
