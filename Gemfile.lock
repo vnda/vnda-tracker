@@ -121,7 +121,7 @@ GEM
     multipart-post (2.0.0)
     mustermann (1.0.3)
     nio4r (2.3.1)
-    nokogiri (1.10.1)
+    nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     nori (2.6.0)
     parallel (1.14.0)
@@ -288,7 +288,7 @@ DEPENDENCIES
   honeybadger (= 3.3.1)
   jbuilder (~> 2.5)
   jquery-rails (= 4.3.1)
-  nokogiri (= 1.10.1)
+  nokogiri (= 1.10.4)
   pg (= 0.21.0)
   pry
   pry-byebug
