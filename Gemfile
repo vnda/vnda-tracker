@@ -20,7 +20,7 @@ source 'https://rails-assets.org' do
 end
 
 gem 'bootsnap', require: false
-gem 'excon', '0.62.0'
+gem 'excon', '0.71.0'
 gem 'faraday', '0.15.4'
 gem 'faraday_middleware', '0.13.1'
 gem 'honeybadger', '3.3.1'
