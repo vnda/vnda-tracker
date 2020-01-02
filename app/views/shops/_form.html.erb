@@ -131,6 +131,22 @@
 
       <hr />
 
+      <h4>Delivery Center</h4>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <%= f.check_box :delivery_center_enabled, class: 'form-check-input' %>
+          Habilitado
+        </label>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :delivery_center_token %><br>
+        <%= f.text_field :delivery_center_token, class: 'form-control' %>
+      </div>
+
+      <hr />
+
       <div class="actions">
         <%= f.submit 'Salvar', class: 'btn btn-primary' %>
         <%= link_to 'Cancelar', :back, class: 'btn btn-default'  %>
