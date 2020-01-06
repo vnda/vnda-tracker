@@ -26,7 +26,9 @@ class Mandae
   def status(tracking_code)
     response = request(tracking_code)
     event = parse(response.body)
-    return { date: nil, status: 'pending', message: nil } unless event
+    unless event && event['date']
+      return { date: nil, status: 'pending', message: nil }
+    end
 
     {
       date: "#{event['date']} -3UTC".to_datetime,
