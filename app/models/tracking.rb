@@ -35,6 +35,7 @@ class Tracking < ApplicationRecord
       elsif last_checkpoint_at.nil? || last_checkpoint_at < last_event[:date]
         self.delivery_status = last_event[:status]
         self.last_checkpoint_at = last_event[:date]
+        self.last_response = service.last_response
       end
 
       if changed?

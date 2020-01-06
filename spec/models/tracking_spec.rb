@@ -130,6 +130,8 @@ describe Tracking, type: :model do
             }
           ]
         )
+
+      allow(carrier_service).to receive(:last_response).and_return('foo')
     end
 
     it 'updates delivery_status' do
@@ -142,6 +144,14 @@ describe Tracking, type: :model do
       expect { tracking.update_status! } .to(
         change(tracking, :last_checkpoint_at).from(nil).to(
           '2018-06-12 17:36:44 +0000'.to_datetime
+        )
+      )
+    end
+
+    it 'updates last_response' do
+      expect { tracking.update_status! } .to(
+        change(tracking, :last_response).from(nil).to(
+          'foo'
         )
       )
     end

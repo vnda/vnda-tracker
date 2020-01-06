@@ -21,5 +21,9 @@ module TotalExpress
     def events(tracking_code)
       [status(tracking_code)]
     end
+
+    def last_response
+      nil
+    end
   end
 end

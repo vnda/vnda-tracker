@@ -48,6 +48,16 @@ describe Postmon do
     end
   end
 
+  describe '#last_response' do
+    it 'returns last response body' do
+      stub_request(:get, "#{url}/DW962413465BR")
+        .to_return(status: 200, body: response_with_event.to_json)
+      subject.events('DW962413465BR')
+
+      expect(subject.last_response).to eq(response_with_event.to_json)
+    end
+  end
+
   describe '#parse_status' do
     statuses = {
       'Objeto postado' => 'in_transit',

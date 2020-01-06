@@ -112,6 +112,24 @@ describe CorreiosHtml do
     end
   end
 
+  describe '#last_response' do
+    context 'with response' do
+      subject(:last_response) { correios.last_response }
+
+      before do
+        stub_request(:post, url)
+          .with(body: { 'objetos' => 'OF526553827BR' })
+          .to_return(status: 200, body: html_with_events)
+
+        correios.status('OF526553827BR')
+      end
+
+      it 'returns the integration response' do
+        expect(last_response.include?('tr')).to eq(true)
+      end
+    end
+  end
+
   describe '#parse_status' do
     statuses = {
       'Objeto postado' => 'in_transit',

@@ -118,6 +118,38 @@ describe Intelipost do
     end
   end
 
+  describe '#last_response' do
+    subject(:last_response) { service.last_response }
+
+    let(:response_body) do
+      {
+        status: 'OK',
+        content: {
+          shipment_order_volume_array: [
+            delivered_date: 1_577_365_620_000,
+            delivered_date_iso: '2019-12-26T10:07:00.000-03:00',
+            shipment_order_volume_state_localized: 'Entregue'
+          ]
+        }
+      }.to_json
+    end
+
+    before do
+      stub_request(:get, 'https://api.intelipost.com.br/api/v1/shipment_order/OF526553827BR')
+        .with(headers: headers)
+        .to_return(
+          status: 200,
+          body: response_body
+        )
+
+      service.status('OF526553827BR')
+    end
+
+    it 'returns the integration response' do
+      expect(last_response).to eq(response_body)
+    end
+  end
+
   describe '#parse_status' do
     statuses = {
       'Criado' => 'pending',
