@@ -51,6 +51,25 @@ describe Mandae do
     }
   end
 
+  let(:response_without_event_date) do
+    {
+      'idItemParceiro' => nil,
+      'trackingCode' => '133440397',
+      'partnerItemId' => nil,
+      'carrierName' => 'OnTime',
+      'carrierCode' => '3130187',
+      'events' => [
+        {
+          'timestamp' => nil,
+          'description' => nil,
+          'name' => 'Sua encomenda não foi coletada',
+          'date' => nil,
+          'id' => nil
+        }
+      ]
+    }
+  end
+
   let(:response_without_event) do
     {
       'idItemParceiro' => nil,
@@ -89,6 +108,23 @@ describe Mandae do
           }
         )
         .to_return(status: 200, body: response_with_error.to_json)
+
+      expect(mandae.status('134763521')).to eq(
+        date: nil,
+        status: 'pending',
+        message: nil
+      )
+    end
+
+    it 'returns pending when does not have event date' do
+      stub_request(:get, url)
+        .with(
+          headers: {
+            'Authorization' => 'foo',
+            'Content-Type' => 'application/json'
+          }
+        )
+        .to_return(status: 200, body: response_without_event_date.to_json)
 
       expect(mandae.status('134763521')).to eq(
         date: nil,
