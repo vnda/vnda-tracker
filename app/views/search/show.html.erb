@@ -15,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @tracking.events.each_with_index do |event, index| %>
+        <% @tracking.events.order(checkpoint_at: :desc).each_with_index do |event, index| %>
           <tr>
             <td class="text-center">
               <%=l event.checkpoint_at.to_date %><br />
