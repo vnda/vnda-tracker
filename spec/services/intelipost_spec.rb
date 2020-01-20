@@ -35,7 +35,9 @@ describe Intelipost do
               status: 'OK',
               content: {
                 shipment_order_volume_array: [
-                  delivered_date: '27/08/2018 12:43',
+                  modified_iso: '2019-12-26T16:41:12.495-03:00',
+                  delivered_date: 1_577_365_620_000,
+                  delivered_date_iso: '2019-12-26T10:07:00.000-03:00',
                   shipment_order_volume_state_localized: 'Entregue'
                 ]
               }
@@ -45,7 +47,7 @@ describe Intelipost do
 
       it do
         expect(status).to eq(
-          date: '27/08/2018 12:43 -0300'.to_datetime,
+          date: '26/12/2019 10:07 -0300'.to_datetime,
           status: 'delivered'
         )
       end
@@ -93,7 +95,9 @@ describe Intelipost do
               status: 'OK',
               content: {
                 shipment_order_volume_array: [
-                  delivered_date: '27/08/2018 12:43',
+                  modified_iso: '2019-12-26T16:41:12.495-03:00',
+                  delivered_date: 1_577_365_620_000,
+                  delivered_date_iso: '2019-12-26T10:07:00.000-03:00',
                   shipment_order_volume_state_localized: 'Entregue'
                 ]
               }
@@ -105,7 +109,7 @@ describe Intelipost do
         expect(events).to eq(
           [
             {
-              date: '27/08/2018 12:43 -0300'.to_datetime,
+              date: '26/12/2019 10:07 -0300'.to_datetime,
               status: 'delivered'
             }
           ]

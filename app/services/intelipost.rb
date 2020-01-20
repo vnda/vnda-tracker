@@ -20,10 +20,11 @@ class Intelipost
 
     return { date: nil, status: 'pending' } unless response['status'] == 'OK'
 
-    event_date = package_response['delivered_date'] || Time.now
+    event_date = package_response['delivered_date_iso'] ||
+                 package_response['modified_iso']
     event_status = package_response['shipment_order_volume_state_localized']
     {
-      date: "#{event_date} -3UTC".to_datetime,
+      date: event_date.to_datetime,
       status: parse_status(event_status)
     }
   end
