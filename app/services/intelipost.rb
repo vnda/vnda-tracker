@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Intelipost
+  attr_reader :last_response
+
   def initialize(shop)
     @base_uri = 'api.intelipost.com.br'
     @token = shop.intelipost_api_key
@@ -75,6 +77,7 @@ class Intelipost
 
   def get(url)
     response = Excon.get(url, headers: @headers)
+    @last_response = response.body
     JSON.parse(response.body)
   rescue JSON::ParserError
     {}

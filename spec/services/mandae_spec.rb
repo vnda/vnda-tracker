@@ -159,6 +159,25 @@ describe Mandae do
     end
   end
 
+  describe '#last_response' do
+    before do
+      stub_request(:get, url)
+        .with(
+          headers: {
+            'Authorization' => 'foo',
+            'Content-Type' => 'application/json'
+          }
+        )
+        .to_return(status: 200, body: response_with_event.to_json)
+
+      mandae.events('134763521')
+    end
+
+    it 'returns the integration response' do
+      expect(mandae.last_response).to eq(response_with_event.to_json)
+    end
+  end
+
   describe '#parse_status' do
     statuses = {
       'Encomenda coletada' => 'in_transit',

@@ -3,6 +3,8 @@
 class Correios
   URL = 'http://webservice.correios.com.br/service/rastro/Rastro.wsdl'
 
+  attr_reader :last_response
+
   def status(tracking_code)
     begin
       response = send_message(:busca_eventos,
@@ -71,6 +73,7 @@ class Correios
     client = Savon.client(wsdl: URL, convert_request_keys_to: :none)
     request_xml = client.operation(method_id).build(message: message).to_s
     response = client.call(method_id, message: message)
+    @last_response = response.to_xml
     response
   end
 end

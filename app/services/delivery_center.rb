@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class DeliveryCenter
+  attr_reader :last_response
+
   def initialize(shop)
     @shop = shop
     @token = shop.delivery_center_token
@@ -8,6 +10,7 @@ class DeliveryCenter
 
   def status(tracking_code)
     response = request(tracking_code)
+    @last_response = response.body
     event = parse(response.body)
 
     return { date: nil, status: 'pending', message: nil } unless event
@@ -17,6 +20,10 @@ class DeliveryCenter
       status: parse_status(event),
       message: message(event)
     }
+  end
+
+  def events(_tracking_code)
+    []
   end
 
   def parse_status(event)

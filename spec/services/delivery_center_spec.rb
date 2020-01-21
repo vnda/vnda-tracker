@@ -118,6 +118,38 @@ RSpec.describe DeliveryCenter do
     end
   end
 
+  describe '#last_response' do
+    it 'returns last response' do
+      stub_request(:get, url)
+        .with(
+          headers: {
+            'Authorization' => 'Bearer foo',
+            'Content-Type' => 'application/json'
+          }
+        )
+        .to_return(status: 200, body: response_with_event.to_json)
+
+      delivery_center.status('S5A48')
+
+      expect(delivery_center.last_response).to eq(response_with_event.to_json)
+    end
+  end
+
+  describe '#events' do
+    it 'returns a empty array' do
+      stub_request(:get, url)
+        .with(
+          headers: {
+            'Authorization' => 'Bearer foo',
+            'Content-Type' => 'application/json'
+          }
+        )
+        .to_return(status: 200, body: response_with_event.to_json)
+
+      expect(delivery_center.events('S5A48')).to eq([])
+    end
+  end
+
   describe '#parse_status' do
     context 'without delivery date' do
       let(:event) { { 'dtOrderDelivered' => nil } }

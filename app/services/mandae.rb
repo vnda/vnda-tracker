@@ -18,6 +18,8 @@ class Mandae
     'Entrega realizada' => 'delivered'
   }.freeze
 
+  attr_reader :last_response
+
   def initialize(shop)
     @shop = shop
     @token = shop.mandae_token
@@ -25,7 +27,7 @@ class Mandae
 
   def status(tracking_code)
     response = request(tracking_code)
-    event = parse(response.body)
+    event = parse(response)
     unless event && event['date']
       return { date: nil, status: 'pending', message: nil }
     end
@@ -56,13 +58,13 @@ class Mandae
   private
 
   def request(tracking_code)
-    Excon.get(
+    @last_response = Excon.get(
       "https://api.mandae.com.br/v2/trackings/#{tracking_code}",
       headers: {
         'Content-Type' => 'application/json',
         'Authorization' => @token
       }
-    )
+    ).body
   rescue Excon::Errors::Error => e
     Honeybadger.notify(e, context: { tracking_code: tracking_code })
   end

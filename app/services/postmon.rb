@@ -3,9 +3,12 @@
 class Postmon
   URL = 'http://api.postmon.com.br/v1/rastreio/ect'
 
+  attr_reader :last_response
+
   def status(tracking_code)
     begin
       response = Excon.get("#{URL}/#{tracking_code}", expects: [200, 201])
+      @last_response = response.body
       hash = JSON.parse(response.body)
     rescue Excon::Errors::Error, JSON::ParserError => e
       hash = {}

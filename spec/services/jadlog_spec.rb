@@ -154,6 +154,26 @@ describe Jadlog do
     end
   end
 
+  describe '#last_response' do
+    before do
+      stub_request(:post, url)
+        .with(
+          body: { 'consulta' => [{ 'shipmentId' => '1800000000002' }] }.to_json,
+          headers: {
+            'Authorization' => 'Bearer foo',
+            'Content-Type' => 'application/json'
+          }
+        )
+        .to_return(status: 200, body: response_with_event.to_json)
+
+      jadlog.events('1800000000002')
+    end
+
+    it 'returns the integration response' do
+      expect(jadlog.last_response).to eq(response_with_event.to_json)
+    end
+  end
+
   describe '#parse_status' do
     statuses = {
       'EMISSAO' => 'in_transit',

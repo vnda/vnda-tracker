@@ -77,6 +77,29 @@ describe Correios do
     end
   end
 
+  describe '#last_response' do
+    before do
+      stub_request(
+        :get,
+        'http://webservice.correios.com.br/service/rastro/Rastro.wsdl'
+      ).to_return(status: 200, body: wsdl)
+
+      stub_request(
+        :post,
+        'http://webservice.correios.com.br/service/rastro'
+      ).with(body: request_xml).to_return(
+        status: 200,
+        body: xml_with_event
+      )
+
+      correios.events('DW962413465BR')
+    end
+
+    it 'returns last response body' do
+      expect(correios.last_response).to eq(xml_with_event)
+    end
+  end
+
   describe '#parse_status' do
     statuses = {
       'PO-01' => 'in_transit',

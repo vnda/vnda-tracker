@@ -19,6 +19,8 @@ class CorreiosHtml
     'Objeto devolvido' => 'expired'
   }.freeze
 
+  attr_reader :last_response
+
   def status(tracking_code)
     event = events(tracking_code).first
     return { date: nil, status: 'pending', message: nil } unless event
@@ -57,8 +59,13 @@ class CorreiosHtml
   def parse(html)
     n = Nokogiri::HTML(html)
     lines = n.css('table.listEvent tr')
+    @last_response = lines.text
     return [] unless lines.any?
 
+    parse_lines(lines)
+  end
+
+  def parse_lines(lines)
     lines.map do |line|
       {
         date: parse_event_time(line.css('td.sroDtEvent').text),
