@@ -7,6 +7,16 @@ class Carrier
     'tnt' => Tnt,
     'intelipost' => Intelipost,
     'jadlog' => Jadlog,
+    'loggi' => Loggi,
+    'mandae' => Mandae,
+    'totalexpress' => TotalExpress::Tracker
+  }.freeze
+
+  DISCOVERS = {
+    'correios' => Correios,
+    'tnt' => Tnt,
+    'jadlog' => Jadlog,
+    'loggi' => Loggi,
     'mandae' => Mandae,
     'totalexpress' => TotalExpress::Tracker
   }.freeze
@@ -20,11 +30,9 @@ class Carrier
 
   def self.discover(code, shop)
     # Intelipost discovers this in intelipost_controller
-    return 'correios' if code.match?(/^[a-zA-Z]{2}[0-9]{9}[a-zA-Z]{2}$/)
-    return 'tnt' if Tnt.new(shop).accept?(code)
-    return 'jadlog' if code.match?(/^[0-9]{8,14}$/)
-    return 'mandae' if Mandae.new(shop).accept?(code)
-    return 'totalexpress' if code.match?(/^VN\w{1,}$/)
+    DISCOVERS.each do |discover|
+      return discover[0] if discover[1].validate_tracking_code(shop, code)
+    end
 
     'unknown'
   end

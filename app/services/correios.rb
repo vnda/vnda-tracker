@@ -67,6 +67,10 @@ class Correios
     }.fetch(status, 'exception')
   end
 
+  def self.validate_tracking_code(_shop, code)
+    code.match?(/^[a-zA-Z]{2}[0-9]{9}[a-zA-Z]{2}$/)
+  end
+
   private
 
   def send_message(method_id, message)

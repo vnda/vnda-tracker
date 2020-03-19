@@ -25,5 +25,9 @@ module TotalExpress
     def last_response
       nil
     end
+
+    def self.validate_tracking_code(_shop, code)
+      code.match?(/^VN\w{1,}$/)
+    end
   end
 end
