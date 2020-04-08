@@ -47,12 +47,12 @@ class Mandae
     STATUSES.fetch(status, 'exception')
   end
 
-  def accept?(tracking_code)
-    return false unless @shop
-    return false unless @shop.mandae_enabled
-    return false if @shop.mandae_pattern.blank?
+  def self.validate_tracking_code(shop, tracking_code)
+    return false unless shop
+    return false unless shop.mandae_enabled
+    return false if shop.mandae_pattern.blank?
 
-    tracking_code.match?(Regexp.new(@shop.mandae_pattern))
+    tracking_code.match?(Regexp.new(shop.mandae_pattern))
   end
 
   private

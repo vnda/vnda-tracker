@@ -59,9 +59,9 @@ class Tnt
     }.fetch(status, 'expection')
   end
 
-  def accept?(tracking_code)
-    return false unless @shop
-    return false unless @shop.tnt_enabled?
+  def self.validate_tracking_code(shop, tracking_code)
+    return false unless shop
+    return false unless shop.tnt_enabled?
 
     tracking_code.match?(/^.{12}$/)
   end

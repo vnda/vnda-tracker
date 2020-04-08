@@ -35,6 +35,10 @@ class Jadlog
     }.fetch(status, 'exception')
   end
 
+  def self.validate_tracking_code(_shop, code)
+    code.match?(/^[0-9]{8,14}$/)
+  end
+
   private
 
   def request(tracking_code)

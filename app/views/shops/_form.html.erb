@@ -131,6 +131,42 @@
 
       <hr />
 
+      <h4>Loggi</h4>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <%= f.check_box :loggi_enabled, class: 'form-check-input' %>
+          Habilitado
+        </label>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :loggi_token %><br>
+        <%= f.text_field :loggi_token, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :loggi_email %><br>
+        <%= f.text_field :loggi_email, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :loggi_shop_id %><br>
+        <%= f.text_field :loggi_shop_id, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :loggi_api_url %><br>
+        <%= f.text_field :loggi_api_url, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :loggi_pattern %><br>
+        <%= f.text_field :loggi_pattern, class: 'form-control' %>
+      </div>
+
+      <hr />
+
       <h4>Delivery Center</h4>
 
       <div class="form-check">

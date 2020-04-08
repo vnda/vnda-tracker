@@ -32,7 +32,7 @@ class DeliveryCenter
     'in_transit'
   end
 
-  def accept?(tracking_code)
+  def validate_tracking_code(tracking_code)
     return false unless @shop.delivery_center_enabled
 
     tracking_code.match?(Regexp.new(@shop.mandae_pattern))
