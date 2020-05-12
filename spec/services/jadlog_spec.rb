@@ -195,4 +195,48 @@ describe Jadlog do
       end
     end
   end
+
+  describe '#validate_tracking_code' do
+    context 'when shop is nil' do
+      it 'returns false' do
+        expect(
+          described_class.validate_tracking_code(nil, '123456')
+        ).to eq(false)
+      end
+    end
+
+    context 'when jadlog was disable' do
+      it 'returns false' do
+        expect(
+          described_class.validate_tracking_code(shop, '123456')
+        ).to eq(false)
+      end
+    end
+
+    context 'when jadlog was enable but code is invalid' do
+      before do
+        shop.jadlog_enabled = true
+        shop.save
+      end
+
+      it 'returns false' do
+        expect(
+          described_class.validate_tracking_code(shop, 'abc123467')
+        ).to eq(false)
+      end
+    end
+
+    context 'when jadlog was enable and code is valid' do
+      before do
+        shop.jadlog_enabled = true
+        shop.save
+      end
+
+      it 'returns true' do
+        expect(
+          described_class.validate_tracking_code(shop, '123456789')
+        ).to eq(true)
+      end
+    end
+  end
 end
