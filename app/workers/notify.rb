@@ -24,10 +24,12 @@ class Notify
   private
 
   def send_notification(url, json)
-    Excon.post(
-      url,
+    uri = URI(url)
+    api = Vnda::Api.new(uri.host)
+    api.post(
+      uri.path,
       body: json,
-      headers: { 'Content-Type' => 'application/json' }
+      expects: 200
     )
   end
 end

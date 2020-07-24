@@ -34,6 +34,7 @@ gem 'sinatra', require: nil
 
 group :development, :test do
   gem 'byebug'
+  gem 'dotenv-rails'
   gem 'faker'
   gem 'pry'
   gem 'pry-byebug'
