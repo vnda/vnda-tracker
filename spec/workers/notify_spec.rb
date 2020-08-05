@@ -7,7 +7,12 @@ describe Notify do
 
   around { |example| Sidekiq::Testing.fake! { example.run } }
 
-  let(:shop) { Shop.create(name: 'foo', notification_url: 'http://foo.com') }
+  let(:shop) do
+    Shop.create(
+      name: 'foo',
+      notification_url: 'http://user:pass@foo.com/api/v2/notifications/trackings'
+    )
+  end
   let(:tracking) do
     Tracking.create!(
       code: 'PP423230351BR',
@@ -25,7 +30,7 @@ describe Notify do
   end
 
   it 'sends notification' do
-    stub_request(:post, 'http://foo.com/')
+    stub_request(:post, 'http://foo.com/api/v2/notifications/trackings')
       .with(body: tracking.attributes.to_json)
       .to_return(status: 200, body: '')
 
@@ -33,7 +38,7 @@ describe Notify do
   end
 
   it 'stores notification response' do
-    stub_request(:post, 'http://foo.com/')
+    stub_request(:post, 'http://foo.com/api/v2/notifications/trackings')
       .with(body: tracking.attributes.to_json)
       .to_return(status: 200, body: 'OK')
 
