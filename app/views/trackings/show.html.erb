@@ -31,7 +31,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @tracking.events.each do |event| %>
+        <% @tracking.events.order(:checkpoint_at).each do |event| %>
         <tr>
           <td><%= event.checkpoint_at %></td>
           <td class="text-center"><i title='<%=t event.delivery_status, scope: :delivery_status %>' class='fas <%=t event.delivery_status, scope: :delivery_status_icon %> fa-2x'></i></td>

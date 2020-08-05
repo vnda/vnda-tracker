@@ -4,7 +4,10 @@ class ShopsController < ApplicationController
   before_action :set_shop, only: %i[show edit update destroy]
 
   def index
-    @shops = Shop.order(:name)
+    @shops = Shop.select('shops.*, count(trackings.id) as trackings_count')
+      .left_joins(:trackings)
+      .group('shops.id, trackings.shop_id')
+      .order(:name)
   end
 
   def show
