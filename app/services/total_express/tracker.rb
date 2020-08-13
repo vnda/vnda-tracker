@@ -1,21 +1,13 @@
 # frozen_string_literal: true
 
 module TotalExpress
-  class Tracker < Base
-    attr_reader :shop
-
+  class Tracker
     def initialize(shop)
       @shop = shop
     end
 
     def status(code)
-      {
-        date: Time.current,
-        status: TotalExpress::DocumentReader.parse(
-          shop: shop,
-          code: code
-        )
-      }
+      TotalExpress::StatusReader.new(@shop, code).parse
     end
 
     def events(tracking_code)

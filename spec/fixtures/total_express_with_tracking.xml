@@ -1,0 +1,1969 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:tns="http://edi.totalexpress.com.br/soap/webservice_v24.total">
+    <SOAP-ENV:Body>
+        <ns1:ObterTrackingResponse
+            xmlns:ns1="http://edi.totalexpress.com.br/soap/webservice_v24.total">
+            <ObterTrackingResponse xsi:type="tns:ObterTrackingResponse">
+                <CodigoProc xsi:type="xsd:nonNegativeInteger">1</CodigoProc>
+                <ArrayLoteRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:LoteRetorno[16]">
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">57904821</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[1]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">412028318</Awb>
+                                <Pedido xsi:type="xsd:string">VN22040</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22040</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T01:25:49</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">57912237</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[1]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">412037020</Awb>
+                                <Pedido xsi:type="xsd:string">VN22041</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22041</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T02:28:36</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">57935654</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[1]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407338961</Awb>
+                                <Pedido xsi:type="xsd:string">VN21952</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21952</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T05:37:34</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">57937145</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[2]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">409102522</Awb>
+                                <Pedido xsi:type="xsd:string">VN21981</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21981</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">102</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">TRANSFERENCIA PARA: - RZN</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T05:48:55</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">404209116</Awb>
+                                <Pedido xsi:type="xsd:string">570078</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21547</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">102</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">TRANSFERENCIA PARA: - RZO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T05:49:34</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">57942413</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[5]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">409330586</Awb>
+                                <Pedido xsi:type="xsd:string">VN21989</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21989</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T06:07:05</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407051036</Awb>
+                                <Pedido xsi:type="xsd:string">VN21941</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21941</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">102</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">TRANSFERENCIA PARA: - PEX</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T06:24:37</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">408452175</Awb>
+                                <Pedido xsi:type="xsd:string">VN21968</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21968</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - VIX</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T06:25:50</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">408127066</Awb>
+                                <Pedido xsi:type="xsd:string">VN21965</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21965</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - VIX</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T06:25:51</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">398554758</Awb>
+                                <Pedido xsi:type="xsd:string">VN21863</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21863</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T06:57:52</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">57947144</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[5]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">408040038</Awb>
+                                <Pedido xsi:type="xsd:string">VN21963</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21963</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">102</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">TRANSFERENCIA PARA: - COT</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T07:02:33</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407533165</Awb>
+                                <Pedido xsi:type="xsd:string">VN21955</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21955</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - AQA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T07:12:06</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">408260891</Awb>
+                                <Pedido xsi:type="xsd:string">594512</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21940</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: -  JAU</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T07:14:40</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">412115370</Awb>
+                                <Pedido xsi:type="xsd:string">VN22042</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22042</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T07:17:19</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">409471695</Awb>
+                                <Pedido xsi:type="xsd:string">VN21991</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21991</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - CTB</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T07:39:06</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">57953477</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[8]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">403511546</Awb>
+                                <Pedido xsi:type="xsd:string">570093</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21634</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T07:45:16</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">405183856</Awb>
+                                <Pedido xsi:type="xsd:string">VN21928</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21928</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T07:48:39</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407154210</Awb>
+                                <Pedido xsi:type="xsd:string">VN21943</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21943</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - NTR</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T07:52:20</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407174655</Awb>
+                                <Pedido xsi:type="xsd:string">VN21944</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21944</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T08:05:49</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">409471695</Awb>
+                                <Pedido xsi:type="xsd:string">VN21991</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21991</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T08:18:51</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407631266</Awb>
+                                <Pedido xsi:type="xsd:string">VN21958</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21958</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - GYX</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T08:24:31</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">396772881</Awb>
+                                <Pedido xsi:type="xsd:string">VN21840</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21840</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T08:31:27</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">57958665</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[6]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407226398</Awb>
+                                <Pedido xsi:type="xsd:string">VN21948</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21948</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - CTB</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T08:44:45</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407737253</Awb>
+                                <Pedido xsi:type="xsd:string">VN21959</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21959</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T08:56:15</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">408621084</Awb>
+                                <Pedido xsi:type="xsd:string">VN21969</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21969</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - BAT</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T08:59:08</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">404226870</Awb>
+                                <Pedido xsi:type="xsd:string">VN21921</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21921</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">92</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">EM ANALISE DO POSTO FISCAL</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T09:14:15</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">376079869</Awb>
+                                <Pedido xsi:type="xsd:string">VN21654</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21654</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T09:39:56</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407487495</Awb>
+                                <Pedido xsi:type="xsd:string">VN21954</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21954</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T09:41:33</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">57963526</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[10]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">412351868</Awb>
+                                <Pedido xsi:type="xsd:string">VN22044</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22044</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T09:47:05</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">408127066</Awb>
+                                <Pedido xsi:type="xsd:string">VN21965</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21965</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T09:47:59</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">412354102</Awb>
+                                <Pedido xsi:type="xsd:string">VN22043</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22043</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T09:49:07</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">403511546</Awb>
+                                <Pedido xsi:type="xsd:string">570093</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21634</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T09:51:40</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407174655</Awb>
+                                <Pedido xsi:type="xsd:string">VN21944</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21944</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T09:59:44</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">403300676</Awb>
+                                <Pedido xsi:type="xsd:string">VN21911</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21911</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - MCX</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T10:08:46</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">405183856</Awb>
+                                <Pedido xsi:type="xsd:string">VN21928</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21928</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T10:25:28</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407737253</Awb>
+                                <Pedido xsi:type="xsd:string">VN21959</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21959</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T10:28:51</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407864180</Awb>
+                                <Pedido xsi:type="xsd:string">VN21960</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21960</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T10:40:40</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407226398</Awb>
+                                <Pedido xsi:type="xsd:string">VN21948</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21948</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T10:41:20</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">57968330</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[6]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407051036</Awb>
+                                <Pedido xsi:type="xsd:string">VN21941</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21941</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[2]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">102</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">TRANSFERENCIA PARA: -  PEX</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T10:43:46</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - PEX</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T10:43:46</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">408697621</Awb>
+                                <Pedido xsi:type="xsd:string">VN21972</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21972</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - VIP</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T10:59:38</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">409094505</Awb>
+                                <Pedido xsi:type="xsd:string">VN21980</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21980</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - VIP</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T11:03:23</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407992775</Awb>
+                                <Pedido xsi:type="xsd:string">VN21964</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21964</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T11:14:14</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407226497</Awb>
+                                <Pedido xsi:type="xsd:string">VN21949</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21949</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T11:11:29</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">412585101</Awb>
+                                <Pedido xsi:type="xsd:string">597457</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21607</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T11:35:21</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">57973989</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[24]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">412633695</Awb>
+                                <Pedido xsi:type="xsd:string">VN22045</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22045</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T11:59:16</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">409122686</Awb>
+                                <Pedido xsi:type="xsd:string">VN21986</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21986</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:01:31</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">405503038</Awb>
+                                <Pedido xsi:type="xsd:string">VN21931</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21931</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string">OK524037370BR</CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">38</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">REDESPACHADO CORREIO - OK524037370BR</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:01:40</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">408127066</Awb>
+                                <Pedido xsi:type="xsd:string">VN21965</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21965</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T11:42:26</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">392951950</Awb>
+                                <Pedido xsi:type="xsd:string">VN21794</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21794</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - MCX</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:03:53</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407864180</Awb>
+                                <Pedido xsi:type="xsd:string">VN21960</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21960</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T11:50:06</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">412660433</Awb>
+                                <Pedido xsi:type="xsd:string">VN22046</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22046</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:12:31</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407487495</Awb>
+                                <Pedido xsi:type="xsd:string">VN21954</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21954</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T11:52:23</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">410893044</Awb>
+                                <Pedido xsi:type="xsd:string">VN22002</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22002</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:19:20</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:19:20</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:19:20</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:43</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">411099567</Awb>
+                                <Pedido xsi:type="xsd:string">VN22014</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22014</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:19:30</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:19:30</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:19:31</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:59</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">411116965</Awb>
+                                <Pedido xsi:type="xsd:string">VN22015</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22015</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:19:41</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:19:41</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:19:41</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:22:12</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">409719556</Awb>
+                                <Pedido xsi:type="xsd:string">VN21994</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21994</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:19:52</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:19:52</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:19:52</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:41</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">410769335</Awb>
+                                <Pedido xsi:type="xsd:string">VN22000</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22000</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:20:04</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:20:04</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:20:05</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:22:32</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">409990579</Awb>
+                                <Pedido xsi:type="xsd:string">VN21995</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21995</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:20:16</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:20:16</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:20:16</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:22:04</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">409899895</Awb>
+                                <Pedido xsi:type="xsd:string">VN21996</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21996</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:20:29</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:20:29</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:20:29</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:22:21</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">410705016</Awb>
+                                <Pedido xsi:type="xsd:string">VN21999</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21999</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:20:41</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:20:41</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:20:41</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:23:16</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">411313505</Awb>
+                                <Pedido xsi:type="xsd:string">VN22016</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22016</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:20:55</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:20:55</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:20:55</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:23:33</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">410166615</Awb>
+                                <Pedido xsi:type="xsd:string">VN21998</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21998</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:05</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:05</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:05</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:23:12</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">409577871</Awb>
+                                <Pedido xsi:type="xsd:string">VN21993</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21993</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:19</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:19</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:19</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:23:27</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">410005227</Awb>
+                                <Pedido xsi:type="xsd:string">VN21997</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21997</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:30</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:30</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:30</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:23:33</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">410867543</Awb>
+                                <Pedido xsi:type="xsd:string">VN22003</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22003</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:44</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:44</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:44</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:23:46</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">412585101</Awb>
+                                <Pedido xsi:type="xsd:string">597457</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21607</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:55</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:55</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:21:55</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:23:58</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">409098530</Awb>
+                                <Pedido xsi:type="xsd:string">VN21988</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21988</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:22:08</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:22:08</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:22:08</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:37:24</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">409535820</Awb>
+                                <Pedido xsi:type="xsd:string">VN21992</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21992</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:22:32</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:22:32</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:22:32</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : HUB/MATRIZ</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:25:04</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">57979897</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[4]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">376079869</Awb>
+                                <Pedido xsi:type="xsd:string">VN21654</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21654</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T12:41:48</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">412785727</Awb>
+                                <Pedido xsi:type="xsd:string">VN22047</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22047</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T13:14:41</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407338961</Awb>
+                                <Pedido xsi:type="xsd:string">VN21952</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21952</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T11:39:14</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">412823460</Awb>
+                                <Pedido xsi:type="xsd:string">VN22048</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22048</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T13:31:01</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">57985947</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[10]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">410705016</Awb>
+                                <Pedido xsi:type="xsd:string">VN21999</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21999</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">102</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">TRANSFERENCIA PARA: - TZS</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T13:43:09</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">411313505</Awb>
+                                <Pedido xsi:type="xsd:string">VN22016</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22016</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">102</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">TRANSFERENCIA PARA: - TZL</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T14:00:16</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">408040038</Awb>
+                                <Pedido xsi:type="xsd:string">VN21963</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21963</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">91</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA PROGRAMADA - -  COT</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T14:01:10</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407539444</Awb>
+                                <Pedido xsi:type="xsd:string">VN21956</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21956</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T14:06:09</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">412899080</Awb>
+                                <Pedido xsi:type="xsd:string">VN22051</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22051</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T14:06:24</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407051036</Awb>
+                                <Pedido xsi:type="xsd:string">VN21941</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21941</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T14:20:20</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">409330586</Awb>
+                                <Pedido xsi:type="xsd:string">VN21989</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21989</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T14:22:07</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">412984130</Awb>
+                                <Pedido xsi:type="xsd:string">VN22053</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22053</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T14:38:35</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">386253793</Awb>
+                                <Pedido xsi:type="xsd:string">VN21742</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21742</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - PMW</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T14:42:18</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">57991185</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[9]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">413001116</Awb>
+                                <Pedido xsi:type="xsd:string">21744</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21744</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string"></SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string">-</IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[3]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T14:48:07</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T15:03:01</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">12</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">SERVI?O N?O ATENDIDO - - Falta de Arquivo EDI</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T15:03:01</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">410827786</Awb>
+                                <Pedido xsi:type="xsd:string">VN22001</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22001</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[4]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">84</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA REALIZADA C/ N?O CONFORMIDADE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T14:51:13</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">69</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">COLETA RECEBIDA COM NC NO CD DE</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T14:51:13</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">98</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">AGUARDANDO CUBAGEM</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T14:51:13</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">101</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDA E PROCESSADA NO CD - : SAO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T15:01:45</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">413006420</Awb>
+                                <Pedido xsi:type="xsd:string">VN22049</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22049</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T14:52:05</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407226398</Awb>
+                                <Pedido xsi:type="xsd:string">VN21948</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21948</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T14:43:05</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">413028572</Awb>
+                                <Pedido xsi:type="xsd:string">VN22050</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22050</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T15:03:49</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">413080540</Awb>
+                                <Pedido xsi:type="xsd:string">VN22052</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22052</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T15:16:22</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">403439821</Awb>
+                                <Pedido xsi:type="xsd:string">VN21916</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21916</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">102</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">TRANSFERENCIA PARA: - PTK</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T15:16:37</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">410769335</Awb>
+                                <Pedido xsi:type="xsd:string">VN22000</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22000</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">102</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">TRANSFERENCIA PARA: - BAT</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T15:22:06</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407681394</Awb>
+                                <Pedido xsi:type="xsd:string">592914</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21644</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">25</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">DEVOLU??O EM ANDAMENTO AO CD</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T15:25:54</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">57997276</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[8]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">410705016</Awb>
+                                <Pedido xsi:type="xsd:string">VN21999</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21999</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - TZS</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T15:48:45</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">396772881</Awb>
+                                <Pedido xsi:type="xsd:string">VN21840</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21840</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T15:27:19</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">409113958</Awb>
+                                <Pedido xsi:type="xsd:string">VN21982</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21982</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">102</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">TRANSFERENCIA PARA: - EAS</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T16:07:29</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">397704099</Awb>
+                                <Pedido xsi:type="xsd:string">VN21854</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21854</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">92</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">EM ANALISE DO POSTO FISCAL</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T16:09:14</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">413229899</Awb>
+                                <Pedido xsi:type="xsd:string">VN22055</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22055</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T16:12:02</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">408260891</Awb>
+                                <Pedido xsi:type="xsd:string">594512</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21940</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T16:21:17</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">396771925</Awb>
+                                <Pedido xsi:type="xsd:string">VN21839</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21839</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T16:13:02</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">413292202</Awb>
+                                <Pedido xsi:type="xsd:string">VN22056</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22056</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T16:30:33</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                    <item xsi:type="tns:LoteRetorno">
+                        <CodRetorno xsi:type="xsd:nonNegativeInteger">58002303</CodRetorno>
+                        <DataGeracao xsi:type="xsd:date">2020-08-10</DataGeracao>
+                        <ArrayEncomendaRetorno xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:EncomendaRetorno[8]">
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">404226870</Awb>
+                                <Pedido xsi:type="xsd:string">VN21921</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21921</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[2]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">102</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">TRANSFERENCIA PARA: -  SLX</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T16:42:42</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - SLX</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T16:42:42</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">301205340</Awb>
+                                <Pedido xsi:type="xsd:string">484760</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">6876</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">6</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">25</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">DEVOLU??O EM ANDAMENTO AO CD</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T16:44:20</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407177682</Awb>
+                                <Pedido xsi:type="xsd:string">VN21946</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21946</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T16:46:43</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">413367368</Awb>
+                                <Pedido xsi:type="xsd:string">VN22054</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">22054</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">0</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ARQUIVO RECEBIDO</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T17:01:44</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">409094505</Awb>
+                                <Pedido xsi:type="xsd:string">VN21980</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21980</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">104</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">PROCESSO DE ENTREGA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T17:21:09</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">405683152</Awb>
+                                <Pedido xsi:type="xsd:string">VN21934</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21934</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[1]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">1</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">ENTREGA REALIZADA</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T17:21:41</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                            <item xsi:type="tns:EncomendaRetorno">
+                                <Awb xsi:type="xsd:nonNegativeInteger">407681394</Awb>
+                                <Pedido xsi:type="xsd:string">592914</Pedido>
+                                <NotaFiscal xsi:type="xsd:nonNegativeInteger">21644</NotaFiscal>
+                                <SerieNotaFiscal xsi:type="xsd:string">4</SerieNotaFiscal>
+                                <IdCliente xsi:type="xsd:string"></IdCliente>
+                                <CodigoObjeto xsi:type="xsd:string"></CodigoObjeto>
+                                <ArrayStatusTotal xsi:type="SOAP-ENC:Array" SOAP-ENC:arrayType="tns:StatusTotal[2]">
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">102</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">TRANSFERENCIA PARA: -  BSX</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T17:30:57</DataStatus>
+                                    </item>
+                                    <item xsi:type="tns:StatusTotal">
+                                        <CodStatus xsi:type="xsd:nonNegativeInteger">103</CodStatus>
+                                        <DescStatus xsi:type="xsd:string">RECEBIDO CD DE: - - BSX</DescStatus>
+                                        <DataStatus xsi:type="xsd:dateTime">2020-08-10T17:30:57</DataStatus>
+                                    </item>
+                                </ArrayStatusTotal>
+                            </item>
+                        </ArrayEncomendaRetorno>
+                    </item>
+                </ArrayLoteRetorno>
+            </ObterTrackingResponse>
+        </ns1:ObterTrackingResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://edi.totalexpress.com.br/soap/webservice_v24.total" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://edi.totalexpress.com.br/soap/webservice_v24.total">
+<types>
+<xsd:schema targetNamespace="http://edi.totalexpress.com.br/soap/webservice_v24.total"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="ObterTracking">
+  <xsd:all>
+   <xsd:element name="ObterTrackingRequest" type="tns:ObterTrackingRequest" minOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ObterTrackingRequest">
+  <xsd:all>
+   <xsd:element name="DataConsulta" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ObterTrackingResponse">
+  <xsd:all>
+   <xsd:element name="CodigoProc" type="xsd:nonNegativeInteger" minOccurs="1"/>
+   <xsd:element name="ArrayLoteRetorno" type="tns:ArrayLoteRetorno" minOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ArrayLoteRetorno">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:LoteRetorno[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="LoteRetorno">
+  <xsd:all>
+   <xsd:element name="CodRetorno" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="DataGeracao" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="ArrayEncomendaRetorno" type="tns:ArrayEncomendaRetorno" minOccurs="1" maxOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ArrayEncomendaRetorno">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:EncomendaRetorno[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="EncomendaRetorno">
+  <xsd:all>
+   <xsd:element name="Awb" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="Pedido" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NotaFiscal" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="SerieNotaFiscal" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="IdCliente" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="CodigoObjeto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="ArrayStatusTotal" type="tns:ArrayStatusTotal" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="ArrayStatusEct" type="tns:ArrayStatusEct" minOccurs="0" maxOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ArrayStatusTotal">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:StatusTotal[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="ArrayStatusEct">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:StatusEct[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="StatusTotal">
+  <xsd:all>
+   <xsd:element name="CodStatus" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="DescStatus" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="DataStatus" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="StatusEct">
+  <xsd:all>
+   <xsd:element name="EctTipo" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="EctStatus" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="EctData" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="EctHora" type="xsd:time" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="EctDescricao" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="EctComentario" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="EctLocal" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="EctCodigo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="EctCidade" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="EctUf" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="RegistraColeta">
+  <xsd:all>
+   <xsd:element name="RegistraColetaRequest" type="tns:RegistraColetaRequest" minOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="RegistraColetaRequest">
+  <xsd:all>
+   <xsd:element name="CodRemessa" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="Encomendas" type="tns:Encomendas" minOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="Encomendas">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:Encomenda[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="Encomenda">
+  <xsd:all>
+   <xsd:element name="TipoServico" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="TipoEntrega" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="Peso" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="Volumes" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="CondFrete" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="Pedido" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="IdCliente" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="Natureza" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="TipoVolumes" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="IsencaoIcms" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="InfoColeta" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="DestNome" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="DestCpfCnpj" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="DestIe" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="DestEnd" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="DestEndNum" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="DestCompl" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="DestPontoRef" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="DestBairro" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="DestCidade" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="DestEstado" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="DestPais" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="DestCep" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="DestEmail" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="DestDdd" type="xsd:nonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="DestTelefone1" type="xsd:nonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="DestTelefone2" type="xsd:nonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="DestTelefone3" type="xsd:nonNegativeInteger" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="Campanha" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="Cod" type="tns:Cod" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="Agendamento" type="tns:Agendamento" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="DocFiscalNF" type="tns:DocFiscalNF" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="DocFiscalNFe" type="tns:DocFiscalNFe" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="DocFiscalO" type="tns:DocFiscalO" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="CNPJ" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="Cod">
+  <xsd:all>
+   <xsd:element name="FormaPagto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="Parcelas" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="Valor" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="Agendamento">
+  <xsd:all>
+   <xsd:element name="AgData" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="AgPeriodo1" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="AgPeriodo2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="DocFiscalNF">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:NF[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="DocFiscalNFe">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:NFe[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="DocFiscalO">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:DocFiscalOutroTipo[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="NF">
+  <xsd:all>
+   <xsd:element name="NfNumero" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfSerie" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfData" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfValTotal" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfValBc" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfValIcms" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfValBcSt" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfValIcmsSt" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfValProd" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfCfop" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="NFe">
+  <xsd:all>
+   <xsd:element name="NfeNumero" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfeSerie" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfeData" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfeValTotal" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfeValProd" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfeCfop" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfeChave" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="DocFiscalOutroTipo">
+  <xsd:all>
+   <xsd:element name="NfoTipo" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfoDescricao" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="NfoNumero" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfoData" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfoValTotal" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfoValProd" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+   <xsd:element name="NfoCfop" type="xsd:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="RegistraColetaResponse">
+  <xsd:all>
+   <xsd:element name="CodigoProc" type="xsd:nonNegativeInteger" minOccurs="1"/>
+   <xsd:element name="CodRomaneio" type="xsd:string" minOccurs="1"/>
+   <xsd:element name="ItensProcessados" type="xsd:nonNegativeInteger" minOccurs="1"/>
+   <xsd:element name="ItensRejeitados" type="xsd:nonNegativeInteger" minOccurs="1"/>
+   <xsd:element name="ErrosIndividuais" type="tns:ErrosIndividuais" minOccurs="0"/>
+   <xsd:element name="NumProtocolo" type="xsd:nonNegativeInteger" minOccurs="0"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ErrosIndividuais">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:CriticaVolume[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="CriticaVolume">
+  <xsd:all>
+   <xsd:element name="Pedido" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="IdCliente" type="xsd:string" minOccurs="0"/>
+   <xsd:element name="CodigoErro" type="xsd:nonNegativeInteger" minOccurs="1"/>
+   <xsd:element name="DescricaoErro" type="xsd:string" minOccurs="1"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:element name="RegistraColeta" type="tns:RegistraColeta"/>
+ <xsd:element name="ObterTracking" type="tns:ObterTracking"/>
+</xsd:schema>
+</types>
+<message name="RegistraColetaRequest">
+  <part name="RegistraColetaRequest" type="tns:RegistraColetaRequest" /></message>
+<message name="RegistraColetaResponse">
+  <part name="RegistraColetaResponse" type="tns:RegistraColetaResponse" /></message>
+<message name="ObterTrackingRequest">
+  <part name="ObterTrackingRequest" type="tns:ObterTrackingRequest" /></message>
+<message name="ObterTrackingResponse">
+  <part name="ObterTrackingResponse" type="tns:ObterTrackingResponse" /></message>
+<portType name="webservice_v24.totalPortType">
+  <operation name="RegistraColeta">
+    <documentation>Cadastra uma nova coleta no sistema, através do envio das informações dos volumes.</documentation>
+    <input message="tns:RegistraColetaRequest"/>
+    <output message="tns:RegistraColetaResponse"/>
+  </operation>
+  <operation name="ObterTracking">
+    <documentation>Obtém informações de trânsito das encomendas.</documentation>
+    <input message="tns:ObterTrackingRequest"/>
+    <output message="tns:ObterTrackingResponse"/>
+  </operation>
+</portType>
+<binding name="webservice_v24.totalBinding" type="tns:webservice_v24.totalPortType">
+  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="RegistraColeta">
+    <soap:operation soapAction="urn:RegistraColeta#RegistraColeta" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:RegistraColeta" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:RegistraColeta" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="ObterTracking">
+    <soap:operation soapAction="urn:ObterTracking#ObterTracking" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:ObterTracking" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:ObterTracking" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+</binding>
+<service name="webservice_v24.total">
+  <port name="webservice_v24.totalPort" binding="tns:webservice_v24.totalBinding">
+    <soap:address location="https://edi.totalexpress.com.br/webservice24.php"/>
+  </port>
+</service>
+</definitions>
