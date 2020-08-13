@@ -2,7 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe Tracking do
+RSpec.describe TotalExpress::Api do
+  subject(:api) { described_class.new(shop) }
+
   let(:shop) do
     Shop.create!(
       name: 'Shop 1',
@@ -14,15 +16,6 @@ RSpec.describe Tracking do
       total_password: 'bar'
     )
   end
-
-  let(:tracking_attributes) do
-    {
-      code: 'VN21952',
-      package: '21952'
-    }
-  end
-
-  let(:tracking) { shop.trackings.create!(tracking_attributes) }
 
   let(:request) do
     File.readlines('spec/fixtures/total_express_request.xml', chomp: true)[0]
@@ -57,45 +50,9 @@ RSpec.describe Tracking do
 
   after { Timecop.return }
 
-  describe '#update_status!' do
-    subject(:update_status) { tracking.update_status! }
-
-    context 'with changes' do
-      it 'returns true' do
-        expect(update_status).to eq(true)
-      end
-
-      it 'updates delivery_status' do
-        expect { update_status } .to(
-          change(tracking, :delivery_status).from('pending').to('delivered')
-        )
-      end
-
-      it 'updates last_checkpoint_at' do
-        expect { update_status } .to(
-          change(tracking, :last_checkpoint_at).from(nil).to(
-            '2020-08-10 08:39:14 -0300'.to_datetime
-          )
-        )
-      end
-
-      it 'registers an event' do
-        update_status
-        expect(tracking.events.size).to eq(1)
-      end
-    end
-
-    context 'without changes' do
-      before do
-        tracking.update!(
-          last_checkpoint_at: Time.current,
-          delivery_status: 'delivered'
-        )
-      end
-
-      it 'returns false' do
-        expect(update_status).to eq(false)
-      end
+  describe '#read' do
+    it 'returns all lots with tracking orders' do
+      expect(api.read.size).to eq(105)
     end
   end
 end

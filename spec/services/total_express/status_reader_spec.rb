@@ -2,7 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe Tracking do
+RSpec.describe TotalExpress::StatusReader do
+  subject(:status) { described_class.new(shop, code) }
+
   let(:shop) do
     Shop.create!(
       name: 'Shop 1',
@@ -14,19 +16,11 @@ RSpec.describe Tracking do
       total_password: 'bar'
     )
   end
-
-  let(:tracking_attributes) do
-    {
-      code: 'VN21952',
-      package: '21952'
-    }
-  end
-
-  let(:tracking) { shop.trackings.create!(tracking_attributes) }
-
   let(:request) do
     File.readlines('spec/fixtures/total_express_request.xml', chomp: true)[0]
   end
+
+  let(:code) { 'VN21952' }
 
   before do
     stub_request(:get, 'https://edi.totalexpress.com.br/webservice24.php?wsdl')
@@ -51,50 +45,47 @@ RSpec.describe Tracking do
         body: File.read('spec/fixtures/total_express_with_tracking.xml'),
         headers: {}
       )
-
     Timecop.freeze(2020, 8, 10, 15, 20)
   end
 
   after { Timecop.return }
 
-  describe '#update_status!' do
-    subject(:update_status) { tracking.update_status! }
+  describe '#parse' do
+    context 'when order in transit' do
+      let(:code) { 'VN21968' }
 
-    context 'with changes' do
-      it 'returns true' do
-        expect(update_status).to eq(true)
-      end
-
-      it 'updates delivery_status' do
-        expect { update_status } .to(
-          change(tracking, :delivery_status).from('pending').to('delivered')
-        )
-      end
-
-      it 'updates last_checkpoint_at' do
-        expect { update_status } .to(
-          change(tracking, :last_checkpoint_at).from(nil).to(
-            '2020-08-10 08:39:14 -0300'.to_datetime
-          )
-        )
-      end
-
-      it 'registers an event' do
-        update_status
-        expect(tracking.events.size).to eq(1)
+      it 'returns status in transit' do
+        expect(status.parse[:status]).to eq('in_transit')
       end
     end
 
-    context 'without changes' do
-      before do
-        tracking.update!(
-          last_checkpoint_at: Time.current,
-          delivery_status: 'delivered'
-        )
-      end
+    context 'when order out of delivery' do
+      let(:code) { 'VN21863' }
 
-      it 'returns false' do
-        expect(update_status).to eq(false)
+      it 'returns status out of delivery' do
+        expect(status.parse[:status]).to eq('out_of_delivery')
+      end
+    end
+
+    context 'when order delivered' do
+      it 'returns status delivered' do
+        expect(status.parse[:status]).to eq('delivered')
+      end
+    end
+
+    context 'with order exception' do
+      let(:code) { 'VN22040' }
+
+      it 'returns status exception' do
+        expect(status.parse[:status]).to eq('exception')
+      end
+    end
+
+    context 'without order' do
+      let(:code) { '9999999' }
+
+      it 'returns status exception' do
+        expect(status.parse[:status]).to eq('pending')
       end
     end
   end
