@@ -35,7 +35,7 @@ class CorreiosHtml
 
       CorreiosHistory.create(
         code: tracking_code,
-        response_body: response.body,
+        response_body: response.body.encode,
         response_status: response.status
       )
 
