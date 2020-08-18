@@ -29,6 +29,8 @@ Style/EmptyMethod:
   EnforcedStyle: expanded
 RSpec/ExampleLength:
   Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
