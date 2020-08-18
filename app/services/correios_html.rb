@@ -32,6 +32,13 @@ class CorreiosHtml
     @events ||= {}
     @events[tracking_code] ||= begin
       response = request(tracking_code)
+
+      CorreiosHistory.create(
+        code: tracking_code,
+        response_body: response.body,
+        response_status: response.status
+      )
+
       parse(response.body)
     end
   end

@@ -27,12 +27,19 @@ describe CorreiosHtml do
           .to_return(status: 200, body: html_with_events)
       end
 
-      it do
+      it 'returns last event' do
         expect(status).to eq(
           date: '27/08/2018 12:43 -3UTC'.to_datetime,
           status: 'delivered',
           message: 'Objeto entregue ao destinatário'
         )
+      end
+
+      it 'registers the history' do
+        status
+        expect(CorreiosHistory.last.code).to eq('OF526553827BR')
+        expect(CorreiosHistory.last.response_body).to eq(html_with_events)
+        expect(CorreiosHistory.last.response_status).to eq(200)
       end
     end
 
@@ -45,7 +52,16 @@ describe CorreiosHtml do
           .to_return(status: 200, body: html_without_events)
       end
 
-      it { is_expected.to eq(date: nil, status: 'pending', message: nil) }
+      it 'returns default event' do
+        expect(status).to eq(date: nil, status: 'pending', message: nil)
+      end
+
+      it 'registers the history' do
+        status
+        expect(CorreiosHistory.last.code).to eq('OF526556823BR')
+        expect(CorreiosHistory.last.response_body).to eq(html_without_events)
+        expect(CorreiosHistory.last.response_status).to eq(200)
+      end
     end
 
     context 'with an Excon error' do
@@ -53,7 +69,16 @@ describe CorreiosHtml do
 
       before { stub_request(:post, url).to_return(status: 500) }
 
-      it { is_expected.to eq(date: nil, status: 'pending', message: nil) }
+      it 'returns default event' do
+        expect(status).to eq(date: nil, status: 'pending', message: nil)
+      end
+
+      it 'registers the history' do
+        status
+        expect(CorreiosHistory.last.code).to eq('OF526556823BR')
+        expect(CorreiosHistory.last.response_body).to eq('')
+        expect(CorreiosHistory.last.response_status).to eq(500)
+      end
     end
   end
 
