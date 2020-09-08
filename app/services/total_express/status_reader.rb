@@ -39,7 +39,8 @@ module TotalExpress
       last_order = orders.select { |order| order[:pedido] == @code }.try(:last)
       return if last_order.blank?
 
-      last_order.dig(:array_status_total, :item)
+      items = last_order.dig(:array_status_total, :item)
+      items.is_a?(Array) ? items.try(:last) : items
     end
   end
 end

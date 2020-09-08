@@ -12,17 +12,23 @@ module TotalExpress
     end
 
     def read
-      @response = client.call(
-        :obter_tracking,
-        soap_action: 'ObterTracking',
-        message: params_builder
-      )
+      @response = cached_response
       parsed_return
     rescue Savon::Error => e
       raise Error, e.message
     end
 
     private
+
+    def cached_response
+      Rails.cache.fetch("total_express_#{@shop.slug}", expires_in: 1.hour) do
+        client.call(
+          :obter_tracking,
+          soap_action: 'ObterTracking',
+          message: params_builder
+        ).body
+      end
+    end
 
     def client
       Savon.client(
@@ -34,7 +40,7 @@ module TotalExpress
     end
 
     def collect_lots
-      @response.body.dig(
+      @response.dig(
         :obter_tracking_response,
         :obter_tracking_response,
         :array_lote_retorno,
