@@ -51,10 +51,18 @@ RSpec.describe TotalExpress::StatusReader do
   after { Timecop.return }
 
   describe '#parse' do
+    context 'when response have multiple orders' do
+      let(:code) { 'VN21997' }
+
+      it 'returns status as exception' do
+        expect(status.parse[:status]).to eq('exception')
+      end
+    end
+
     context 'when order in transit' do
       let(:code) { 'VN21968' }
 
-      it 'returns status in transit' do
+      it 'returns status as transit' do
         expect(status.parse[:status]).to eq('in_transit')
       end
     end
