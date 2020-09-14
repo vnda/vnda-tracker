@@ -10,7 +10,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'coffee-rails', '~> 4.2'
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.10'
 gem 'jquery-rails', '4.3.1'
 gem 'sass-rails', '~> 5.0'
 gem 'therubyracer', platforms: :ruby
