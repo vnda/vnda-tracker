@@ -66,21 +66,21 @@
             <td><%= link_to_if(tracking.tracker_url.present?, tracking.tracker_url, tracking.tracker_url, target: "_blank") %></td>
             <td>
               <% if @scheduled_tracking_ids.include?(tracking.id) %>
-                Agendado
-              <% else %>
+                Rastreando
+              <% elsif tracking.delivery_status != 'delivered' %>
                 <a href="<%= shop_tracking_refresh_path(params[:shop_id], tracking) %>" class="btn btn-secondary btn-sm">
-                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Agendar
+                  <i class="fa fa-play" aria-hidden="true"></i> Rastrear
                 </a>
               <% end %>
             </td>
             <td class="text-xs-right">
               <div class="btn-group">
                 <a href="<%= shop_tracking_path(params[:shop_id], tracking) %>" class="btn btn-secondary btn-sm">
-                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Ver
+                  <i class="fa fa-search" aria-hidden="true"></i> Ver
                 </a>
 
                 <a href="<%= edit_shop_tracking_path(params[:shop_id], tracking) %>" class="btn btn-secondary btn-sm">
-                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar
+                  <i class="fa fa-edit" aria-hidden="true"></i> Editar
                 </a>
 
                 <a href="<%= shop_tracking_path(params[:shop_id], tracking) %>" class="btn btn-secondary btn-sm" data-method="delete" data-confirm="Tem certeza?">
