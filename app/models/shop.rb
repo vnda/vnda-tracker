@@ -3,7 +3,7 @@
 class Shop < ApplicationRecord
   has_many :trackings, dependent: :destroy
 
-  validates :slug, :name, :token, presence: true
+  validates :slug, :name, :token, :host, presence: true
 
   before_validation :default_token, :default_slug
 

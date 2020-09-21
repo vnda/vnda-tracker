@@ -7,7 +7,7 @@ module Vnda
 
     def initialize(host)
       @host = host
-      @base_url = "#{API_SCHEME}://#{@host}"
+      @base_url = "#{API_SCHEME}://#{@host}/api/v2"
     end
 
     def get(endpoint, query = {})

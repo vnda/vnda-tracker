@@ -5,7 +5,9 @@ require 'rails_helper'
 describe 'Trackings', type: :request do
   subject(:response_content) { response.body }
 
-  let(:shop) { Shop.create!(name: 'A Mafalda', token: 'a1b2c3d4e5') }
+  let(:shop) do
+    Shop.create!(name: 'A Mafalda', token: 'a1b2c3d4e5', host: 'vnda.com.br')
+  end
 
   describe 'GET /:shop_name/:code' do
     it 'returns 404 without tracking' do

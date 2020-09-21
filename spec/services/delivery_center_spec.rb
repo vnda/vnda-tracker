@@ -11,7 +11,7 @@ RSpec.describe DeliveryCenter do
     Shop.create!(
       name: 'Shop 1',
       token: 'shop1_token',
-      notification_url: 'http://shop1.vnda.com.br',
+      host: 'shop1.vnda.com.br',
       delivery_center_enabled: true,
       delivery_center_token: 'foo'
     )
