@@ -10,7 +10,7 @@ describe Notify do
   let(:shop) do
     Shop.create(
       name: 'foo',
-      notification_url: 'http://user:pass@foo.com/api/v2/notifications/trackings'
+      host: 'foo.com'
     )
   end
   let(:tracking) do
@@ -19,14 +19,6 @@ describe Notify do
       delivery_status: 'pending',
       shop: shop
     )
-  end
-
-  context 'without notfication url on shop' do
-    let(:shop) { Shop.create(name: 'foo') }
-
-    it 'does not send notification' do
-      expect(worker.perform(tracking.id)).to eq(false)
-    end
   end
 
   it 'sends notification' do

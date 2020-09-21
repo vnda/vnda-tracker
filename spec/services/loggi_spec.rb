@@ -11,7 +11,7 @@ describe Loggi do
     Shop.create!(
       name: 'Shop 1',
       token: 'shop1_token',
-      notification_url: 'http://shop1.vnda.com.br',
+      host: 'shop1.vnda.com.br',
       loggi_enabled: true,
       loggi_token: '123',
       loggi_email: 'ajuda@vnda.com.br',

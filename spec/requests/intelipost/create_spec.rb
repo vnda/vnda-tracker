@@ -10,7 +10,8 @@ describe 'Intelipost', type: :request do
       name: 'foo',
       token: 'a1b2c3d4e5',
       intelipost_id: 'abc',
-      intelipost_api_key: '12345'
+      intelipost_api_key: '12345',
+      host: 'shop1.vnda.com.br'
     )
   end
 

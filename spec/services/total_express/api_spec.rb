@@ -9,7 +9,7 @@ RSpec.describe TotalExpress::Api do
     Shop.create!(
       name: 'Shop 1',
       token: 'shop1_token',
-      notification_url: 'http://shop1.vnda.com.br',
+      host: 'shop1.vnda.com.br',
       total_enabled: true,
       total_client_id: '123',
       total_user: 'foo',

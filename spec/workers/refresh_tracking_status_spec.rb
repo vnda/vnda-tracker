@@ -10,7 +10,7 @@ describe RefreshTrackingStatus do
     Tracking.create!(
       code: 'PP423230351BR',
       delivery_status: delivery_status,
-      shop: Shop.create(name: 'foo')
+      shop: Shop.create(name: 'foo', host: 'foo.com')
     )
   end
 

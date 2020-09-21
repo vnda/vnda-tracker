@@ -11,7 +11,7 @@ describe Carrier, type: :model do
     {
       'name': 'Shop 1',
       'token': 'shop1_token',
-      'notification_url': 'http://shop1.vnda.com.br',
+      'host': 'shop1.vnda.com.br',
       'tnt_email': '',
       'tnt_cnpj': '',
       'tnt_enabled': false,

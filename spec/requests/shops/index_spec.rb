@@ -15,8 +15,8 @@ RSpec.describe 'GET /shops', type: :request do
 
   context 'with shops' do
     before do
-      Shop.create!(name: 'foo', token: 'a1b2c3d4e5')
-      Shop.create!(name: 'bar', token: '1a2b3c4d5e')
+      Shop.create!(name: 'foo', token: 'a1b2c3d4e5', host: 'vnda.com.br')
+      Shop.create!(name: 'bar', token: '1a2b3c4d5e', host: 'vnda.com.br')
     end
 
     it 'returns a list of shops with 2 shops' do

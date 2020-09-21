@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_150116) do
+ActiveRecord::Schema.define(version: 2020_09_21_201029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_150116) do
     t.integer "loggi_shop_id"
     t.string "loggi_api_url"
     t.string "loggi_pattern"
+    t.string "host"
   end
 
   create_table "tracking_events", force: :cascade do |t|
