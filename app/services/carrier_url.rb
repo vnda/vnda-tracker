@@ -7,6 +7,7 @@ class CarrierURL
       '%<intelipost_id>s/%<code>s',
     'jadlog' => 'http://www.jadlog.com.br/siteDpd/tracking.jad?cte=%<code>s',
     'mandae' => 'https://rastreae.com.br/resultado/%<code>s',
+    'melhorenvio' => 'https://melhorenvio.com.br/rastreio/%<code>s',
     'tnt' => 'http://app.tntbrasil.com.br/radar/public/'\
       'localizacaoSimplificadaDetail/%<code>s',
     'totalexpress' => 'https://tracking.totalexpress.com.br/poupup_track.php?'\

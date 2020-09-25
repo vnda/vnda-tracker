@@ -241,6 +241,10 @@ pt-BR:
     exception: fa-exclamation-triangle
     expired: fa-check
 
+  environments:
+    sandbox: "Homologação"
+    production: "Produção"
+
   activerecord:
     models:
       tracking: "Rastreio"
@@ -255,6 +259,7 @@ pt-BR:
         loggi_shop_id: 'Id da loja'
         loggi_api_url: 'Url da api'
         loggi_pattern: Padrão para reconhecimento do rastreio (regex)
+        melhor_envio_environment: "Ambiente"
       tracking:
         code: "Código de rastreio"
         carrier: Transportadora

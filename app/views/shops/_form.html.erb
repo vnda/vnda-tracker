@@ -131,6 +131,26 @@
 
       <hr />
 
+      <h4>Melhor Envio</h4>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <%= f.check_box :melhor_envio_enabled, class: 'form-check-input' %>
+          Habilitado
+        </label>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :melhor_envio_environment %>
+        <%= f.select :melhor_envio_environment,
+          MelhorEnvio::ENVIRONMENTS.map{|env| [I18n.translate(env, scope: 'environments'), env] },
+          {},
+          class: "form-control"
+        %>
+      </div>
+
+      <hr />
+
       <h4>Loggi</h4>
 
       <div class="form-check">
