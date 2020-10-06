@@ -234,11 +234,10 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (~> 3.2, >= 3.2.1)
-    simplecov (0.16.1)
+    simplecov (0.19.0)
       docile (~> 1.1)
-      json (>= 1.8, < 3)
-      simplecov-html (~> 0.10.0)
-    simplecov-html (0.10.2)
+      simplecov-html (~> 0.11)
+    simplecov-html (0.12.2)
     sinatra (2.0.8.1)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -305,7 +304,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   savon (= 2.12.0)
   sidekiq (= 4.2.10)
-  simplecov (= 0.16.1)
+  simplecov (= 0.19.0)
   sinatra
   therubyracer
   timecop (= 0.9.1)
