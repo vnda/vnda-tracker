@@ -27,7 +27,7 @@ gem 'honeybadger', '3.3.1'
 gem 'nokogiri', '1.10.10'
 gem 'pg', '0.21.0'
 gem 'puma', '3.12.6'
-gem 'rails', '5.2.4.2'
+gem 'rails', '6.0.3.3'
 gem 'savon', '2.12.0'
 gem 'sidekiq', '4.2.10'
 gem 'sinatra', require: nil
