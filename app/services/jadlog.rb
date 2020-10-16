@@ -46,7 +46,7 @@ class Jadlog
 
   def request(tracking_code)
     Excon.post(
-      'https://www.jadlog.com.br/embarcador/api/tracking/consultar',
+      'http://www.jadlog.com.br/embarcador/api/tracking/consultar',
       headers: {
         'Content-Type' => 'application/json',
         'Authorization' => "Bearer #{@token}"

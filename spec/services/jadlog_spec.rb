@@ -5,7 +5,7 @@ require 'rails_helper'
 describe Jadlog do
   subject(:jadlog) { described_class.new(shop) }
 
-  let(:url) { 'https://www.jadlog.com.br/embarcador/api/tracking/consultar' }
+  let(:url) { 'http://www.jadlog.com.br/embarcador/api/tracking/consultar' }
   let(:shop) do
     Shop.create!(
       name: 'Shop 1',
