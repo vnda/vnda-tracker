@@ -9,7 +9,11 @@ module TotalExpress
       '91' => 'out_of_delivery', # ENTREGA PROGRAMADA
       '21' => 'out_of_delivery', # CLIENTE AUSENTE/ ESTABELECIMENTO FECHADO
       '29' => 'out_of_delivery', # CLIENTE RETIRA NA TRANSPORTADORA
-      '1' => 'delivered' # ENTREGA REALIZADA
+      '1' => 'delivered', # ENTREGA REALIZADA
+      '69' => 'in_transit', # COLETA RECEBIDA COM NC NO CD DE
+      '101' => 'in_transit', # RECEBIDA E PROCESSADA NO CD
+      '0' => 'pending', # ARQUIVO RECEBIDO
+      '80' => 'pending' # EM AGENDAMENTO
     }.freeze
 
     def initialize(shop, code)
@@ -22,9 +26,13 @@ module TotalExpress
 
       {
         date: last_order[:data_status].strftime('%Y-%m-%d %H:%M:%S %z'),
-        status: STATUSES.fetch(last_order[:cod_status], 'exception'),
+        status: parse_status(last_order[:cod_status]),
         message: last_order[:desc_status]
       }
+    end
+
+    def parse_status(status)
+      STATUSES.fetch(status, 'exception')
     end
 
     private
