@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_201029) do
+ActiveRecord::Schema.define(version: 2020_09_21_232742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 2020_09_21_201029) do
     t.string "loggi_api_url"
     t.string "loggi_pattern"
     t.string "host"
+    t.boolean "melhor_envio_enabled", default: false
+    t.string "melhor_envio_environment"
   end
 
   create_table "tracking_events", force: :cascade do |t|

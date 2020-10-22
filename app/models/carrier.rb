@@ -9,6 +9,7 @@ class Carrier
     'jadlog' => Jadlog,
     'loggi' => Loggi,
     'mandae' => Mandae,
+    'melhorenvio' => MelhorEnvio,
     'totalexpress' => TotalExpress::Tracker
   }.freeze
 
@@ -18,6 +19,7 @@ class Carrier
     'jadlog' => Jadlog,
     'loggi' => Loggi,
     'mandae' => Mandae,
+    'melhorenvio' => MelhorEnvio,
     'totalexpress' => TotalExpress::Tracker
   }.freeze
 
