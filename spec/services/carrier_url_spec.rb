@@ -11,7 +11,7 @@ describe CarrierURL do
     Shop.create!(
       name: 'Shop 1',
       token: 'shop1_token',
-      notification_url: 'http://shop1.vnda.com.br',
+      host: 'shop1.vnda.com.br',
       intelipost_api_key: 'foo',
       intelipost_id: '12345'
     )

@@ -10,7 +10,7 @@ describe Tracking, type: :model do
     Shop.create!(
       name: 'Shop 1',
       token: 'shop1_token',
-      notification_url: 'http://shop1.vnda.com.br',
+      host: 'shop1.vnda.com.br',
       forward_to_intelipost: forward_to_intelipost
     )
   end

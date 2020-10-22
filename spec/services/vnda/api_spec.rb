@@ -8,7 +8,7 @@ RSpec.describe Vnda::Api do
   describe '#get' do
     subject(:result) { api.get(endpoint, query).body }
 
-    let(:endpoint) { '/api/v2/endpoint1' }
+    let(:endpoint) { '/endpoint1' }
     let(:query) { { arg1: 'value1' } }
 
     before do
@@ -35,7 +35,7 @@ RSpec.describe Vnda::Api do
   describe '#post' do
     subject(:result) { api.post(endpoint, body: body.to_json).body }
 
-    let(:endpoint) { '/api/v2/endpoint1' }
+    let(:endpoint) { '/endpoint1' }
     let(:body) { { arg1: 'value1' } }
 
     before do
