@@ -52,10 +52,10 @@ RSpec.describe TotalExpress::StatusReader do
 
   describe '#parse' do
     context 'when response have multiple orders' do
-      let(:code) { 'VN21997' }
+      let(:code) { 'VN22016' }
 
-      it 'returns status as exception' do
-        expect(status.parse[:status]).to eq('exception')
+      it 'returns status of last' do
+        expect(status.parse[:status]).to eq('in_transit')
       end
     end
 
@@ -81,11 +81,11 @@ RSpec.describe TotalExpress::StatusReader do
       end
     end
 
-    context 'with order exception' do
+    context 'with order created' do
       let(:code) { 'VN22040' }
 
-      it 'returns status exception' do
-        expect(status.parse[:status]).to eq('exception')
+      it 'returns status pending' do
+        expect(status.parse[:status]).to eq('pending')
       end
     end
 
@@ -94,6 +94,34 @@ RSpec.describe TotalExpress::StatusReader do
 
       it 'returns status exception' do
         expect(status.parse[:status]).to eq('pending')
+      end
+    end
+  end
+
+  describe '#parse_status' do
+    statuses = {
+      '102' => 'in_transit',
+      '103' => 'in_transit',
+      '104' => 'out_of_delivery',
+      '91' => 'out_of_delivery',
+      '21' => 'out_of_delivery',
+      '29' => 'out_of_delivery',
+      '1' => 'delivered',
+      '69' => 'in_transit',
+      '101' => 'in_transit',
+      '0' => 'pending',
+      '80' => 'pending'
+    }.freeze
+
+    statuses.each do |integration_status, app_status|
+      it 'returns parsed status' do
+        expect(status.parse_status(integration_status)).to eq(app_status)
+      end
+    end
+
+    context 'with unexpected status' do
+      it 'returns "exception" status' do
+        expect(status.parse_status('foo')).to eq('exception')
       end
     end
   end
