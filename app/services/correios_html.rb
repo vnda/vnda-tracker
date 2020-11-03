@@ -15,6 +15,7 @@ class CorreiosHtml
     'Tentativa de entrega não efetuada' => 'out_of_delivery',
     'Sa.*da para entrega cancelada' => 'out_of_delivery',
     'Objeto saiu para entrega ao destinat.*rio' => 'out_of_delivery',
+    'Objeto em trânsito' => 'in_transit',
     'Objeto entregue' => 'delivered',
     'Objeto devolvido' => 'expired'
   }.freeze
