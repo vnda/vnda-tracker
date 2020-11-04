@@ -176,7 +176,10 @@ describe CorreiosHtml do
       'Objeto saiu para entrega ao destinatário' => 'out_of_delivery',
       'Objeto entregue ao destinatário' => 'delivered',
       'Objeto entregue' => 'delivered',
-      'Objeto devolvido ao remetente' => 'expired'
+      'Objeto devolvido ao remetente' => 'expired',
+      'Objeto em trânsito - por favor aguarde\r\n \r\n \t\r\nde \tUnidade de ' \
+        'Tratamento \r\nem \tINDAIATUBA / SP\t\t\t\t\r\npara \tUnidade de ' \
+          'Tratamento\t\t\t\t\r\nem \tSALVADOR / BA' => 'in_transit'
     }
 
     statuses.each do |correios_status, app_status|
