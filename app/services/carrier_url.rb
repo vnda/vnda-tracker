@@ -7,7 +7,7 @@ class CarrierURL
       '%<intelipost_id>s/%<code>s',
     'jadlog' => 'http://www.jadlog.com.br/siteDpd/tracking.jad?cte=%<code>s',
     'mandae' => 'https://rastreae.com.br/resultado/%<code>s',
-    'melhorenvio' => 'https://melhorenvio.com.br/rastreio/%<code>s',
+    'melhorenvio' => 'https://melhorrastreio.com.br/rastreio/%<tracking>s',
     'tnt' => 'http://app.tntbrasil.com.br/radar/public/'\
       'localizacaoSimplificadaDetail/%<code>s',
     'totalexpress' => 'https://tracking.totalexpress.com.br/poupup_track.php?'\
@@ -47,11 +47,18 @@ class CarrierURL
     shop.intelipost_id
   end
 
+  def tracking
+    return if carrier != 'melhorenvio'
+
+    MelhorEnvio.new(@shop).melhorenvio_tracking(@code)
+  end
+
   def format_url
     format(
       URLS[carrier],
       code: code,
       reid: client_id,
+      tracking: tracking,
       invoice: code.to_s.gsub(/\D/, ''),
       intelipost_id: intelipost_id
     )

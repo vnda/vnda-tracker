@@ -61,4 +61,40 @@ describe CarrierURL do
       )
     end
   end
+
+  context 'with Melhor Envio' do
+    let(:carrier) { 'melhorenvio' }
+
+    it 'returns URL' do
+      stub_request(:get, 'http://shop1.vnda.com.br/api/v2/shop')
+        .to_return(
+          status: 200,
+          body: {
+            settings: {
+              melhor_envio_access_token: 'foo'
+            }
+          }.to_json
+        )
+
+      stub_request(:post, 'https://sandbox.melhorenvio.com.br/api/v2/me/shipment/tracking')
+        .with(
+          body: '{"orders":["A1B2C3D4E5"]}',
+          headers: {
+            'Authorization' => 'Bearer foo',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+          }
+        )
+        .to_return(
+          status: 200,
+          body: {
+            'A1B2C3D4E5' => {
+              'melhorenvio_tracking' => 'ME123456789BR'
+            }
+          }.to_json
+        )
+
+      expect(url).to eq('https://melhorrastreio.com.br/rastreio/ME123456789BR')
+    end
+  end
 end

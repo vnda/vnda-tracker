@@ -54,6 +54,12 @@ class MelhorEnvio
     tracking_code.match?(/^[a-z0-9\-]{36}$/)
   end
 
+  def melhorenvio_tracking(tracking_code)
+    response = request(tracking_code)
+    event = parse(response, tracking_code)
+    event['melhorenvio_tracking']
+  end
+
   private
 
   def token
