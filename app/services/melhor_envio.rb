@@ -57,7 +57,7 @@ class MelhorEnvio
   def melhorenvio_tracking(tracking_code)
     response = request(tracking_code)
     event = parse(response, tracking_code)
-    event['melhorenvio_tracking']
+    event['tracking']
   end
 
   private
