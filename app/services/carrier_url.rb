@@ -50,10 +50,12 @@ class CarrierURL
   def tracking
     return if carrier != 'melhorenvio'
 
-    MelhorEnvio.new(@shop).melhorenvio_tracking(@code)
+    MelhorEnvio.new(shop).melhorenvio_tracking(code)
   end
 
   def format_url
+    return if carrier == 'melhorenvio' && tracking.blank?
+
     format(
       URLS[carrier],
       code: code,

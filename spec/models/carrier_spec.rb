@@ -28,7 +28,9 @@ describe Carrier, type: :model do
       'total_user': 'foo',
       'total_password': 'bar',
       'mandae_enabled': true,
-      'mandae_pattern': 'VNDA[0-9]{3}'
+      'mandae_pattern': 'VNDA[0-9]{3}',
+      'melhor_envio_enabled': true,
+      'melhor_envio_environment': 'sandbox'
     }
   end
 
@@ -63,6 +65,11 @@ describe Carrier, type: :model do
       expect(tracker).to eq('mandae')
     end
 
+    it 'recognizes melhorenvio tracking code' do
+      tracker = carrier.discover('791c4588-d935-4f9b-9ae6-a2cdc4dae20d', shop)
+      expect(tracker).to eq('melhorenvio')
+    end
+
     it 'does not recognize unexpected tracking code' do
       tracker = carrier.discover('of00000000000000br', shop)
       expect(tracker).to eq('unknown')
@@ -90,6 +97,11 @@ describe Carrier, type: :model do
     it 'returns mandae tracker instance' do
       service = carrier.new(shop, 'mandae').service
       expect(service).to be_a(Mandae)
+    end
+
+    it 'returns melhorenvio tracker instance' do
+      service = carrier.new(shop, 'melhorenvio').service
+      expect(service).to be_a(MelhorEnvio)
     end
 
     it 'returns correios tracker instance' do
@@ -121,6 +133,39 @@ describe Carrier, type: :model do
   end
 
   describe '.url' do
+    it 'returns melhorenvio url' do
+      stub_request(:get, 'http://shop1.vnda.com.br/api/v2/shop')
+        .to_return(
+          status: 200,
+          body: {
+            settings: {
+              melhor_envio_access_token: 'foo'
+            }
+          }.to_json
+        )
+
+      stub_request(:post, 'https://sandbox.melhorenvio.com.br/api/v2/me/shipment/tracking')
+        .with(
+          body: '{"orders":["code123"]}',
+          headers: {
+            'Authorization' => 'Bearer foo',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+          }
+        )
+        .to_return(
+          status: 200,
+          body: {
+            'code123' => {
+              'tracking' => 'ME123456789BR'
+            }
+          }.to_json
+        )
+
+      url = carrier.url(carrier: 'melhorenvio', code: 'code123', shop: shop)
+      expect(url).to eq('https://melhorrastreio.com.br/rastreio/ME123456789BR')
+    end
+
     it 'returns correios url' do
       url = carrier.url(carrier: 'correios', code: 'code123')
       expect(url)
