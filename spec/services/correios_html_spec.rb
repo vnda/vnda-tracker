@@ -174,6 +174,7 @@ describe CorreiosHtml do
       'Tentativa de entrega não efetuada' => 'out_of_delivery',
       'Saída para entrega cancelada' => 'out_of_delivery',
       'Objeto saiu para entrega ao destinatário' => 'out_of_delivery',
+      'Carteiro não atendido' => 'out_of_delivery',
       'Objeto entregue ao destinatário' => 'delivered',
       'Objeto entregue' => 'delivered',
       'Objeto devolvido ao remetente' => 'expired',
