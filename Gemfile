@@ -29,7 +29,7 @@ gem 'pg', '0.21.0'
 gem 'puma', '3.12.6'
 gem 'rails', '5.2.4.2'
 gem 'savon', '2.12.0'
-gem 'sidekiq', '4.2.10'
+gem 'sidekiq', '6.1.2'
 gem 'sinatra', require: nil
 
 group :development, :test do
