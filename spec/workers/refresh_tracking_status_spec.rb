@@ -109,12 +109,23 @@ describe RefreshTrackingStatus do
   end
 
   context 'with an unsupported carrier' do
-    it 'does not raises error' do
+    it 'does not raise error' do
       expect(Tracking).to receive(:find).with(tracking.id).and_return(tracking)
       expect(tracking).to receive(:update_status!)
         .and_raise(Carrier::UnsupportedCarrierError)
 
       subject.perform(tracking.id)
+    end
+  end
+
+  context 'with a deleted tracking' do
+    it 'does not raise error' do
+      expect(Tracking)
+        .to receive(:find)
+        .with(0)
+        .and_raise(ActiveRecord::RecordNotFound)
+
+      subject.perform(0)
     end
   end
 end

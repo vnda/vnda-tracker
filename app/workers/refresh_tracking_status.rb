@@ -10,8 +10,10 @@ class RefreshTrackingStatus
     else
       schedule_next_checking(tracking)
     end
+  rescue ActiveRecord::RecordNotFound
+    logger.error("Tracking #{tracking_id} not found")
   rescue Carrier::UnsupportedCarrierError
-    logger.info("Tracking #{tracking.attributes} have an unsupported carrier")
+    logger.error("Tracking #{tracking.attributes} have an unsupported carrier")
   end
 
   protected
