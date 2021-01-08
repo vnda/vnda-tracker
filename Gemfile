@@ -9,7 +9,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 5.0'
 gem 'jbuilder', '~> 2.10'
 gem 'jquery-rails', '4.3.1'
 gem 'sass-rails', '~> 5.0'
@@ -24,7 +24,7 @@ gem 'excon', '0.76.0'
 gem 'faraday', '0.15.4'
 gem 'faraday_middleware', '0.13.1'
 gem 'honeybadger', '3.3.1'
-gem 'nokogiri', '1.10.10'
+gem 'nokogiri', '1.11.1'
 gem 'pg', '0.21.0'
 gem 'puma', '3.12.6'
 gem 'rails', '5.2.4.2'
