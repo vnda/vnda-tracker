@@ -28,7 +28,10 @@ class RefreshTrackingStatus
       schedule_next_checking(tracking)
     elsif tracking.delivery_status == 'delivered'
       Notify.perform_async(tracking.id)
-    elsif %w[out_of_delivery failed_attempt].include?(tracking.delivery_status)
+    elsif tracking.delivery_status == 'out_of_delivery'
+      Notify.perform_async(tracking.id)
+      schedule_next_checking(tracking, 6)
+    elsif %w[failed_attempt].include?(tracking.delivery_status)
       # send email
       schedule_next_checking(tracking, 6)
     elsif tracking.delivery_status == 'expired'

@@ -70,6 +70,7 @@ describe RefreshTrackingStatus do
         expect(described_class)
           .to receive(:perform_at)
           .with(6.hours.from_now, tracking.id)
+        expect(Notify).to receive(:perform_async).with(tracking.id)
 
         subject.perform(tracking.id)
       end
