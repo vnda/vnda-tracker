@@ -20,7 +20,7 @@ source 'https://rails-assets.org' do
 end
 
 gem 'bootsnap', require: false
-gem 'excon', '0.76.0'
+gem 'excon', '0.78.1'
 gem 'faraday', '0.15.4'
 gem 'faraday_middleware', '0.13.1'
 gem 'honeybadger', '3.3.1'
@@ -45,7 +45,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'codecov', '0.2.11', require: false
+  gem 'codecov', '0.2.15', require: false
   gem 'simplecov', '0.19.0', require: false
   gem 'timecop', '0.9.1'
   gem 'webmock', require: 'webmock/rspec'
