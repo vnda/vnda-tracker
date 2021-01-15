@@ -21,7 +21,7 @@ end
 
 gem 'bootsnap', require: false
 gem 'excon', '0.78.1'
-gem 'faraday', '0.15.4'
+gem 'faraday', '0.17.3'
 gem 'faraday_middleware', '0.13.1'
 gem 'honeybadger', '3.3.1'
 gem 'nokogiri', '1.11.1'
