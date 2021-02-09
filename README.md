@@ -1,24 +1,36 @@
-# README
+# Requisitos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby 2.5.3
 
-Things you may want to cover:
+# Instalação:
 
-* Ruby version
+1. Instalar as Gems
 
-* System dependencies
+```sh
+$ gem install bundler -v '2.1.4'
+$ bin/bundle install
+```
 
-* Configuration
+2. Copiar o `.env.test` para `.env` e configurar os campos com os valores apropriados.
 
-* Database creation
+3. Copiar o `config/database.yml.sample` para `config/database.yml` e configurar para os bancos de desenvolvimento e teste. Nota: deve-se dar ao usuário permissão para criar bancos no PostgreSQL.
 
-* Database initialization
+4. Criar o banco com as tabelas para os testes
 
-* How to run the test suite
+```sh
+$ bin/rake db:create
+$ bin/rake db:migrate db:test:prepare
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Rodando o projeto:
 
-* Deployment instructions
+```sh
+# Iniciar o rails server
+$ bin/rails s
+```
 
-* ...
+## Rodando os testes automatizados:
+
+```sh
+$ bin/rspec spec/
+```
