@@ -64,7 +64,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.7)
+    concurrent-ruby (1.1.8)
     connection_pool (2.2.2)
     crack (0.4.5)
       rexml
@@ -78,7 +78,7 @@ GEM
     erubi (1.10.0)
     excon (0.78.1)
     execjs (2.7.0)
-    faker (2.10.1)
+    faker (2.16.0)
       i18n (>= 1.6, < 2)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
@@ -94,7 +94,7 @@ GEM
     httpi (2.4.4)
       rack
       socksify
-    i18n (1.8.5)
+    i18n (1.8.8)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.4)
     jbuilder (2.10.1)
