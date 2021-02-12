@@ -95,7 +95,7 @@ class MelhorEnvio
 
   def parse(json, tracking_code)
     hash = JSON.parse(json)
-    return if hash['errors'].present?
+    return if hash.empty? || hash['errors'].present?
 
     hash[tracking_code]
   end
