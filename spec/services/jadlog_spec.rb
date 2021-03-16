@@ -126,6 +126,54 @@ describe Jadlog do
         message: nil
       )
     end
+
+    context 'with HTTP error' do
+      before do
+        stub_request(:post, url)
+          .with(
+            body: {
+              'consulta' => [{ 'shipmentId' => '1800000000002' }]
+            }.to_json,
+            headers: {
+              'Authorization' => 'Bearer foo',
+              'Content-Type' => 'application/json'
+            }
+          )
+          .to_return(status: 500)
+      end
+
+      it 'returns pending' do
+        expect(jadlog.status('1800000000002')).to eq(
+          date: nil,
+          status: 'pending',
+          message: nil
+        )
+      end
+    end
+
+    context 'with generic Excon error' do
+      before do
+        stub_request(:post, url)
+          .with(
+            body: {
+              'consulta' => [{ 'shipmentId' => '1800000000002' }]
+            }.to_json,
+            headers: {
+              'Authorization' => 'Bearer foo',
+              'Content-Type' => 'application/json'
+            }
+          )
+          .to_raise(Excon::Error)
+      end
+
+      it 'returns pending' do
+        expect(jadlog.status('1800000000002')).to eq(
+          date: nil,
+          status: 'pending',
+          message: nil
+        )
+      end
+    end
   end
 
   describe '#events' do

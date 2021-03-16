@@ -14,8 +14,11 @@ class Correios
         'resultado' => 'U',
         'lingua' => '101',
         'objetos' => tracking_code)
-    rescue Wasabi::Resolver::HTTPError, Excon::Errors::Error => e
-      Honeybadger.notify(e)
+    rescue Wasabi::Resolver::HTTPError,
+           Excon::Errors::Error,
+           Savon::HTTPError => e
+      Sentry.capture_exception(e, extra: { tracking_code: tracking_code })
+      return { date: nil, status: 'pending', message: nil }
     end
     object = response.body[:busca_eventos_response][:return][:objeto]
     event = object[:evento]

@@ -39,9 +39,12 @@ class Loggi
       body: request_params(tracking_code).to_json
     )
 
+    return error_hash if response&.body.blank?
+
     parse(JSON.parse(response.body))
   rescue Excon::Errors::Error => e
-    Honeybadger.notify(e, context: { tracking_code: tracking_code })
+    Sentry.capture_exception(e, extra: { tracking_code: tracking_code })
+    error_hash
   end
 
   def headers

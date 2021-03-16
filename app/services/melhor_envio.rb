@@ -89,7 +89,7 @@ class MelhorEnvio
       headers: headers
     ).body
   rescue Excon::Errors::Error => exception
-    Honeybadger.notify(exception, context: { tracking_code: tracking_code })
+    Sentry.capture_exception(exception, extra: { tracking_code: tracking_code })
     { errors: 'exception' }.to_json
   end
 

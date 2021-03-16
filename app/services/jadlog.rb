@@ -10,8 +10,8 @@ class Jadlog
 
   def status(tracking_code)
     response = request(tracking_code)
-    @last_response = response.body
-    event = parse(response.body)
+    @last_response = response.body if response
+    event = parse(response.body) if response&.body.present?
     return { date: nil, status: 'pending', message: nil } unless event
 
     {
@@ -54,7 +54,7 @@ class Jadlog
       body: { 'consulta' => [{ 'shipmentId' => tracking_code }] }.to_json
     )
   rescue Excon::Errors::Error => e
-    Honeybadger.notify(e, context: { tracking_code: tracking_code })
+    Sentry.capture_exception(e, extra: { tracking_code: tracking_code })
   end
 
   def parse(json)

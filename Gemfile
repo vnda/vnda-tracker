@@ -21,14 +21,15 @@ end
 
 gem 'bootsnap', require: false
 gem 'excon', '0.78.1'
-gem 'faraday', '0.15.4'
-gem 'faraday_middleware', '0.13.1'
-gem 'honeybadger', '3.3.1'
+gem 'faraday', '1.3.0'
+gem 'faraday_middleware', '1.0.0'
 gem 'nokogiri', '1.11.1'
 gem 'pg', '0.21.0'
 gem 'puma', '3.12.6'
 gem 'rails', '5.2.4.2'
 gem 'savon', '2.12.0'
+gem 'sentry-rails', '4.3.0'
+gem 'sentry-ruby', '4.3.0'
 gem 'sidekiq', '4.2.10'
 gem 'sinatra', require: nil
 

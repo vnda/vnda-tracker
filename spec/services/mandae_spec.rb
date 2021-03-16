@@ -132,6 +132,48 @@ describe Mandae do
         message: nil
       )
     end
+
+    context 'with HTTP error' do
+      before do
+        stub_request(:get, url)
+          .with(
+            headers: {
+              'Authorization' => 'foo',
+              'Content-Type' => 'application/json'
+            }
+          )
+          .to_return(status: 500)
+      end
+
+      it 'returns pending' do
+        expect(mandae.status('134763521')).to eq(
+          date: nil,
+          status: 'pending',
+          message: nil
+        )
+      end
+    end
+
+    context 'with generic Excon error' do
+      before do
+        stub_request(:get, url)
+          .with(
+            headers: {
+              'Authorization' => 'foo',
+              'Content-Type' => 'application/json'
+            }
+          )
+          .to_raise(Excon::Error)
+      end
+
+      it 'returns pending' do
+        expect(mandae.status('134763521')).to eq(
+          date: nil,
+          status: 'pending',
+          message: nil
+        )
+      end
+    end
   end
 
   describe '#events' do

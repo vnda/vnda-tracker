@@ -32,17 +32,7 @@ class CorreiosHtml
 
   def events(tracking_code)
     @events ||= {}
-    @events[tracking_code] ||= begin
-      response = request(tracking_code)
-
-      CorreiosHistory.create(
-        code: tracking_code,
-        response_body: response.body.encode,
-        response_status: response.status
-      )
-
-      parse(response.body)
-    end
+    @events[tracking_code] ||= event(tracking_code)
   end
 
   def parse_status(text)
@@ -55,6 +45,19 @@ class CorreiosHtml
 
   private
 
+  def event(tracking_code)
+    response = request(tracking_code)
+    response_body = response&.body || ''
+
+    CorreiosHistory.create(
+      code: tracking_code,
+      response_body: response_body.encode,
+      response_status: response&.status
+    )
+
+    parse(response_body)
+  end
+
   def request(tracking_code)
     Excon.post(
       URL,
@@ -62,7 +65,7 @@ class CorreiosHtml
       headers: { 'Content-Type' => 'application/x-www-form-urlencoded' }
     )
   rescue Excon::Errors::Error => e
-    Honeybadger.notify(e, context: { tracking_code: tracking_code })
+    Sentry.capture_exception(e, extra: { tracking_code: tracking_code })
   end
 
   def parse(html)

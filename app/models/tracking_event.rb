@@ -6,7 +6,7 @@ class TrackingEvent < ApplicationRecord
   validates :delivery_status, :tracking, presence: true
 
   def self.register(events, tracking)
-    Honeybadger.context(tracking: tracking.attributes, events: events)
+    Sentry.set_extras(tracking: tracking.attributes, events: events)
 
     events.each do |event|
       find_or_create_by!(

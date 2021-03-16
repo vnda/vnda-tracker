@@ -90,6 +90,50 @@ describe Loggi do
         message: nil
       )
     end
+
+    context 'with HTTP error' do
+      before do
+        stub_request(:post, 'https://staging.loggi.com/graphql')
+          .with(
+            body: body,
+            headers: {
+              'Authorization' => 'ApiKey ajuda@vnda.com.br:123',
+              'Content-Type' => 'application/json'
+            }
+          )
+          .to_return(status: 500)
+      end
+
+      it 'returns pending' do
+        expect(loggi.status('123456')).to eq(
+          date: nil,
+          status: 'pending',
+          message: nil
+        )
+      end
+    end
+
+    context 'with generic Excon error' do
+      before do
+        stub_request(:post, 'https://staging.loggi.com/graphql')
+          .with(
+            body: body,
+            headers: {
+              'Authorization' => 'ApiKey ajuda@vnda.com.br:123',
+              'Content-Type' => 'application/json'
+            }
+          )
+          .to_raise(Excon::Error)
+      end
+
+      it 'returns pending' do
+        expect(loggi.status('123456')).to eq(
+          date: nil,
+          status: 'pending',
+          message: nil
+        )
+      end
+    end
   end
 
   describe '#events' do
