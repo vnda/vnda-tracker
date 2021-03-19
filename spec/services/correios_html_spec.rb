@@ -64,7 +64,7 @@ describe CorreiosHtml do
       end
     end
 
-    context 'with an Excon error' do
+    context 'with an HTTP status error' do
       subject(:status) { correios.status('OF526556823BR') }
 
       before { stub_request(:post, url).to_return(status: 500) }
@@ -78,6 +78,25 @@ describe CorreiosHtml do
         expect(CorreiosHistory.last.code).to eq('OF526556823BR')
         expect(CorreiosHistory.last.response_body).to eq('')
         expect(CorreiosHistory.last.response_status).to eq(500)
+      end
+    end
+
+    context 'with a generic Excon error' do
+      subject(:status) { correios.status('OF526556823BR') }
+
+      before do
+        stub_request(:post, url).to_raise(Excon::Errors::Error, 'Error')
+      end
+
+      it 'returns default event' do
+        expect(status).to eq(date: nil, status: 'pending', message: nil)
+      end
+
+      it 'registers the history' do
+        status
+        expect(CorreiosHistory.last.code).to eq('OF526556823BR')
+        expect(CorreiosHistory.last.response_body).to eq('')
+        expect(CorreiosHistory.last.response_status).to eq(nil)
       end
     end
   end

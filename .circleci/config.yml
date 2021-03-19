@@ -68,6 +68,11 @@ jobs:
           name: Deploy to production
           command: |
             dpl --provider=heroku --app=vnda-tracker --api-key=$HEROKU_API_KEY
+      - run:
+          name: Set Sentry version
+          command: |
+            curl https://cli-assets.heroku.com/install.sh | sh
+            heroku config:set APP_REVISION=$CIRCLE_TAG -a vnda-tracker
 
 workflows:
   version: 2

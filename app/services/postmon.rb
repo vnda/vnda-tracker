@@ -12,7 +12,7 @@ class Postmon
       hash = JSON.parse(response.body)
     rescue Excon::Errors::Error, JSON::ParserError => e
       hash = {}
-      Honeybadger.notify(e, context: { tracking_code: tracking_code })
+      Sentry.capture_exception(e, extra: { tracking_code: tracking_code })
     end
 
     last_event = hash['historico']&.last

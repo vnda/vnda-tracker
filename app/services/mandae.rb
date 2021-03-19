@@ -27,7 +27,7 @@ class Mandae
 
   def status(tracking_code)
     response = request(tracking_code)
-    event = parse(response)
+    event = parse(response) if response.present?
     unless event && event['date']
       return { date: nil, status: 'pending', message: nil }
     end
@@ -66,7 +66,7 @@ class Mandae
       }
     ).body
   rescue Excon::Errors::Error => e
-    Honeybadger.notify(e, context: { tracking_code: tracking_code })
+    Sentry.capture_exception(e, extra: { tracking_code: tracking_code })
   end
 
   def parse(json)

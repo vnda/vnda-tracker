@@ -46,6 +46,43 @@ describe Correios do
         message: nil
       )
     end
+
+    context 'with HTTP error' do
+      before do
+        stub_request(
+          :post,
+          'http://webservice.correios.com.br/service/rastro'
+        ).with(body: request_xml).to_return(
+          status: 500,
+          body: xml_without_event
+        )
+      end
+
+      it 'returns pending' do
+        expect(correios.status('DW962413465BR')).to eq(
+          date: nil,
+          status: 'pending',
+          message: nil
+        )
+      end
+    end
+
+    context 'with generic Excon error' do
+      before do
+        stub_request(
+          :post,
+          'http://webservice.correios.com.br/service/rastro'
+        ).with(body: request_xml).to_raise(Excon::Error)
+      end
+
+      it 'returns pending' do
+        expect(correios.status('DW962413465BR')).to eq(
+          date: nil,
+          status: 'pending',
+          message: nil
+        )
+      end
+    end
   end
 
   describe '#events' do
