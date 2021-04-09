@@ -74,6 +74,22 @@ describe Carrier, type: :model do
       tracker = carrier.discover('of00000000000000br', shop)
       expect(tracker).to eq('unknown')
     end
+
+    context 'with bling' do
+      let(:shop_attributes) do
+        {
+          'name': 'Shop 1',
+          'token': 'shop1_token',
+          'host': 'shop1.vnda.com.br',
+          'bling_enabled': true
+        }
+      end
+
+      it 'recognizes bling tracking code' do
+        tracker = carrier.discover('12345678', shop)
+        expect(tracker).to eq('bling')
+      end
+    end
   end
 
   describe '#service' do
