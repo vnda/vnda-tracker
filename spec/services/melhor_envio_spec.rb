@@ -100,6 +100,25 @@ RSpec.describe MelhorEnvio do
       )
     end
 
+    it 'returns pending when response is empty' do
+      stub_request(:post, url)
+        .with(
+          body: params,
+          headers: {
+            'Authorization' => 'Bearer foo',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+          }
+        )
+        .to_return(status: 200, body: [].to_json)
+
+      expect(melhor_envio.status('6e1c864a-fe48-4ae7-baaa-d6e4888bafd1')).to eq(
+        date: nil,
+        status: 'pending',
+        message: nil
+      )
+    end
+
     it 'when raises returns pending' do
       stub_request(:post, url)
         .with(
