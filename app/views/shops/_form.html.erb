@@ -203,6 +203,32 @@
 
       <hr />
 
+      <h4>Bling</h4>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <%= f.check_box :bling_enabled, class: 'form-check-input' %>
+          Habilitado
+        </label>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :bling_api_key %><br>
+        <%= f.text_field :bling_api_key, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :bling_status_in_transit %><br>
+        <%= f.text_field :bling_status_in_transit, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :bling_status_delivered %><br>
+        <%= f.text_field :bling_status_delivered, class: 'form-control' %>
+      </div>
+
+      <hr />
+
       <div class="actions">
         <%= f.submit 'Salvar', class: 'btn btn-primary' %>
         <%= link_to 'Cancelar', :back, class: 'btn btn-default'  %>

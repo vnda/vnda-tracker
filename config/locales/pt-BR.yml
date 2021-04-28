@@ -260,6 +260,9 @@ pt-BR:
         loggi_api_url: 'Url da api'
         loggi_pattern: Padrão para reconhecimento do rastreio (regex)
         melhor_envio_environment: "Ambiente"
+        bling_api_key: 'Chave da API do Bling'
+        bling_status_in_transit: 'Situação no Bling equivalente a em trânsito'
+        bling_status_delivered: 'Situação no Bling equivalente a entregue'
       tracking:
         code: "Código de rastreio"
         carrier: Transportadora

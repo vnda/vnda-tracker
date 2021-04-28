@@ -5,6 +5,7 @@ class Carrier
 
   CARRIERS = {
     'tnt' => Tnt,
+    'bling' => Bling,
     'intelipost' => Intelipost,
     'jadlog' => Jadlog,
     'loggi' => Loggi,
@@ -20,7 +21,8 @@ class Carrier
     'loggi' => Loggi,
     'mandae' => Mandae,
     'melhorenvio' => MelhorEnvio,
-    'totalexpress' => TotalExpress::Tracker
+    'totalexpress' => TotalExpress::Tracker,
+    'bling' => Bling
   }.freeze
 
   def initialize(shop, carrier)
