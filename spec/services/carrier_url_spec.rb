@@ -129,4 +129,32 @@ describe CarrierURL do
       expect(url).to eq(nil)
     end
   end
+
+  context 'with Bling' do
+    let(:carrier) { 'bling' }
+    let(:bling_service) { instance_double(Bling) }
+
+    before do
+      allow(Bling).to receive(:new).with(shop).and_return(bling_service)
+    end
+
+    it 'returns URL' do
+      allow(bling_service).to receive(:tracking_url).with('A1B2C3D4E5')
+        .and_return(
+          'www2.correios.com.br/sistemas/rastreamento?objetos=A1B2C3D4E5'
+        )
+
+      expect(url).to eq(
+        'www2.correios.com.br/sistemas/rastreamento?objetos=A1B2C3D4E5'
+      )
+    end
+
+    it 'does not return URL when response is nil' do
+      allow(bling_service).to receive(:tracking_url)
+        .with('A1B2C3D4E5')
+        .and_return(nil)
+
+      expect(url).to eq(nil)
+    end
+  end
 end

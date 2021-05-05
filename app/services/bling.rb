@@ -35,6 +35,12 @@ class Bling
     code.present?
   end
 
+  def tracking_url(tracking_code)
+    response = request(tracking_code)
+    event = parse(response)
+    event&.dig('transporte', 'volumes', 0, 'volume', 'urlRastreamento')
+  end
+
   private
 
   def request(tracking_code)

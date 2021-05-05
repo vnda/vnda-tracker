@@ -116,7 +116,7 @@ describe Bling do
                         'comprimento' => '0',
                         'diametro' => '0'
                       },
-                      'urlRastreamento' => 'www2.correios.com.br'
+                      'urlRastreamento' => tracking_url
                     }
                   }
                 ],
@@ -168,6 +168,9 @@ describe Bling do
     }
   end
   let(:status) { 'Atendido' }
+  let(:tracking_url) do
+    'www2.correios.com.br/sistemas/rastreamento?objetos=AB12345678'
+  end
 
   before do
     stub_const("#{Vnda::Hub}::HUB_SCHEME", 'https')
@@ -432,6 +435,48 @@ describe Bling do
         expect(
           described_class.validate_tracking_code(shop, 'AB123456789BR')
         ).to eq(true)
+      end
+    end
+  end
+
+  describe '#tracking_url' do
+    context 'with tracking url' do
+      before do
+        stub_request(:get, url)
+          .to_return(status: 200, body: response_with_order.to_json)
+      end
+
+      it 'returns the tracking URL' do
+        expect(described_class.new(shop).tracking_url('AB123456789BR'))
+          .to eq(
+            'www2.correios.com.br/sistemas/rastreamento?objetos=AB12345678'
+          )
+      end
+    end
+
+    context 'without tracking url' do
+      let(:tracking_url) { nil }
+
+      before do
+        stub_request(:get, url)
+          .to_return(status: 200, body: response_with_order.to_json)
+      end
+
+      it 'returns nil' do
+        expect(described_class.new(shop).tracking_url('AB123456789BR'))
+          .to be_nil
+      end
+    end
+
+    context 'without remote code on hub' do
+      before do
+        stub_request(:get, url)
+          .to_return(status: 200, body: response_with_error.to_json)
+      end
+
+      it 'returns nil' do
+        expect(described_class.new(shop).tracking_url('AB123456789BR'))
+          .to be_nil
       end
     end
   end
