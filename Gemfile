@@ -19,6 +19,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-sweetalert'
 end
 
+gem 'awesome_print', '1.9.2'
 gem 'bootsnap', require: false
 gem 'excon', '0.78.1'
 gem 'faraday', '1.3.0'
