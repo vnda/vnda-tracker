@@ -2,6 +2,7 @@
 
 class CarrierURL
   URLS = {
+    'bling' => '',
     'correios' => 'https://track.aftership.com/brazil-correios/%<code>s',
     'intelipost' => 'https://status.ondeestameupedido.com/tracking/' \
       '%<intelipost_id>s/%<code>s',
@@ -29,7 +30,7 @@ class CarrierURL
   def fetch
     return '' unless URLS.key?(carrier)
 
-    format_url
+    tracking_url
   end
 
   private
@@ -48,19 +49,30 @@ class CarrierURL
   end
 
   def tracking
-    return if carrier != 'melhorenvio'
+    if carrier == 'melhorenvio'
+      return MelhorEnvio.new(shop).melhorenvio_tracking(code)
+    end
 
-    MelhorEnvio.new(shop).melhorenvio_tracking(code)
+    return Bling.new(shop).tracking_url(code) if carrier == 'bling'
+
+    nil
   end
 
-  def format_url
-    return if carrier == 'melhorenvio' && tracking.blank?
+  def tracking_url
+    tracking_value = tracking
+    return tracking_value if carrier == 'bling'
 
+    return if carrier == 'melhorenvio' && tracking_value.blank?
+
+    format_url(tracking_value)
+  end
+
+  def format_url(tracking_value)
     format(
       URLS[carrier],
       code: code,
       reid: client_id,
-      tracking: tracking,
+      tracking: tracking_value,
       invoice: code.to_s.gsub(/\D/, ''),
       intelipost_id: intelipost_id
     )
