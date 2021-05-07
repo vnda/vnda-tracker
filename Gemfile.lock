@@ -182,7 +182,7 @@ GEM
       ffi (~> 1.0)
     redis (3.3.5)
     ref (2.0.0)
-    rexml (3.2.4)
+    rexml (3.2.5)
     rspec-core (3.8.2)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.6)
