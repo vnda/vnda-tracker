@@ -13,7 +13,11 @@ class Bling
   end
 
   def status(tracking_code)
-    response = request(tracking_code)
+    package = @shop.trackings.find_by(code: tracking_code)&.package
+
+    raise NotFound, 'Tracking not found' unless package
+
+    response = request(package)
     event = parse(response) if response.present?
     return { date: nil, status: 'pending', message: nil } unless event
 
@@ -35,22 +39,22 @@ class Bling
     code.present?
   end
 
-  def tracking_url(tracking_code)
-    response = request(tracking_code)
+  def tracking_url(package)
+    response = request(package)
     event = parse(response)
     event&.dig('transporte', 'volumes', 0, 'volume', 'urlRastreamento')
   end
 
   private
 
-  def request(tracking_code)
+  def request(package)
     @last_response = Excon.get(
-      "https://bling.com.br/Api/v2/pedido/#{order_number(tracking_code)}/json",
+      "https://bling.com.br/Api/v2/pedido/#{order_number(package)}/json",
       query: { apikey: @api_key },
       expects: 200
     ).body
   rescue Excon::Errors::Error => e
-    Sentry.capture_exception(e, extra: { tracking_code: tracking_code })
+    Sentry.capture_exception(e, extra: { package: package })
   end
 
   def parse(json)
@@ -67,11 +71,7 @@ class Bling
     }.fetch(status, 'pending')
   end
 
-  def order_number(tracking_code)
-    package = @shop.trackings.find_by(code: tracking_code)&.package
-
-    raise NotFound, 'Tracking not found' unless package
-
+  def order_number(package)
     order_code = package.split('-').first
 
     hub_order = find_from_hub(order_code)
