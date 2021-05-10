@@ -78,6 +78,10 @@ class Tracking < ApplicationRecord
   end
 
   def discover_tracker_url
+    if carrier == 'bling'
+      return self.tracker_url ||= Bling.new(shop).tracking_url(package)
+    end
+
     self.tracker_url ||= Carrier.url(
       carrier: carrier,
       code: code,

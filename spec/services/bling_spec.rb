@@ -447,7 +447,7 @@ describe Bling do
       end
 
       it 'returns the tracking URL' do
-        expect(described_class.new(shop).tracking_url('AB123456789BR'))
+        expect(described_class.new(shop).tracking_url('ABCDE12345-01'))
           .to eq(
             'www2.correios.com.br/sistemas/rastreamento?objetos=AB12345678'
           )
@@ -463,7 +463,7 @@ describe Bling do
       end
 
       it 'returns nil' do
-        expect(described_class.new(shop).tracking_url('AB123456789BR'))
+        expect(described_class.new(shop).tracking_url('ABCDE12345-01'))
           .to be_nil
       end
     end
@@ -475,7 +475,7 @@ describe Bling do
       end
 
       it 'returns nil' do
-        expect(described_class.new(shop).tracking_url('AB123456789BR'))
+        expect(described_class.new(shop).tracking_url('ABCDE12345-01'))
           .to be_nil
       end
     end

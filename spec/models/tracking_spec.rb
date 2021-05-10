@@ -64,6 +64,44 @@ describe Tracking, type: :model do
     end
   end
 
+  describe '#tracker_url' do
+    before do
+      allow(Carrier).to receive(:url).with(
+        carrier: carrier,
+        code: 'PM135787152BR',
+        shop: shop
+      ).and_return(
+        'www2.correios.com.br/sistemas/rastreamento?objetos=FEDCBA4321'
+      )
+    end
+
+    it 'sets the tracker url' do
+      expect(tracking.tracker_url).to eq(
+        'www2.correios.com.br/sistemas/rastreamento?objetos=FEDCBA4321'
+      )
+    end
+
+    context 'when shop is integrated with Bling' do
+      let(:carrier) { 'bling' }
+      let(:bling_service) { instance_double(Bling) }
+
+      before do
+        allow(Bling).to receive(:new).with(shop).and_return(bling_service)
+        allow(bling_service).to receive(:tracking_url)
+          .with('BBA1B3509E-01')
+          .and_return(
+            'www2.correios.com.br/sistemas/rastreamento?objetos=AB12345678'
+          )
+      end
+
+      it 'calls directly the Bling service to get the url' do
+        expect(tracking.tracker_url).to eq(
+          'www2.correios.com.br/sistemas/rastreamento?objetos=AB12345678'
+        )
+      end
+    end
+  end
+
   describe '#carrier' do
     context 'when tracking code is equal to order code' do
       subject(:tracking) { Tracking.new(tracking_attributes) }
