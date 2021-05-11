@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 class Jadlog
+  SEARCH_FIELD_LIST = %w[shipmentId cte].freeze
+
   attr_reader :last_response
 
   def initialize(shop)
     @shop = shop
     @token = shop.jadlog_password
+    @search_field = shop.jadlog_search_field
   end
 
   def status(tracking_code)
@@ -51,7 +54,7 @@ class Jadlog
         'Content-Type' => 'application/json',
         'Authorization' => "Bearer #{@token}"
       },
-      body: { 'consulta' => [{ 'shipmentId' => tracking_code }] }.to_json
+      body: { 'consulta' => [{ @search_field => tracking_code }] }.to_json
     )
   rescue Excon::Errors::Error => e
     Sentry.capture_exception(e, extra: { tracking_code: tracking_code })
