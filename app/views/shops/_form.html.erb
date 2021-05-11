@@ -82,6 +82,15 @@
         <%= f.text_field :jadlog_password, class: 'form-control' %>
       </div>
 
+      <div class="form-group">
+        <%= f.label :jadlog_search_field %>
+        <%= f.select :jadlog_search_field,
+          Jadlog::SEARCH_FIELD_LIST.map{|field| [field, field] },
+          {},
+          class: "form-control"
+        %>
+      </div>
+
       <hr />
 
       <h4>Total Express</h4>

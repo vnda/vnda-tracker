@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_131130) do
+ActiveRecord::Schema.define(version: 2021_05_11_191115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_131130) do
     t.string "bling_api_key"
     t.string "bling_status_in_transit"
     t.string "bling_status_delivered"
+    t.string "jadlog_search_field", default: "shipmentId", null: false
   end
 
   create_table "tracking_events", force: :cascade do |t|
