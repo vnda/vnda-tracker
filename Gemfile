@@ -12,7 +12,7 @@ end
 gem 'coffee-rails', '~> 5.0'
 gem 'jbuilder', '~> 2.10'
 gem 'jquery-rails', '4.3.1'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 gem 'therubyracer', platforms: :ruby
 gem 'uglifier', '>= 1.3.0'
 source 'https://rails-assets.org' do
