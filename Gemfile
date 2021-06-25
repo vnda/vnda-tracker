@@ -22,7 +22,7 @@ end
 gem 'awesome_print', '1.9.2'
 gem 'bootsnap', require: false
 gem 'excon', '0.78.1'
-gem 'faraday', '1.3.0'
+gem 'faraday', '1.4.3'
 gem 'faraday_middleware', '1.0.0'
 gem 'nokogiri', '1.11.1'
 gem 'pg', '0.21.0'
